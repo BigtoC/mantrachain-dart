@@ -1,0 +1,39 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.18
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+import 'package:openapi/api.dart';
+import 'package:test/test.dart';
+
+// tests for ConnectMarketmapV2MarketMapResponse
+void main() {
+  // final instance = ConnectMarketmapV2MarketMapResponse();
+
+  group('test ConnectMarketmapV2MarketMapResponse', () {
+    // MarketMap200ResponseMarketMap marketMap
+    test('to test the property `marketMap`', () async {
+      // TODO
+    });
+
+    // LastUpdated is the last block height that the market map was updated. This field can be used as an optimization for clients checking if there is a new update to the map.
+    // String lastUpdated
+    test('to test the property `lastUpdated`', () async {
+      // TODO
+    });
+
+    // ChainId is the chain identifier for the market map.
+    // String chainId
+    test('to test the property `chainId`', () async {
+      // TODO
+    });
+
+
+  });
+
+}

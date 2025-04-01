@@ -1,0 +1,15 @@
+# openapi.model.CosmosDistributionV1beta1QueryValidatorOutstandingRewardsResponse
+
+## Load the model package
+```dart
+import 'package:openapi/api.dart';
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**rewards** | [**ValidatorOutstandingRewards200ResponseRewards**](ValidatorOutstandingRewards200ResponseRewards.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
