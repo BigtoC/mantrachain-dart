@@ -2,10 +2,10 @@
 # AUTO-GENERATED FILE, DO NOT MODIFY!
 #
 
-name: 'openapi'
+name: 'mantrachain_dart_sdk'
 version: '1.0.0'
-description: 'OpenAPI API client'
-homepage: 'homepage'
+description: 'A REST interface for MANTRA Chain APIs'
+homepage: 'https://github.com/BigtoC/mantrachain-dart'
 environment:
   sdk: '>=2.12.0 <4.0.0'
 dependencies:
