@@ -17,7 +17,7 @@ class CosmosBankV1beta1QueryTotalSupplyResponse {
     this.pagination,
   });
 
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> supply;
+  List<Coin> supply;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -71,7 +71,7 @@ class CosmosBankV1beta1QueryTotalSupplyResponse {
       }());
 
       return CosmosBankV1beta1QueryTotalSupplyResponse(
-        supply: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'supply']),
+        supply: Coin.listFromJson(json[r'supply']),
         pagination: QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethodPagination.fromJson(json[r'pagination']),
       );
     }

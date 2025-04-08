@@ -1558,8 +1558,8 @@ class ApiClient {
           return TokenfactoryParams200Response.fromJson(value);
         case 'TokenfactoryParams200ResponseParams':
           return TokenfactoryParams200ResponseParams.fromJson(value);
-        case 'TokenfactoryParams200ResponseParamsDenomCreationFeeInner':
-          return TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(value);
+        case 'Coin':
+          return Coin.fromJson(value);
         case 'TotalEscrowForDenom200Response':
           return TotalEscrowForDenom200Response.fromJson(value);
         case 'TransferParams200Response':

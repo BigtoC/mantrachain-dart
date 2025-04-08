@@ -719,7 +719,7 @@ part 'model/tendermint_types_vote.dart';
 part 'model/tendermint_version_consensus.dart';
 part 'model/tokenfactory_params200_response.dart';
 part 'model/tokenfactory_params200_response_params.dart';
-part 'model/tokenfactory_params200_response_params_denom_creation_fee_inner.dart';
+part 'model/coin.dart';
 part 'model/total_escrow_for_denom200_response.dart';
 part 'model/transfer_params200_response.dart';
 part 'model/transfer_params200_response_params.dart';

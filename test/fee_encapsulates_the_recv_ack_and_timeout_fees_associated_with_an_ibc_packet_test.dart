@@ -16,17 +16,17 @@ void main() {
   // final instance = FeeEncapsulatesTheRecvAckAndTimeoutFeesAssociatedWithAnIBCPacket();
 
   group('test FeeEncapsulatesTheRecvAckAndTimeoutFeesAssociatedWithAnIBCPacket', () {
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> recvFee (default value: const [])
+    // List<Coin> recvFee (default value: const [])
     test('to test the property `recvFee`', () async {
       // TODO
     });
 
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> ackFee (default value: const [])
+    // List<Coin> ackFee (default value: const [])
     test('to test the property `ackFee`', () async {
       // TODO
     });
 
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> timeoutFee (default value: const [])
+    // List<Coin> timeoutFee (default value: const [])
     test('to test the property `timeoutFee`', () async {
       // TODO
     });

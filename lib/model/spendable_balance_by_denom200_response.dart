@@ -22,7 +22,7 @@ class SpendableBalanceByDenom200Response {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  TokenfactoryParams200ResponseParamsDenomCreationFeeInner? balance;
+  Coin? balance;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SpendableBalanceByDenom200Response &&
@@ -65,7 +65,7 @@ class SpendableBalanceByDenom200Response {
       }());
 
       return SpendableBalanceByDenom200Response(
-        balance: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(json[r'balance']),
+        balance: Coin.fromJson(json[r'balance']),
       );
     }
     return null;

@@ -19,7 +19,7 @@ class CosmosTxV1beta1Fee {
     this.granter,
   });
 
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> amount;
+  List<Coin> amount;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -104,7 +104,7 @@ class CosmosTxV1beta1Fee {
       }());
 
       return CosmosTxV1beta1Fee(
-        amount: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'amount']),
+        amount: Coin.listFromJson(json[r'amount']),
         gasLimit: mapValueOfType<String>(json, r'gas_limit'),
         payer: mapValueOfType<String>(json, r'payer'),
         granter: mapValueOfType<String>(json, r'granter'),

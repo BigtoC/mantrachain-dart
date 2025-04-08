@@ -18,11 +18,11 @@ class IbcApplicationsFeeV1Fee {
     this.timeoutFee = const [],
   });
 
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> recvFee;
+  List<Coin> recvFee;
 
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> ackFee;
+  List<Coin> ackFee;
 
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> timeoutFee;
+  List<Coin> timeoutFee;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is IbcApplicationsFeeV1Fee &&
@@ -67,9 +67,9 @@ class IbcApplicationsFeeV1Fee {
       }());
 
       return IbcApplicationsFeeV1Fee(
-        recvFee: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'recv_fee']),
-        ackFee: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'ack_fee']),
-        timeoutFee: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'timeout_fee']),
+        recvFee: Coin.listFromJson(json[r'recv_fee']),
+        ackFee: Coin.listFromJson(json[r'ack_fee']),
+        timeoutFee: Coin.listFromJson(json[r'timeout_fee']),
       );
     }
     return null;

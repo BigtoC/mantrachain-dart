@@ -31,7 +31,7 @@ class DelegatorDelegations200ResponseDelegationResponsesInner {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  TokenfactoryParams200ResponseParamsDenomCreationFeeInner? balance;
+  Coin? balance;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DelegatorDelegations200ResponseDelegationResponsesInner &&
@@ -82,7 +82,7 @@ class DelegatorDelegations200ResponseDelegationResponsesInner {
 
       return DelegatorDelegations200ResponseDelegationResponsesInner(
         delegation: DelegatorDelegations200ResponseDelegationResponsesInnerDelegation.fromJson(json[r'delegation']),
-        balance: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(json[r'balance']),
+        balance: Coin.fromJson(json[r'balance']),
       );
     }
     return null;

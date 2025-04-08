@@ -16,7 +16,7 @@ void main() {
   // final instance = IbcApplicationsFeeV1QueryTotalTimeoutFeesResponse();
 
   group('test IbcApplicationsFeeV1QueryTotalTimeoutFeesResponse', () {
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> timeoutFees (default value: const [])
+    // List<Coin> timeoutFees (default value: const [])
     test('to test the property `timeoutFees`', () async {
       // TODO
     });

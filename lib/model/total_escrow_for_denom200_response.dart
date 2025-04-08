@@ -22,7 +22,7 @@ class TotalEscrowForDenom200Response {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  TokenfactoryParams200ResponseParamsDenomCreationFeeInner? amount;
+  Coin? amount;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TotalEscrowForDenom200Response &&
@@ -65,7 +65,7 @@ class TotalEscrowForDenom200Response {
       }());
 
       return TotalEscrowForDenom200Response(
-        amount: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(json[r'amount']),
+        amount: Coin.fromJson(json[r'amount']),
       );
     }
     return null;

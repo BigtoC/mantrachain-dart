@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class TokenfactoryParams200ResponseParamsDenomCreationFeeInner {
-  /// Returns a new [TokenfactoryParams200ResponseParamsDenomCreationFeeInner] instance.
-  TokenfactoryParams200ResponseParamsDenomCreationFeeInner({
+class Coin {
+  /// Returns a new [Coin] instance.
+  Coin({
     this.denom,
     this.amount,
   });
@@ -34,7 +34,7 @@ class TokenfactoryParams200ResponseParamsDenomCreationFeeInner {
   String? amount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TokenfactoryParams200ResponseParamsDenomCreationFeeInner &&
+  bool operator ==(Object other) => identical(this, other) || other is Coin &&
     other.denom == denom &&
     other.amount == amount;
 
@@ -45,7 +45,7 @@ class TokenfactoryParams200ResponseParamsDenomCreationFeeInner {
     (amount == null ? 0 : amount!.hashCode);
 
   @override
-  String toString() => 'TokenfactoryParams200ResponseParamsDenomCreationFeeInner[denom=$denom, amount=$amount]';
+  String toString() => 'Coin[denom=$denom, amount=$amount]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -62,10 +62,10 @@ class TokenfactoryParams200ResponseParamsDenomCreationFeeInner {
     return json;
   }
 
-  /// Returns a new [TokenfactoryParams200ResponseParamsDenomCreationFeeInner] instance and imports its values from
+  /// Returns a new [Coin] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static TokenfactoryParams200ResponseParamsDenomCreationFeeInner? fromJson(dynamic value) {
+  static Coin? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -74,13 +74,13 @@ class TokenfactoryParams200ResponseParamsDenomCreationFeeInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TokenfactoryParams200ResponseParamsDenomCreationFeeInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TokenfactoryParams200ResponseParamsDenomCreationFeeInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "Coin[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "Coin[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return TokenfactoryParams200ResponseParamsDenomCreationFeeInner(
+      return Coin(
         denom: mapValueOfType<String>(json, r'denom'),
         amount: mapValueOfType<String>(json, r'amount'),
       );
@@ -88,11 +88,11 @@ class TokenfactoryParams200ResponseParamsDenomCreationFeeInner {
     return null;
   }
 
-  static List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <TokenfactoryParams200ResponseParamsDenomCreationFeeInner>[];
+  static List<Coin> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <Coin>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(row);
+        final value = Coin.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -101,12 +101,12 @@ class TokenfactoryParams200ResponseParamsDenomCreationFeeInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, TokenfactoryParams200ResponseParamsDenomCreationFeeInner> mapFromJson(dynamic json) {
-    final map = <String, TokenfactoryParams200ResponseParamsDenomCreationFeeInner>{};
+  static Map<String, Coin> mapFromJson(dynamic json) {
+    final map = <String, Coin>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(entry.value);
+        final value = Coin.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -115,14 +115,14 @@ class TokenfactoryParams200ResponseParamsDenomCreationFeeInner {
     return map;
   }
 
-  // maps a json object with a list of TokenfactoryParams200ResponseParamsDenomCreationFeeInner-objects as value to a dart map
-  static Map<String, List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner>>{};
+  // maps a json object with a list of Coin-objects as value to a dart map
+  static Map<String, List<Coin>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<Coin>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Coin.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;

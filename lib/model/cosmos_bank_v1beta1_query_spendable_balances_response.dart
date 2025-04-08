@@ -18,7 +18,7 @@ class CosmosBankV1beta1QuerySpendableBalancesResponse {
   });
 
   /// balances is the spendable balances of all the coins.
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> balances;
+  List<Coin> balances;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -72,7 +72,7 @@ class CosmosBankV1beta1QuerySpendableBalancesResponse {
       }());
 
       return CosmosBankV1beta1QuerySpendableBalancesResponse(
-        balances: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'balances']),
+        balances: Coin.listFromJson(json[r'balances']),
         pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
       );
     }

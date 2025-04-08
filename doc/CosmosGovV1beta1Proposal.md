@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **finalTallyResult** | [**Proposals200ResponseProposalsInnerFinalTallyResult**](Proposals200ResponseProposalsInnerFinalTallyResult.md) |  | [optional] 
 **submitTime** | [**DateTime**](DateTime.md) | submit_time is the time of proposal submission. | [optional] 
 **depositEndTime** | [**DateTime**](DateTime.md) | deposit_end_time is the end time for deposition. | [optional] 
-**totalDeposit** | [**List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner>**](TokenfactoryParams200ResponseParamsDenomCreationFeeInner.md) | total_deposit is the total deposit on the proposal. | [optional] [default to const []]
+**totalDeposit** | [**List<Coin>**](Coin.md) | total_deposit is the total deposit on the proposal. | [optional] [default to const []]
 **votingStartTime** | [**DateTime**](DateTime.md) | voting_start_time is the starting time to vote on a proposal. | [optional] 
 **votingEndTime** | [**DateTime**](DateTime.md) | voting_end_time is the end time of voting on a proposal. | [optional] 
 

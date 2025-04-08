@@ -29,7 +29,7 @@ void main() {
     });
 
     // amount to be deposited by depositor.
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> amount (default value: const [])
+    // List<Coin> amount (default value: const [])
     test('to test the property `amount`', () async {
       // TODO
     });

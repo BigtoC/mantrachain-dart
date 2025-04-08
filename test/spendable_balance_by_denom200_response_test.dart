@@ -16,7 +16,7 @@ void main() {
   // final instance = SpendableBalanceByDenom200Response();
 
   group('test SpendableBalanceByDenom200Response', () {
-    // TokenfactoryParams200ResponseParamsDenomCreationFeeInner balance
+    // Coin balance
     test('to test the property `balance`', () async {
       // TODO
     });

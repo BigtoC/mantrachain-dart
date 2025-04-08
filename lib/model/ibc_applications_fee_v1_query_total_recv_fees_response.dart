@@ -16,7 +16,7 @@ class IbcApplicationsFeeV1QueryTotalRecvFeesResponse {
     this.recvFees = const [],
   });
 
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> recvFees;
+  List<Coin> recvFees;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is IbcApplicationsFeeV1QueryTotalRecvFeesResponse &&
@@ -55,7 +55,7 @@ class IbcApplicationsFeeV1QueryTotalRecvFeesResponse {
       }());
 
       return IbcApplicationsFeeV1QueryTotalRecvFeesResponse(
-        recvFees: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'recv_fees']),
+        recvFees: Coin.listFromJson(json[r'recv_fees']),
       );
     }
     return null;

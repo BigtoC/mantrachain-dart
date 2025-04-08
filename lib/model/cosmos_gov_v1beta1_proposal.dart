@@ -71,7 +71,7 @@ class CosmosGovV1beta1Proposal {
   DateTime? depositEndTime;
 
   /// total_deposit is the total deposit on the proposal.
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> totalDeposit;
+  List<Coin> totalDeposit;
 
   /// voting_start_time is the starting time to vote on a proposal.
   ///
@@ -186,7 +186,7 @@ class CosmosGovV1beta1Proposal {
         finalTallyResult: Proposals200ResponseProposalsInnerFinalTallyResult.fromJson(json[r'final_tally_result']),
         submitTime: mapDateTime(json, r'submit_time', r''),
         depositEndTime: mapDateTime(json, r'deposit_end_time', r''),
-        totalDeposit: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'total_deposit']),
+        totalDeposit: Coin.listFromJson(json[r'total_deposit']),
         votingStartTime: mapDateTime(json, r'voting_start_time', r''),
         votingEndTime: mapDateTime(json, r'voting_end_time', r''),
       );

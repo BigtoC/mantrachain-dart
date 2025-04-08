@@ -16,7 +16,7 @@ class QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc {
     this.ackFees = const [],
   });
 
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> ackFees;
+  List<Coin> ackFees;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc &&
@@ -55,7 +55,7 @@ class QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc {
       }());
 
       return QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc(
-        ackFees: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'ack_fees']),
+        ackFees: Coin.listFromJson(json[r'ack_fees']),
       );
     }
     return null;

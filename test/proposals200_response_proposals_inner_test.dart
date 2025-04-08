@@ -51,7 +51,7 @@ void main() {
     });
 
     // total_deposit is the total deposit on the proposal.
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> totalDeposit (default value: const [])
+    // List<Coin> totalDeposit (default value: const [])
     test('to test the property `totalDeposit`', () async {
       // TODO
     });

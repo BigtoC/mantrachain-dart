@@ -16,7 +16,7 @@ class QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesR
     this.timeoutFees = const [],
   });
 
-  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> timeoutFees;
+  List<Coin> timeoutFees;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc &&
@@ -55,7 +55,7 @@ class QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesR
       }());
 
       return QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc(
-        timeoutFees: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'timeout_fees']),
+        timeoutFees: Coin.listFromJson(json[r'timeout_fees']),
       );
     }
     return null;

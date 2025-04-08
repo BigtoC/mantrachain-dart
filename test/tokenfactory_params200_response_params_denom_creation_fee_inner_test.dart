@@ -11,11 +11,11 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for TokenfactoryParams200ResponseParamsDenomCreationFeeInner
+// tests for Coin
 void main() {
-  // final instance = TokenfactoryParams200ResponseParamsDenomCreationFeeInner();
+  // final instance = Coin();
 
-  group('test TokenfactoryParams200ResponseParamsDenomCreationFeeInner', () {
+  group('test Coin', () {
     // String denom
     test('to test the property `denom`', () async {
       // TODO

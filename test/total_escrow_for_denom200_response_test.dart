@@ -16,7 +16,7 @@ void main() {
   // final instance = TotalEscrowForDenom200Response();
 
   group('test TotalEscrowForDenom200Response', () {
-    // TokenfactoryParams200ResponseParamsDenomCreationFeeInner amount
+    // Coin amount
     test('to test the property `amount`', () async {
       // TODO
     });

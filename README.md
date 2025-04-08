@@ -942,7 +942,7 @@ Class | Method | HTTP request | Description
  - [TendermintVersionConsensus](doc//TendermintVersionConsensus.md)
  - [TokenfactoryParams200Response](doc//TokenfactoryParams200Response.md)
  - [TokenfactoryParams200ResponseParams](doc//TokenfactoryParams200ResponseParams.md)
- - [TokenfactoryParams200ResponseParamsDenomCreationFeeInner](doc//TokenfactoryParams200ResponseParamsDenomCreationFeeInner.md)
+ - [Coin](doc//Coin.md)
  - [TotalEscrowForDenom200Response](doc//TotalEscrowForDenom200Response.md)
  - [TransferParams200Response](doc//TransferParams200Response.md)
  - [TransferParams200ResponseParams](doc//TransferParams200ResponseParams.md)

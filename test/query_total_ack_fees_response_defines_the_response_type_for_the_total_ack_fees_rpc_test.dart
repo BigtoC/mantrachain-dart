@@ -16,7 +16,7 @@ void main() {
   // final instance = QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc();
 
   group('test QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc', () {
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> ackFees (default value: const [])
+    // List<Coin> ackFees (default value: const [])
     test('to test the property `ackFees`', () async {
       // TODO
     });

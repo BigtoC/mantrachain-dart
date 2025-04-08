@@ -16,7 +16,7 @@ void main() {
   // final instance = QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc();
 
   group('test QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc', () {
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> timeoutFees (default value: const [])
+    // List<Coin> timeoutFees (default value: const [])
     test('to test the property `timeoutFees`', () async {
       // TODO
     });

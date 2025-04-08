@@ -17,7 +17,7 @@ void main() {
 
   group('test GovParams200ResponseDepositParams', () {
     // Minimum deposit for a proposal to enter voting period.
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> minDeposit (default value: const [])
+    // List<Coin> minDeposit (default value: const [])
     test('to test the property `minDeposit`', () async {
       // TODO
     });

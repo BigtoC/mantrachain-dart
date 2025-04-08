@@ -694,7 +694,7 @@ doc/TendermintTypesVote.md
 doc/TendermintVersionConsensus.md
 doc/TokenfactoryParams200Response.md
 doc/TokenfactoryParams200ResponseParams.md
-doc/TokenfactoryParams200ResponseParamsDenomCreationFeeInner.md
+doc/Coin.md
 doc/TotalEscrowForDenom200Response.md
 doc/TransferParams200Response.md
 doc/TransferParams200ResponseParams.md

@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosBankV1beta1QueryTotalSupplyResponse();
 
   group('test CosmosBankV1beta1QueryTotalSupplyResponse', () {
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> supply (default value: const [])
+    // List<Coin> supply (default value: const [])
     test('to test the property `supply`', () async {
       // TODO
     });

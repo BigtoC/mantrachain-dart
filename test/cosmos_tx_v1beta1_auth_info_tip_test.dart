@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosTxV1beta1AuthInfoTip();
 
   group('test CosmosTxV1beta1AuthInfoTip', () {
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> amount (default value: const [])
+    // List<Coin> amount (default value: const [])
     test('to test the property `amount`', () async {
       // TODO
     });

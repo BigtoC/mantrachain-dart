@@ -17,7 +17,7 @@ void main() {
 
   group('test CosmosBankV1beta1QueryAllBalancesResponse', () {
     // balances is the balances of all the coins.
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> balances (default value: const [])
+    // List<Coin> balances (default value: const [])
     test('to test the property `balances`', () async {
       // TODO
     });

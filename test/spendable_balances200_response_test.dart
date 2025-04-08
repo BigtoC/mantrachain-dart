@@ -17,7 +17,7 @@ void main() {
 
   group('test SpendableBalances200Response', () {
     // balances is the spendable balances of all the coins.
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> balances (default value: const [])
+    // List<Coin> balances (default value: const [])
     test('to test the property `balances`', () async {
       // TODO
     });

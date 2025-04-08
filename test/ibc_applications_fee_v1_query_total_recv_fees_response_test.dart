@@ -16,7 +16,7 @@ void main() {
   // final instance = IbcApplicationsFeeV1QueryTotalRecvFeesResponse();
 
   group('test IbcApplicationsFeeV1QueryTotalRecvFeesResponse', () {
-    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> recvFees (default value: const [])
+    // List<Coin> recvFees (default value: const [])
     test('to test the property `recvFees`', () async {
       // TODO
     });
