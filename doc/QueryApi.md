@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -187,7 +187,7 @@ Account returns account details based on address.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address defines the address to query for.
@@ -230,7 +230,7 @@ Since: cosmos-sdk 0.46.2
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final id = id_example; // String | Deprecated, use account_id instead  id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query.
@@ -275,7 +275,7 @@ Since: cosmos-sdk 0.47
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the account address string.
@@ -318,7 +318,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -369,7 +369,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final addressBytes = BYTE_ARRAY_DATA_HERE; // String | 
@@ -412,7 +412,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final addressString = addressString_example; // String | 
@@ -455,7 +455,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address to query balances for.
@@ -508,7 +508,7 @@ Queries all blacklisted denoms
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -545,7 +545,7 @@ AllContractState gets all raw store data for a single contract
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address of the contract
@@ -596,7 +596,7 @@ AllEvidence queries all evidence.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -645,7 +645,7 @@ Queries all rate limits
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -682,7 +682,7 @@ Queries all whitelisted address pairs
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -719,7 +719,7 @@ Allowance returns granted allwance to the grantee by the granter.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final granter = granter_example; // String | granter is the address of the user granting an allowance of their funds.
@@ -762,7 +762,7 @@ Allowances returns all the grants for the given grantee address.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final grantee = grantee_example; // String | 
@@ -815,7 +815,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final granter = granter_example; // String | 
@@ -866,7 +866,7 @@ AnnualProvisions current minting annual provisions value.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -903,7 +903,7 @@ AppliedPlan queries a previously applied upgrade plan by its name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final name = name_example; // String | name is the name of the applied plan to query for.
@@ -944,7 +944,7 @@ Params queries all parameters.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -983,7 +983,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -1020,7 +1020,7 @@ Balance queries the balance of a single coin for a single account.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address to query balances for.
@@ -1063,7 +1063,7 @@ Params queries the parameters of x/bank module.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -1102,7 +1102,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -1139,7 +1139,7 @@ BeforeSendHookAddress defines a gRPC query method for getting the address regist
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final creator = creator_example; // String | 
@@ -1182,7 +1182,7 @@ Blacklist queries the blacklisted accounts.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -1219,7 +1219,7 @@ BuildAddress builds a contract address
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final codeHash = codeHash_example; // String | CodeHash is the hash of the code.
@@ -1266,7 +1266,7 @@ Channel queries an IBC Channel.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -1309,7 +1309,7 @@ ChannelClientState queries for the client state for the channel associated with 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -1352,7 +1352,7 @@ ChannelConsensusState queries for the consensus state for the channel associated
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -1399,7 +1399,7 @@ ChannelParams queries all parameters of the ibc channel submodule.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -1436,7 +1436,7 @@ Channels queries all the IBC channels of a chain.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -1485,7 +1485,7 @@ ClientConnections queries the connection paths associated with a client state.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final clientId = clientId_example; // String | client identifier associated with a connection
@@ -1526,7 +1526,7 @@ ClientParams queries all parameters of the ibc client submodule.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -1563,7 +1563,7 @@ ClientState queries an IBC light client.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final clientId = clientId_example; // String | client state unique identifier
@@ -1604,7 +1604,7 @@ ClientStates queries all the IBC light clients of a chain.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -1653,7 +1653,7 @@ Status queries the status of an IBC client.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final clientId = clientId_example; // String | client unique identifier
@@ -1694,7 +1694,7 @@ Code gets the binary code and metadata for a single wasm code
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final codeId = codeId_example; // String | 
@@ -1735,7 +1735,7 @@ CodeInfo gets the metadata for a single wasm code
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final codeId = codeId_example; // String | 
@@ -1776,7 +1776,7 @@ Codes gets the metadata for all stored wasm codes
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -1825,7 +1825,7 @@ CommunityPool queries the community pool coins.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -1862,7 +1862,7 @@ Connection queries an IBC connection end.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final connectionId = connectionId_example; // String | connection unique identifier
@@ -1903,7 +1903,7 @@ ConnectionChannels queries all the channels associated with a connection end.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final connection = connection_example; // String | connection unique identifier
@@ -1954,7 +1954,7 @@ ConnectionClientState queries the client state associated with the connection.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final connectionId = connectionId_example; // String | connection identifier
@@ -1995,7 +1995,7 @@ ConnectionConsensusState queries the consensus state associated with the connect
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final connectionId = connectionId_example; // String | connection identifier
@@ -2040,7 +2040,7 @@ ConnectionParams queries all parameters of the ibc connection submodule.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -2077,7 +2077,7 @@ Connections queries all the IBC connections of a chain.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -2126,7 +2126,7 @@ ConsensusState queries a consensus state associated with a client state at a giv
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final clientId = clientId_example; // String | client identifier
@@ -2173,7 +2173,7 @@ ConsensusStateHeights queries the height of every consensus states associated wi
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final clientId = clientId_example; // String | client identifier
@@ -2224,7 +2224,7 @@ ConsensusStates queries all the consensus state associated with a given client.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final clientId = clientId_example; // String | client identifier
@@ -2275,7 +2275,7 @@ ContractHistory gets the contract code history
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address of the contract to query
@@ -2326,7 +2326,7 @@ ContractInfo gets the contract meta data
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address of the contract to query
@@ -2367,7 +2367,7 @@ ContractsByCode lists all smart contracts for a code id
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final codeId = codeId_example; // String | 
@@ -2418,7 +2418,7 @@ ContractsByCreator gets the contracts by creator
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final creatorAddress = creatorAddress_example; // String | CreatorAddress is the address of contract creator
@@ -2469,7 +2469,7 @@ Params returns the total set of minting parameters.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -2506,7 +2506,7 @@ CounterpartyPayee returns the registered counterparty payee for forward relaying
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | unique channel identifier
@@ -2549,7 +2549,7 @@ CurrentPlan queries the current upgrade plan.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -2586,7 +2586,7 @@ Delegation queries delegate info for given validator delegator pair.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddr = validatorAddr_example; // String | validator_addr defines the validator address to query for.
@@ -2629,7 +2629,7 @@ DelegationRewards queries the total rewards accrued by a delegation.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddress = delegatorAddress_example; // String | delegator_address defines the delegator address to query for.
@@ -2672,7 +2672,7 @@ DelegationTotalRewards queries the total rewards accrued by each validator.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddress = delegatorAddress_example; // String | delegator_address defines the delegator address to query for.
@@ -2715,7 +2715,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddr = delegatorAddr_example; // String | delegator_addr defines the delegator address to query for.
@@ -2768,7 +2768,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddr = delegatorAddr_example; // String | delegator_addr defines the delegator address to query for.
@@ -2819,7 +2819,7 @@ DelegatorValidator queries validator info for given delegator validator pair.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddr = delegatorAddr_example; // String | delegator_addr defines the delegator address to query for.
@@ -2862,7 +2862,7 @@ DelegatorValidators queries the validators of a delegator.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddress = delegatorAddress_example; // String | delegator_address defines the delegator address to query for.
@@ -2903,7 +2903,7 @@ DelegatorWithdrawAddress queries withdraw address of a delegator.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddress = delegatorAddress_example; // String | delegator_address defines the delegator address to query for.
@@ -2944,7 +2944,7 @@ DenomAuthorityMetadata defines a gRPC query method for fetching DenomAuthorityMe
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final creator = creator_example; // String | 
@@ -2987,7 +2987,7 @@ DenomHash queries a denomination hash information.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final trace = trace_example; // String | The denomination trace ([port_id]/[channel_id])+/[denom]
@@ -3028,7 +3028,7 @@ DenomMetadata queries the client metadata of a given coin denomination.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final denom = denom_example; // String | denom is the coin denom to query the metadata for.
@@ -3069,7 +3069,7 @@ DenomMetadataByQueryString queries the client metadata of a given coin denominat
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final denom = denom_example; // String | denom is the coin denom to query the metadata for.
@@ -3112,7 +3112,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final denom = denom_example; // String | denom defines the coin denomination to query all account holders for.
@@ -3165,7 +3165,7 @@ Since: cosmos-sdk 0.50.3
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final denom = denom_example; // String | denom defines the coin denomination to query all account holders for.
@@ -3216,7 +3216,7 @@ DenomTrace queries a denomination trace information.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final hash = hash_example; // String | hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information.
@@ -3257,7 +3257,7 @@ DenomTraces queries all denomination traces.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -3306,7 +3306,7 @@ DenomsFromCreator defines a gRPC query method for fetching all denominations cre
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final creator = creator_example; // String | 
@@ -3347,7 +3347,7 @@ DenomsMetadata queries the client metadata for all registered coin denominations
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -3396,7 +3396,7 @@ Deposit queries single deposit information based on proposalID, depositor addres
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final proposalId = proposalId_example; // String | proposal_id defines the unique id of the proposal.
@@ -3439,7 +3439,7 @@ Deposits queries all deposits of a single proposal.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final proposalId = proposalId_example; // String | proposal_id defines the unique id of the proposal.
@@ -3490,7 +3490,7 @@ Params queries params of the distribution module.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -3527,7 +3527,7 @@ EscrowAddress returns the escrow address for a particular port and channel id.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | unique channel identifier
@@ -3570,7 +3570,7 @@ Evidence queries evidence based on evidence hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final hash = hash_example; // String | hash defines the evidence hash of the requested evidence.  Since: cosmos-sdk 0.47
@@ -3613,7 +3613,7 @@ FeeEnabledChannel returns true if the provided port and channel identifiers belo
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | unique channel identifier
@@ -3656,7 +3656,7 @@ FeeEnabledChannels returns a list of all fee enabled channels
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -3707,7 +3707,7 @@ Params returns the current feemarket module parameters.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -3744,7 +3744,7 @@ GasPrice returns the current feemarket module gas price for specified denom.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final denom = denom_example; // String | denom we are querying gas price in
@@ -3785,7 +3785,7 @@ GasPrices returns the current feemarket module list of gas prices in all availab
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -3822,7 +3822,7 @@ Get all the currency pairs the x/oracle module is tracking price-data for.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -3859,7 +3859,7 @@ Get the mapping of currency pair ID -> currency pair. This is useful for indexer
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -3896,7 +3896,7 @@ Get the mapping of currency pair ID <-> currency pair as a list. This is useful 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -3933,7 +3933,7 @@ Given a CurrencyPair (or its identifier) return the latest QuotePrice for that C
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final currencyPair = currencyPair_example; // String | CurrencyPair represents the pair that the user wishes to query.
@@ -3974,7 +3974,7 @@ No authorization required
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final currencyPairIds = []; // List<String> | 
@@ -4015,7 +4015,7 @@ Params queries all parameters of the gov module.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paramsType = paramsType_example; // String | params_type defines which parameters to query for, can be one of \"voting\", \"tallying\" or \"deposit\".
@@ -4058,7 +4058,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final grantee = grantee_example; // String | 
@@ -4111,7 +4111,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final granter = granter_example; // String | 
@@ -4162,7 +4162,7 @@ Returns list of `Authorization`, granted to the grantee by the granter.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final granter = granter_example; // String | 
@@ -4217,7 +4217,7 @@ HistoricalInfo queries the historical info for given height.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final height = height_example; // String | height defines at which height to query the historical info.
@@ -4258,7 +4258,7 @@ Params queries all parameters of the ICA controller submodule.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -4295,7 +4295,7 @@ Params queries all parameters of the ICA host submodule.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -4332,7 +4332,7 @@ IncentivizedPacket returns all packet fees for a packet given its identifier
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final packetIdPeriodChannelId = packetIdPeriodChannelId_example; // String | channel unique identifier
@@ -4379,7 +4379,7 @@ IncentivizedPackets returns all incentivized packets and their associated fees
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -4430,7 +4430,7 @@ Gets all incentivized packets for a specific channel
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | 
@@ -4485,7 +4485,7 @@ Inflation returns the current minting inflation value.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -4522,7 +4522,7 @@ InterchainAccount returns the interchain account address for a given owner addre
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final owner = owner_example; // String | 
@@ -4565,7 +4565,7 @@ LastUpdated returns the last height the market map was updated at.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -4602,7 +4602,7 @@ Market returns a market stored in the x/marketmap module.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final currencyPairPeriodBase = currencyPairPeriodBase_example; // String | 
@@ -4645,7 +4645,7 @@ MarketMap returns the full market map stored in the x/marketmap module.  NOTE: t
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -4682,7 +4682,7 @@ Params returns the current x/marketmap module parameters.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -4719,7 +4719,7 @@ Market returns all stored in the x/marketmap module as a sorted list.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -4756,7 +4756,7 @@ ModuleAccountByName returns the module account info by module name
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final name = name_example; // String | 
@@ -4799,7 +4799,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -4838,7 +4838,7 @@ Since: cosmos-sdk 0.43
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final moduleName = moduleName_example; // String | module_name is a field to query a specific module consensus version from state. Leaving this empty will fetch the full list of module versions from state.
@@ -4879,7 +4879,7 @@ NextSequenceReceive returns the next receive sequence for a given channel.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -4922,7 +4922,7 @@ NextSequenceSend returns the next send sequence for a given channel.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -4965,7 +4965,7 @@ PacketAcknowledgement queries a stored packet acknowledgement hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -5010,7 +5010,7 @@ PacketAcknowledgements returns all the packet acknowledgements associated with a
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -5065,7 +5065,7 @@ PacketCommitment queries a stored packet commitment hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -5110,7 +5110,7 @@ PacketCommitments returns all the packet commitments hashes associated with a ch
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -5163,7 +5163,7 @@ PacketReceipt queries if a given packet sequence has been received on the querie
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -5208,7 +5208,7 @@ Params queries a specific parameter of a module, given its subspace and key.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final subspace = subspace_example; // String | subspace defines the module to query the parameter for.
@@ -5251,7 +5251,7 @@ Payee returns the registered payee address for a specific channel given the rela
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | unique channel identifier
@@ -5294,7 +5294,7 @@ PinnedCodes gets the pinned code ids
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -5343,7 +5343,7 @@ Proposal queries proposal details based on ProposalID.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final proposalId = proposalId_example; // String | proposal_id defines the unique id of the proposal.
@@ -5384,7 +5384,7 @@ Proposals queries all proposals based on given status.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final proposalStatus = proposalStatus_example; // String | proposal_status defines the status of the proposals.   - PROPOSAL_STATUS_UNSPECIFIED: PROPOSAL_STATUS_UNSPECIFIED defines the default proposal status.  - PROPOSAL_STATUS_DEPOSIT_PERIOD: PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit period.  - PROPOSAL_STATUS_VOTING_PERIOD: PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting period.  - PROPOSAL_STATUS_PASSED: PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has passed.  - PROPOSAL_STATUS_REJECTED: PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has been rejected.  - PROPOSAL_STATUS_FAILED: PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has failed.
@@ -5439,7 +5439,7 @@ Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | 
@@ -5482,7 +5482,7 @@ Queries all the rate limits for a given chain
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final chainId = chainId_example; // String | 
@@ -5523,7 +5523,7 @@ Queries all the rate limits for a given channel ID
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | 
@@ -5564,7 +5564,7 @@ RawContractState gets single key from the raw store data of a contract
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address of the contract
@@ -5609,7 +5609,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddr = delegatorAddr_example; // String | delegator_addr defines the delegator address to query for.
@@ -5664,7 +5664,7 @@ Parameters queries the parameters of the module.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -5703,7 +5703,7 @@ This query only returns denominations that have specific SendEnabled settings. A
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final denoms = []; // List<String> | denoms is the specific denoms you want look up. Leave empty to get all entries.
@@ -5754,7 +5754,7 @@ SigningInfo queries the signing info of given cons address
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final consAddress = consAddress_example; // String | cons_address is the address to query signing info of
@@ -5795,7 +5795,7 @@ SigningInfos queries signing info of all validators
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -5844,7 +5844,7 @@ Params queries the parameters of slashing module
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -5881,7 +5881,7 @@ SmartContractState get smart query result from the contract
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address of the contract
@@ -5926,7 +5926,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address to query balances for.
@@ -5971,7 +5971,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final address = address_example; // String | address is the address to query spendable balances for.
@@ -6024,7 +6024,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final delegatorAddr = delegatorAddr_example; // String | delegator_addr defines the delegator address to query for.
@@ -6075,7 +6075,7 @@ Parameters queries the staking parameters.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6112,7 +6112,7 @@ Pool queries the pool info.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6149,7 +6149,7 @@ State returns the current feemarket module state.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6188,7 +6188,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6227,7 +6227,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final denom = denom_example; // String | denom is the coin denom to query balances for.
@@ -6268,7 +6268,7 @@ TallyResult queries the tally of a proposal vote.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final proposalId = proposalId_example; // String | proposal_id defines the unique id of the proposal.
@@ -6309,7 +6309,7 @@ Parameters queries the parameters of the module.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6346,7 +6346,7 @@ Params defines a gRPC query method that returns the tokenfactory module's parame
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6383,7 +6383,7 @@ TotalAckFees returns the total acknowledgement fees for a packet given its ident
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final packetIdPeriodChannelId = packetIdPeriodChannelId_example; // String | channel unique identifier
@@ -6428,7 +6428,7 @@ TotalEscrowForDenom returns the total amount of tokens in escrow based on the de
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final denom = denom_example; // String | 
@@ -6469,7 +6469,7 @@ TotalRecvFees returns the total receive fees for a packet given its identifier
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final packetIdPeriodChannelId = packetIdPeriodChannelId_example; // String | channel unique identifier
@@ -6516,7 +6516,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -6565,7 +6565,7 @@ TotalTimeoutFees returns the total timeout fees for a packet given its identifie
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final packetIdPeriodChannelId = packetIdPeriodChannelId_example; // String | channel unique identifier
@@ -6610,7 +6610,7 @@ Params queries all parameters of the ibc-transfer module.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6647,7 +6647,7 @@ UnbondingDelegation queries unbonding info for given validator delegator pair.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddr = validatorAddr_example; // String | validator_addr defines the validator address to query for.
@@ -6690,7 +6690,7 @@ UnreceivedAcks returns all the unreceived IBC acknowledgements associated with a
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -6735,7 +6735,7 @@ UnreceivedPackets returns all the unreceived IBC packets associated with a chann
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | channel unique identifier
@@ -6780,7 +6780,7 @@ Upgrade returns the upgrade for a given port and channel id.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | 
@@ -6823,7 +6823,7 @@ UpgradeError returns the error receipt if the upgrade handshake failed.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final channelId = channelId_example; // String | 
@@ -6866,7 +6866,7 @@ UpgradedClientState queries an Upgraded IBC light client.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6903,7 +6903,7 @@ UpgradedConsensusState queries the consensus state that will serve as a trusted 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final lastHeight = lastHeight_example; // String | last height of the current chain must be sent in request as this is the height under which next consensus state is stored
@@ -6944,7 +6944,7 @@ UpgradedConsensusState queries an Upgraded IBC consensus state.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -6981,7 +6981,7 @@ Validator queries validator info for given validator address.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddr = validatorAddr_example; // String | validator_addr defines the validator address to query for.
@@ -7022,7 +7022,7 @@ ValidatorCommission queries accumulated commission for a validator.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddress = validatorAddress_example; // String | validator_address defines the validator address to query for.
@@ -7065,7 +7065,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddr = validatorAddr_example; // String | validator_addr defines the validator address to query for.
@@ -7116,7 +7116,7 @@ ValidatorDistributionInfo queries validator commission and self-delegation rewar
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddress = validatorAddress_example; // String | validator_address defines the validator address to query for.
@@ -7157,7 +7157,7 @@ ValidatorOutstandingRewards queries rewards of a validator address.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddress = validatorAddress_example; // String | validator_address defines the validator address to query for.
@@ -7198,7 +7198,7 @@ ValidatorSlashes queries slash events of a validator.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddress = validatorAddress_example; // String | validator_address defines the validator address to query for.
@@ -7255,7 +7255,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final validatorAddr = validatorAddr_example; // String | validator_addr defines the validator address to query for.
@@ -7308,7 +7308,7 @@ When called from another module, this query might consume a high amount of gas i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final status = status_example; // String | status enables to query for validators matching a given status.
@@ -7359,7 +7359,7 @@ VerifyMembership queries an IBC light client for proof verification of a value a
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final body = QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod(); // QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod | 
@@ -7400,7 +7400,7 @@ Vote queries voted information based on proposalID, voterAddr.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final proposalId = proposalId_example; // String | proposal_id defines the unique id of the proposal.
@@ -7443,7 +7443,7 @@ Votes queries votes of a given proposal.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 final proposalId = proposalId_example; // String | proposal_id defines the unique id of the proposal.
@@ -7494,7 +7494,7 @@ WasmLimitsConfig gets the configured limits for static validation of Wasm files,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 
@@ -7531,7 +7531,7 @@ Params gets the module params
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
 

@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -36,7 +36,7 @@ Since: cosmos-sdk 0.46
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final data = BYTE_ARRAY_DATA_HERE; // String | 
@@ -83,7 +83,7 @@ BroadcastTx broadcast transaction.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final body = BroadcastTxRequest(); // BroadcastTxRequest | 
@@ -124,7 +124,7 @@ GetBlockByHeight queries block for given height.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final height = height_example; // String | 
@@ -167,7 +167,7 @@ Since: cosmos-sdk 0.45.2
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final height = height_example; // String | height is the height of the block to query.
@@ -218,7 +218,7 @@ GetLatestBlock returns the latest block.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 
@@ -255,7 +255,7 @@ GetLatestValidatorSet queries latest validator-set.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
@@ -304,7 +304,7 @@ GetNodeInfo queries the current node info.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 
@@ -341,7 +341,7 @@ GetSyncing queries node syncing.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 
@@ -378,7 +378,7 @@ GetTx fetches a tx by hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final hash = hash_example; // String | hash is the tx hash to query, encoded as a hex string.
@@ -419,7 +419,7 @@ GetTxsEvent fetches txs by event.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final events = []; // List<String> | events is the list of transaction event type. Deprecated post v0.47.x: use query instead, which should contain a valid events query.
@@ -478,7 +478,7 @@ GetValidatorSetByHeight queries validator-set at a given height.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final height = height_example; // String | 
@@ -529,7 +529,7 @@ Simulate simulates executing a transaction for estimating gas usage.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final body = CosmosTxV1beta1SimulateRequest(); // CosmosTxV1beta1SimulateRequest | 
@@ -572,7 +572,7 @@ Since: cosmos-sdk 0.47
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final body = TxDecodeRequest(); // TxDecodeRequest | 
@@ -615,7 +615,7 @@ Since: cosmos-sdk 0.47
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final body = TxDecodeAminoRequest(); // TxDecodeAminoRequest | 
@@ -658,7 +658,7 @@ Since: cosmos-sdk 0.47
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final body = CosmosTxV1beta1TxEncodeRequest(); // CosmosTxV1beta1TxEncodeRequest | 
@@ -701,7 +701,7 @@ Since: cosmos-sdk 0.47
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
 final body = TxEncodeAminoRequest(); // TxEncodeAminoRequest | 

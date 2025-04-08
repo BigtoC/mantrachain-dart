@@ -43,7 +43,7 @@ TODO
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:mantrachain_dart_sdk/api.dart';
 
 
 final api_instance = QueryApi();
