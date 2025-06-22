@@ -17,7 +17,7 @@ void main() {
 
   group('test CosmosDistributionV1beta1QueryDelegationRewardsResponse', () {
     // rewards defines the rewards accrued by a delegation.
-    // List<GasPrice200ResponsePrice> rewards (default value: const [])
+    // List<CommunityPool200ResponsePoolInner> rewards (default value: const [])
     test('to test the property `rewards`', () async {
       // TODO
     });

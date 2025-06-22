@@ -21,7 +21,7 @@ class CosmosDistributionV1beta1QueryDelegationTotalRewardsResponse {
   List<DelegationTotalRewards200ResponseRewardsInner> rewards;
 
   /// total defines the sum of all the rewards.
-  List<GasPrice200ResponsePrice> total;
+  List<CommunityPool200ResponsePoolInner> total;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosDistributionV1beta1QueryDelegationTotalRewardsResponse &&
@@ -64,7 +64,7 @@ class CosmosDistributionV1beta1QueryDelegationTotalRewardsResponse {
 
       return CosmosDistributionV1beta1QueryDelegationTotalRewardsResponse(
         rewards: DelegationTotalRewards200ResponseRewardsInner.listFromJson(json[r'rewards']),
-        total: GasPrice200ResponsePrice.listFromJson(json[r'total']),
+        total: CommunityPool200ResponsePoolInner.listFromJson(json[r'total']),
       );
     }
     return null;

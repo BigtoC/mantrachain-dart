@@ -16,7 +16,7 @@ class CosmosDistributionV1beta1ValidatorAccumulatedCommission {
     this.commission = const [],
   });
 
-  List<GasPrice200ResponsePrice> commission;
+  List<CommunityPool200ResponsePoolInner> commission;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosDistributionV1beta1ValidatorAccumulatedCommission &&
@@ -55,7 +55,7 @@ class CosmosDistributionV1beta1ValidatorAccumulatedCommission {
       }());
 
       return CosmosDistributionV1beta1ValidatorAccumulatedCommission(
-        commission: GasPrice200ResponsePrice.listFromJson(json[r'commission']),
+        commission: CommunityPool200ResponsePoolInner.listFromJson(json[r'commission']),
       );
     }
     return null;

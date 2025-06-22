@@ -22,7 +22,7 @@ class CosmosBankV1beta1QuerySupplyOfResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  Coin? amount;
+  TokenfactoryParams200ResponseParamsDenomCreationFeeInner? amount;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosBankV1beta1QuerySupplyOfResponse &&
@@ -65,7 +65,7 @@ class CosmosBankV1beta1QuerySupplyOfResponse {
       }());
 
       return CosmosBankV1beta1QuerySupplyOfResponse(
-        amount: Coin.fromJson(json[r'amount']),
+        amount: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(json[r'amount']),
       );
     }
     return null;

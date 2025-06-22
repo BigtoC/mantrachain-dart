@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // Coin balance
+    // TokenfactoryParams200ResponseParamsDenomCreationFeeInner balance
     test('to test the property `balance`', () async {
       // TODO
     });

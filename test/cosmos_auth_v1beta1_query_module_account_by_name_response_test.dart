@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosAuthV1beta1QueryModuleAccountByNameResponse();
 
   group('test CosmosAuthV1beta1QueryModuleAccountByNameResponse', () {
-    // CodesDefaultResponseDetailsInner account
+    // EvmAccountDefaultResponseDetailsInner account
     test('to test the property `account`', () async {
       // TODO
     });

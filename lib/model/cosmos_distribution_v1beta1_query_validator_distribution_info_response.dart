@@ -28,10 +28,10 @@ class CosmosDistributionV1beta1QueryValidatorDistributionInfoResponse {
   String? operatorAddress;
 
   /// self_bond_rewards defines the self delegations rewards.
-  List<GasPrice200ResponsePrice> selfBondRewards;
+  List<CommunityPool200ResponsePoolInner> selfBondRewards;
 
   /// commission defines the commission the validator received.
-  List<GasPrice200ResponsePrice> commission;
+  List<CommunityPool200ResponsePoolInner> commission;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosDistributionV1beta1QueryValidatorDistributionInfoResponse &&
@@ -81,8 +81,8 @@ class CosmosDistributionV1beta1QueryValidatorDistributionInfoResponse {
 
       return CosmosDistributionV1beta1QueryValidatorDistributionInfoResponse(
         operatorAddress: mapValueOfType<String>(json, r'operator_address'),
-        selfBondRewards: GasPrice200ResponsePrice.listFromJson(json[r'self_bond_rewards']),
-        commission: GasPrice200ResponsePrice.listFromJson(json[r'commission']),
+        selfBondRewards: CommunityPool200ResponsePoolInner.listFromJson(json[r'self_bond_rewards']),
+        commission: CommunityPool200ResponsePoolInner.listFromJson(json[r'commission']),
       );
     }
     return null;

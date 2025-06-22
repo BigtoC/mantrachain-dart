@@ -18,7 +18,7 @@ class CosmosBankV1beta1QuerySpendableBalancesResponse {
   });
 
   /// balances is the spendable balances of all the coins.
-  List<Coin> balances;
+  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> balances;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -26,7 +26,7 @@ class CosmosBankV1beta1QuerySpendableBalancesResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosBankV1beta1QuerySpendableBalancesResponse &&
@@ -72,8 +72,8 @@ class CosmosBankV1beta1QuerySpendableBalancesResponse {
       }());
 
       return CosmosBankV1beta1QuerySpendableBalancesResponse(
-        balances: Coin.listFromJson(json[r'balances']),
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        balances: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'balances']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

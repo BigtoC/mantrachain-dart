@@ -61,7 +61,7 @@ class CosmosUpgradeV1beta1Plan {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? upgradedClientState;
+  EvmAccountDefaultResponseDetailsInner? upgradedClientState;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosUpgradeV1beta1Plan &&
@@ -136,7 +136,7 @@ class CosmosUpgradeV1beta1Plan {
         time: mapDateTime(json, r'time', r''),
         height: mapValueOfType<String>(json, r'height'),
         info: mapValueOfType<String>(json, r'info'),
-        upgradedClientState: CodesDefaultResponseDetailsInner.fromJson(json[r'upgraded_client_state']),
+        upgradedClientState: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'upgraded_client_state']),
       );
     }
     return null;

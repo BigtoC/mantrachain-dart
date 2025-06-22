@@ -16,10 +16,10 @@ class IbcCoreClientV1QueryVerifyMembershipRequest {
     this.clientId,
     this.proof,
     this.proofHeight,
-    this.merklePath,
     this.value,
     this.timeDelay,
     this.blockDelay,
+    this.merklePath,
   });
 
   /// client unique identifier.
@@ -48,14 +48,6 @@ class IbcCoreClientV1QueryVerifyMembershipRequest {
   ///
   HeightIsAMonotonicallyIncreasingDataTypeThatCanBeComparedAgainstAnotherHeightForThePurposesOfUpdatingAndFreezingClients? proofHeight;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  MerklePathIsThePathUsedToVerifyCommitmentProofsWhichCanBeAnArbitraryStructuredObjectDefinedByACommitmentTypeMerklePathIsRepresentedFromRootToLeaf? merklePath;
-
   /// the value which is proven.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -81,15 +73,23 @@ class IbcCoreClientV1QueryVerifyMembershipRequest {
   ///
   String? blockDelay;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethodMerklePath? merklePath;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is IbcCoreClientV1QueryVerifyMembershipRequest &&
     other.clientId == clientId &&
     other.proof == proof &&
     other.proofHeight == proofHeight &&
-    other.merklePath == merklePath &&
     other.value == value &&
     other.timeDelay == timeDelay &&
-    other.blockDelay == blockDelay;
+    other.blockDelay == blockDelay &&
+    other.merklePath == merklePath;
 
   @override
   int get hashCode =>
@@ -97,13 +97,13 @@ class IbcCoreClientV1QueryVerifyMembershipRequest {
     (clientId == null ? 0 : clientId!.hashCode) +
     (proof == null ? 0 : proof!.hashCode) +
     (proofHeight == null ? 0 : proofHeight!.hashCode) +
-    (merklePath == null ? 0 : merklePath!.hashCode) +
     (value == null ? 0 : value!.hashCode) +
     (timeDelay == null ? 0 : timeDelay!.hashCode) +
-    (blockDelay == null ? 0 : blockDelay!.hashCode);
+    (blockDelay == null ? 0 : blockDelay!.hashCode) +
+    (merklePath == null ? 0 : merklePath!.hashCode);
 
   @override
-  String toString() => 'IbcCoreClientV1QueryVerifyMembershipRequest[clientId=$clientId, proof=$proof, proofHeight=$proofHeight, merklePath=$merklePath, value=$value, timeDelay=$timeDelay, blockDelay=$blockDelay]';
+  String toString() => 'IbcCoreClientV1QueryVerifyMembershipRequest[clientId=$clientId, proof=$proof, proofHeight=$proofHeight, value=$value, timeDelay=$timeDelay, blockDelay=$blockDelay, merklePath=$merklePath]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -122,11 +122,6 @@ class IbcCoreClientV1QueryVerifyMembershipRequest {
     } else {
       json[r'proof_height'] = null;
     }
-    if (this.merklePath != null) {
-      json[r'merkle_path'] = this.merklePath;
-    } else {
-      json[r'merkle_path'] = null;
-    }
     if (this.value != null) {
       json[r'value'] = this.value;
     } else {
@@ -141,6 +136,11 @@ class IbcCoreClientV1QueryVerifyMembershipRequest {
       json[r'block_delay'] = this.blockDelay;
     } else {
       json[r'block_delay'] = null;
+    }
+    if (this.merklePath != null) {
+      json[r'merkle_path'] = this.merklePath;
+    } else {
+      json[r'merkle_path'] = null;
     }
     return json;
   }
@@ -167,10 +167,10 @@ class IbcCoreClientV1QueryVerifyMembershipRequest {
         clientId: mapValueOfType<String>(json, r'client_id'),
         proof: mapValueOfType<String>(json, r'proof'),
         proofHeight: HeightIsAMonotonicallyIncreasingDataTypeThatCanBeComparedAgainstAnotherHeightForThePurposesOfUpdatingAndFreezingClients.fromJson(json[r'proof_height']),
-        merklePath: MerklePathIsThePathUsedToVerifyCommitmentProofsWhichCanBeAnArbitraryStructuredObjectDefinedByACommitmentTypeMerklePathIsRepresentedFromRootToLeaf.fromJson(json[r'merkle_path']),
         value: mapValueOfType<String>(json, r'value'),
         timeDelay: mapValueOfType<String>(json, r'time_delay'),
         blockDelay: mapValueOfType<String>(json, r'block_delay'),
+        merklePath: QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethodMerklePath.fromJson(json[r'merkle_path']),
       );
     }
     return null;

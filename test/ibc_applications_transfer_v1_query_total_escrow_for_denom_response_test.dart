@@ -16,7 +16,7 @@ void main() {
   // final instance = IbcApplicationsTransferV1QueryTotalEscrowForDenomResponse();
 
   group('test IbcApplicationsTransferV1QueryTotalEscrowForDenomResponse', () {
-    // Coin amount
+    // TokenfactoryParams200ResponseParamsDenomCreationFeeInner amount
     test('to test the property `amount`', () async {
       // TODO
     });

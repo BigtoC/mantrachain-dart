@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination pagination
+    // TokenPairs200ResponsePagination pagination
     test('to test the property `pagination`', () async {
       // TODO
     });

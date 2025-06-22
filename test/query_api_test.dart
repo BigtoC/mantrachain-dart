@@ -180,6 +180,13 @@ void main() {
       // TODO
     });
 
+    // BaseFee queries the base fee of the parent block of the current block.
+    //
+    //Future<EvmBaseFee200Response> baseFee() async
+    test('test baseFee', () async {
+      // TODO
+    });
+
     // Bech32Prefix queries bech32Prefix
     //
     // Since: cosmos-sdk 0.46
@@ -200,6 +207,13 @@ void main() {
     //
     //Future<Blacklist200Response> blacklist() async
     test('test blacklist', () async {
+      // TODO
+    });
+
+    // BlockGas queries the gas used at a given block height
+    //
+    //Future<BlockGas200Response> blockGas() async
+    test('test blockGas', () async {
       // TODO
     });
 
@@ -231,13 +245,6 @@ void main() {
       // TODO
     });
 
-    // ChannelParams queries all parameters of the ibc channel submodule.
-    //
-    //Future<ChannelParams200Response> channelParams() async
-    test('test channelParams', () async {
-      // TODO
-    });
-
     // Channels queries all the IBC channels of a chain.
     //
     //Future<Channels200Response> channels({ String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse }) async
@@ -245,10 +252,31 @@ void main() {
       // TODO
     });
 
+    // Account returns account permissions.
+    //
+    //Future<CircuitAccount200Response> circuitAccount(String address) async
+    test('test circuitAccount', () async {
+      // TODO
+    });
+
+    // Account returns account permissions.
+    //
+    //Future<CircuitAccounts200Response> circuitAccounts({ String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse }) async
+    test('test circuitAccounts', () async {
+      // TODO
+    });
+
     // ClientConnections queries the connection paths associated with a client state.
     //
     //Future<QueryClientConnectionsResponseIsTheResponseTypeForTheQueryClientConnectionsRPCMethod> clientConnections(String clientId) async
     test('test clientConnections', () async {
+      // TODO
+    });
+
+    // ClientCreator queries the creator of a given client.
+    //
+    //Future<ClientCreator200Response> clientCreator(String clientId) async
+    test('test clientCreator', () async {
       // TODO
     });
 
@@ -305,6 +333,13 @@ void main() {
     //
     //Future<CommunityPool200Response> communityPool() async
     test('test communityPool', () async {
+      // TODO
+    });
+
+    // Config queries the EVM configuration
+    //
+    //Future<Config200Response> config() async
+    test('test config', () async {
       // TODO
     });
 
@@ -399,17 +434,17 @@ void main() {
       // TODO
     });
 
+    // CosmosAccount queries an Ethereum account's Cosmos Address.
+    //
+    //Future<CosmosAccount200Response> cosmosAccount(String address) async
+    test('test cosmosAccount', () async {
+      // TODO
+    });
+
     // Params returns the total set of minting parameters.
     //
     //Future<CosmosMintParams200Response> cosmosMintParams() async
     test('test cosmosMintParams', () async {
-      // TODO
-    });
-
-    // CounterpartyPayee returns the registered counterparty payee for forward relaying
-    //
-    //Future<QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc> counterpartyPayee(String channelId, String relayer) async
-    test('test counterpartyPayee', () async {
       // TODO
     });
 
@@ -480,6 +515,13 @@ void main() {
       // TODO
     });
 
+    // Denom queries a denomination
+    //
+    //Future<Denom200Response> denom(String hash) async
+    test('test denom', () async {
+      // TODO
+    });
+
     // DenomAuthorityMetadata defines a gRPC query method for fetching DenomAuthorityMetadata for a particular denom.
     //
     //Future<DenomAuthorityMetadata200Response> denomAuthorityMetadata(String creator, String subdenom) async
@@ -526,17 +568,10 @@ void main() {
       // TODO
     });
 
-    // DenomTrace queries a denomination trace information.
+    // Denoms queries all denominations
     //
-    //Future<DenomTrace200Response> denomTrace(String hash) async
-    test('test denomTrace', () async {
-      // TODO
-    });
-
-    // DenomTraces queries all denomination traces.
-    //
-    //Future<DenomTraces200Response> denomTraces({ String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse }) async
-    test('test denomTraces', () async {
+    //Future<Denoms200Response> denoms({ String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse }) async
+    test('test denoms', () async {
       // TODO
     });
 
@@ -568,10 +603,24 @@ void main() {
       // TODO
     });
 
+    // DisabledList returns a list of disabled message urls
+    //
+    //Future<DisabledList200Response> disabledList() async
+    test('test disabledList', () async {
+      // TODO
+    });
+
     // Params queries params of the distribution module.
     //
     //Future<DistributionParams200Response> distributionParams() async
     test('test distributionParams', () async {
+      // TODO
+    });
+
+    // Params retrieves the erc20 module params
+    //
+    //Future<Erc20Params200Response> erc20Params() async
+    test('test erc20Params', () async {
       // TODO
     });
 
@@ -582,6 +631,20 @@ void main() {
       // TODO
     });
 
+    // EstimateGas implements the `eth_estimateGas` rpc api
+    //
+    //Future<EstimateGasResponseDefinesEstimateGasResponse> estimateGas({ String args, String gasCap, String proposerAddress, String chainId }) async
+    test('test estimateGas', () async {
+      // TODO
+    });
+
+    // EthCall implements the `eth_call` rpc api
+    //
+    //Future<EthCall200Response> ethCall({ String args, String gasCap, String proposerAddress, String chainId }) async
+    test('test ethCall', () async {
+      // TODO
+    });
+
     // Evidence queries evidence based on evidence hash.
     //
     //Future<Evidence200Response> evidence(String hash, { String evidenceHash }) async
@@ -589,38 +652,52 @@ void main() {
       // TODO
     });
 
-    // FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel
+    // Account queries an Ethereum account.
     //
-    //Future<QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc> feeEnabledChannel(String channelId, String portId) async
-    test('test feeEnabledChannel', () async {
+    //Future<EvmAccount200Response> evmAccount(String address) async
+    test('test evmAccount', () async {
       // TODO
     });
 
-    // FeeEnabledChannels returns a list of all fee enabled channels
+    // Balance queries the balance of a the EVM denomination for a single account.
     //
-    //Future<QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc> feeEnabledChannels({ String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse, String queryHeight }) async
-    test('test feeEnabledChannels', () async {
+    //Future<EvmBalance200Response> evmBalance(String address) async
+    test('test evmBalance', () async {
       // TODO
     });
 
-    // Params returns the current feemarket module parameters.
+    // BaseFee queries the base fee of the parent block of the current block, it's similar to feemarket module's method, but also checks london hardfork status.
     //
-    //Future<FeemarketParams200Response> feemarketParams() async
-    test('test feemarketParams', () async {
+    //Future<EvmBaseFee200Response> evmBaseFee() async
+    test('test evmBaseFee', () async {
       // TODO
     });
 
-    // GasPrice returns the current feemarket module gas price for specified denom.
+    // Code queries the balance of all coins for a single account.
     //
-    //Future<GasPrice200Response> gasPrice(String denom) async
-    test('test gasPrice', () async {
+    //Future<EvmCode200Response> evmCode(String address) async
+    test('test evmCode', () async {
       // TODO
     });
 
-    // GasPrices returns the current feemarket module list of gas prices in all available denoms.
+    // Params queries the parameters of x/vm module.
     //
-    //Future<GasPrices200Response> gasPrices() async
-    test('test gasPrices', () async {
+    //Future<EvmParams200Response> evmParams() async
+    test('test evmParams', () async {
+      // TODO
+    });
+
+    // Params queries the parameters of x/feemarket module.
+    //
+    //Future<FeeMarketParams200Response> feeMarketParams() async
+    test('test feeMarketParams', () async {
+      // TODO
+    });
+
+    // FractionalBalance returns only the fractional balance of an address. This does not include any integer balance.
+    //
+    //Future<FractionalBalance200Response> fractionalBalance(String address) async
+    test('test fractionalBalance', () async {
       // TODO
     });
 
@@ -654,6 +731,13 @@ void main() {
 
     //Future<GetPrices200Response> getPrices({ List<String> currencyPairIds }) async
     test('test getPrices', () async {
+      // TODO
+    });
+
+    // GlobalMinGasPrice queries the MinGasPrice it's similar to feemarket module's method, but makes the conversion to 18 decimals when the evm denom is represented with a different precision.
+    //
+    //Future<QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice> globalMinGasPrice() async
+    test('test globalMinGasPrice', () async {
       // TODO
     });
 
@@ -707,27 +791,6 @@ void main() {
     //
     //Future<ICAHostParams200Response> iCAHostParams() async
     test('test iCAHostParams', () async {
-      // TODO
-    });
-
-    // IncentivizedPacket returns all packet fees for a packet given its identifier
-    //
-    //Future<QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc> incentivizedPacket(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence, { String queryHeight }) async
-    test('test incentivizedPacket', () async {
-      // TODO
-    });
-
-    // IncentivizedPackets returns all incentivized packets and their associated fees
-    //
-    //Future<QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc> incentivizedPackets({ String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse, String queryHeight }) async
-    test('test incentivizedPackets', () async {
-      // TODO
-    });
-
-    // Gets all incentivized packets for a specific channel
-    //
-    //Future<QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC> incentivizedPacketsForChannel(String channelId, String portId, { String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse, String queryHeight }) async
-    test('test incentivizedPacketsForChannel', () async {
       // TODO
     });
 
@@ -861,13 +924,6 @@ void main() {
       // TODO
     });
 
-    // Payee returns the registered payee address for a specific channel given the relayer address
-    //
-    //Future<QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc> payee(String channelId, String relayer) async
-    test('test payee', () async {
-      // TODO
-    });
-
     // PinnedCodes gets the pinned code ids
     //
     //Future<QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod> pinnedCodes({ String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse }) async
@@ -889,9 +945,9 @@ void main() {
       // TODO
     });
 
-    // Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_id}/by_denom?denom={denom}
+    // Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_or_client_id}/by_denom?denom={denom}
     //
-    //Future<RateLimit200Response> rateLimit(String channelId, { String denom }) async
+    //Future<RateLimit200Response> rateLimit(String channelOrClientId, { String denom }) async
     test('test rateLimit', () async {
       // TODO
     });
@@ -905,8 +961,8 @@ void main() {
 
     // Queries all the rate limits for a given channel ID
     //
-    //Future<AllRateLimits200Response> rateLimitsByChannelId(String channelId) async
-    test('test rateLimitsByChannelId', () async {
+    //Future<AllRateLimits200Response> rateLimitsByChannelOrClientId(String channelOrClientId) async
+    test('test rateLimitsByChannelOrClientId', () async {
       // TODO
     });
 
@@ -923,6 +979,13 @@ void main() {
     //
     //Future<Redelegations200Response> redelegations(String delegatorAddr, { String srcValidatorAddr, String dstValidatorAddr, String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse }) async
     test('test redelegations', () async {
+      // TODO
+    });
+
+    // Remainder returns the amount backed by the reserve, but not yet owned by any account, i.e. not in circulation.
+    //
+    //Future<Remainder200Response> remainder() async
+    test('test remainder', () async {
       // TODO
     });
 
@@ -1011,10 +1074,10 @@ void main() {
       // TODO
     });
 
-    // State returns the current feemarket module state.
+    // Storage queries the balance of all coins for a single account.
     //
-    //Future<State200Response> state() async
-    test('test state', () async {
+    //Future<Storage200Response> storage(String address, String key) async
+    test('test storage', () async {
       // TODO
     });
 
@@ -1050,6 +1113,20 @@ void main() {
       // TODO
     });
 
+    // TokenPair retrieves a registered token pair
+    //
+    //Future<TokenPair200Response> tokenPair(String token) async
+    test('test tokenPair', () async {
+      // TODO
+    });
+
+    // TokenPairs retrieves registered token pairs
+    //
+    //Future<TokenPairs200Response> tokenPairs({ String paginationPeriodKey, String paginationPeriodOffset, String paginationPeriodLimit, bool paginationPeriodCountTotal, bool paginationPeriodReverse }) async
+    test('test tokenPairs', () async {
+      // TODO
+    });
+
     // Params defines a gRPC query method that returns the tokenfactory module's parameters.
     //
     //Future<TokenfactoryParams200Response> tokenfactoryParams() async
@@ -1057,24 +1134,10 @@ void main() {
       // TODO
     });
 
-    // TotalAckFees returns the total acknowledgement fees for a packet given its identifier
-    //
-    //Future<QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc> totalAckFees(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence) async
-    test('test totalAckFees', () async {
-      // TODO
-    });
-
     // TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.
     //
     //Future<TotalEscrowForDenom200Response> totalEscrowForDenom(String denom) async
     test('test totalEscrowForDenom', () async {
-      // TODO
-    });
-
-    // TotalRecvFees returns the total receive fees for a packet given its identifier
-    //
-    //Future<QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc> totalRecvFees(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence) async
-    test('test totalRecvFees', () async {
       // TODO
     });
 
@@ -1087,10 +1150,17 @@ void main() {
       // TODO
     });
 
-    // TotalTimeoutFees returns the total timeout fees for a packet given its identifier
+    // TraceBlock implements the `debug_traceBlockByNumber` and `debug_traceBlockByHash` rpc api
     //
-    //Future<QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc> totalTimeoutFees(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence) async
-    test('test totalTimeoutFees', () async {
+    //Future<QueryTraceBlockResponseDefinesTraceBlockResponse> traceBlock({ String traceConfigPeriodTracer, String traceConfigPeriodTimeout, String traceConfigPeriodReexec, bool traceConfigPeriodDisableStack, bool traceConfigPeriodDisableStorage, bool traceConfigPeriodDebug, int traceConfigPeriodLimit, String traceConfigPeriodOverridesPeriodHomesteadBlock, String traceConfigPeriodOverridesPeriodDaoForkBlock, bool traceConfigPeriodOverridesPeriodDaoForkSupport, String traceConfigPeriodOverridesPeriodEip150Block, String traceConfigPeriodOverridesPeriodEip150Hash, String traceConfigPeriodOverridesPeriodEip155Block, String traceConfigPeriodOverridesPeriodEip158Block, String traceConfigPeriodOverridesPeriodByzantiumBlock, String traceConfigPeriodOverridesPeriodConstantinopleBlock, String traceConfigPeriodOverridesPeriodPetersburgBlock, String traceConfigPeriodOverridesPeriodIstanbulBlock, String traceConfigPeriodOverridesPeriodMuirGlacierBlock, String traceConfigPeriodOverridesPeriodBerlinBlock, String traceConfigPeriodOverridesPeriodLondonBlock, String traceConfigPeriodOverridesPeriodArrowGlacierBlock, String traceConfigPeriodOverridesPeriodGrayGlacierBlock, String traceConfigPeriodOverridesPeriodMergeNetsplitBlock, String traceConfigPeriodOverridesPeriodShanghaiBlock, String traceConfigPeriodOverridesPeriodCancunBlock, String traceConfigPeriodOverridesPeriodChainId, String traceConfigPeriodOverridesPeriodDenom, String traceConfigPeriodOverridesPeriodDecimals, bool traceConfigPeriodEnableMemory, bool traceConfigPeriodEnableReturnData, String traceConfigPeriodTracerJsonConfig, String blockNumber, String blockHash, DateTime blockTime, String proposerAddress, String chainId, String blockMaxGas }) async
+    test('test traceBlock', () async {
+      // TODO
+    });
+
+    // TraceTx implements the `debug_traceTransaction` rpc api
+    //
+    //Future<QueryTraceTxResponseDefinesTraceTxResponse> traceTx({ String msgPeriodDataPeriodTypeUrl, String msgPeriodDataPeriodValue, double msgPeriodSize, String msgPeriodHash, String msgPeriodFrom, String traceConfigPeriodTracer, String traceConfigPeriodTimeout, String traceConfigPeriodReexec, bool traceConfigPeriodDisableStack, bool traceConfigPeriodDisableStorage, bool traceConfigPeriodDebug, int traceConfigPeriodLimit, String traceConfigPeriodOverridesPeriodHomesteadBlock, String traceConfigPeriodOverridesPeriodDaoForkBlock, bool traceConfigPeriodOverridesPeriodDaoForkSupport, String traceConfigPeriodOverridesPeriodEip150Block, String traceConfigPeriodOverridesPeriodEip150Hash, String traceConfigPeriodOverridesPeriodEip155Block, String traceConfigPeriodOverridesPeriodEip158Block, String traceConfigPeriodOverridesPeriodByzantiumBlock, String traceConfigPeriodOverridesPeriodConstantinopleBlock, String traceConfigPeriodOverridesPeriodPetersburgBlock, String traceConfigPeriodOverridesPeriodIstanbulBlock, String traceConfigPeriodOverridesPeriodMuirGlacierBlock, String traceConfigPeriodOverridesPeriodBerlinBlock, String traceConfigPeriodOverridesPeriodLondonBlock, String traceConfigPeriodOverridesPeriodArrowGlacierBlock, String traceConfigPeriodOverridesPeriodGrayGlacierBlock, String traceConfigPeriodOverridesPeriodMergeNetsplitBlock, String traceConfigPeriodOverridesPeriodShanghaiBlock, String traceConfigPeriodOverridesPeriodCancunBlock, String traceConfigPeriodOverridesPeriodChainId, String traceConfigPeriodOverridesPeriodDenom, String traceConfigPeriodOverridesPeriodDecimals, bool traceConfigPeriodEnableMemory, bool traceConfigPeriodEnableReturnData, String traceConfigPeriodTracerJsonConfig, String blockNumber, String blockHash, DateTime blockTime, String proposerAddress, String chainId, String blockMaxGas }) async
+    test('test traceTx', () async {
       // TODO
     });
 
@@ -1122,20 +1192,6 @@ void main() {
       // TODO
     });
 
-    // Upgrade returns the upgrade for a given port and channel id.
-    //
-    //Future<QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod> upgrade(String channelId, String portId) async
-    test('test upgrade', () async {
-      // TODO
-    });
-
-    // UpgradeError returns the error receipt if the upgrade handshake failed.
-    //
-    //Future<QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod> upgradeError(String channelId, String portId) async
-    test('test upgradeError', () async {
-      // TODO
-    });
-
     // UpgradedClientState queries an Upgraded IBC light client.
     //
     //Future<UpgradedClientState200Response> upgradedClientState() async
@@ -1161,6 +1217,13 @@ void main() {
     //
     //Future<QueryValidatorResponseIsResponseTypeForTheQueryValidatorRPCMethod> validator(String validatorAddr) async
     test('test validator', () async {
+      // TODO
+    });
+
+    // ValidatorAccount queries an Ethereum account's from a validator consensus Address.
+    //
+    //Future<ValidatorAccount200Response> validatorAccount(String consAddress) async
+    test('test validatorAccount', () async {
       // TODO
     });
 
@@ -1221,7 +1284,7 @@ void main() {
 
     // VerifyMembership queries an IBC light client for proof verification of a value at a given key path.
     //
-    //Future<QueryVerifyMembershipResponseIsTheResponseTypeForTheQueryVerifyMembershipRPCMethod> verifyMembership(QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod body) async
+    //Future<QueryVerifyMembershipResponseIsTheResponseTypeForTheQueryVerifyMembershipRPCMethod> verifyMembership(QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod) async
     test('test verifyMembership', () async {
       // TODO
     });

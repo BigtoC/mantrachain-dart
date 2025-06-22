@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosBankV1beta1QuerySpendableBalanceByDenomResponse();
 
   group('test CosmosBankV1beta1QuerySpendableBalanceByDenomResponse', () {
-    // Coin balance
+    // TokenfactoryParams200ResponseParamsDenomCreationFeeInner balance
     test('to test the property `balance`', () async {
       // TODO
     });

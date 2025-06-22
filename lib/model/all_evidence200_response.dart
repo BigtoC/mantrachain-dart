@@ -18,7 +18,7 @@ class AllEvidence200Response {
   });
 
   /// evidence returns all evidences.
-  List<CodesDefaultResponseDetailsInner> evidence;
+  List<EvmAccountDefaultResponseDetailsInner> evidence;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -26,7 +26,7 @@ class AllEvidence200Response {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AllEvidence200Response &&
@@ -72,8 +72,8 @@ class AllEvidence200Response {
       }());
 
       return AllEvidence200Response(
-        evidence: CodesDefaultResponseDetailsInner.listFromJson(json[r'evidence']),
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        evidence: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'evidence']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

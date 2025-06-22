@@ -39,7 +39,7 @@ void main() {
       // TODO
     });
 
-    // CodesDefaultResponseDetailsInner upgradedClientState
+    // EvmAccountDefaultResponseDetailsInner upgradedClientState
     test('to test the property `upgradedClientState`', () async {
       // TODO
     });

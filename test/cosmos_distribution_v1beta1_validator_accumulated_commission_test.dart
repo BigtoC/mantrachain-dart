@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosDistributionV1beta1ValidatorAccumulatedCommission();
 
   group('test CosmosDistributionV1beta1ValidatorAccumulatedCommission', () {
-    // List<GasPrice200ResponsePrice> commission (default value: const [])
+    // List<CommunityPool200ResponsePoolInner> commission (default value: const [])
     test('to test the property `commission`', () async {
       // TODO
     });

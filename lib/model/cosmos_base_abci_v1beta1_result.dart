@@ -41,7 +41,7 @@ class CosmosBaseAbciV1beta1Result {
   List<Simulate200ResponseResultEventsInner> events;
 
   /// msg_responses contains the Msg handler responses type packed in Anys.  Since: cosmos-sdk 0.46
-  List<CodesDefaultResponseDetailsInner> msgResponses;
+  List<EvmAccountDefaultResponseDetailsInner> msgResponses;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosBaseAbciV1beta1Result &&
@@ -100,7 +100,7 @@ class CosmosBaseAbciV1beta1Result {
         data: mapValueOfType<String>(json, r'data'),
         log: mapValueOfType<String>(json, r'log'),
         events: Simulate200ResponseResultEventsInner.listFromJson(json[r'events']),
-        msgResponses: CodesDefaultResponseDetailsInner.listFromJson(json[r'msg_responses']),
+        msgResponses: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'msg_responses']),
       );
     }
     return null;

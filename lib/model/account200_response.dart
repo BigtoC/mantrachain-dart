@@ -22,7 +22,7 @@ class Account200Response {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? account;
+  EvmAccountDefaultResponseDetailsInner? account;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Account200Response &&
@@ -65,7 +65,7 @@ class Account200Response {
       }());
 
       return Account200Response(
-        account: CodesDefaultResponseDetailsInner.fromJson(json[r'account']),
+        account: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'account']),
       );
     }
     return null;

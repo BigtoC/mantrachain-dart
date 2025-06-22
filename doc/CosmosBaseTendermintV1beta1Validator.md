@@ -9,7 +9,7 @@ import 'package:mantrachain_dart_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **String** |  | [optional] 
-**pubKey** | [**CodesDefaultResponseDetailsInner**](CodesDefaultResponseDetailsInner.md) |  | [optional] 
+**pubKey** | [**EvmAccountDefaultResponseDetailsInner**](EvmAccountDefaultResponseDetailsInner.md) |  | [optional] 
 **votingPower** | **String** |  | [optional] 
 **proposerPriority** | **String** |  | [optional] 
 

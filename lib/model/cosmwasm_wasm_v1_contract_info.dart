@@ -19,6 +19,7 @@ class CosmwasmWasmV1ContractInfo {
     this.label,
     this.created,
     this.ibcPortId,
+    this.ibc2PortId,
     this.extension_,
   });
 
@@ -77,7 +78,15 @@ class CosmwasmWasmV1ContractInfo {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? extension_;
+  String? ibc2PortId;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  EvmAccountDefaultResponseDetailsInner? extension_;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmwasmWasmV1ContractInfo &&
@@ -87,6 +96,7 @@ class CosmwasmWasmV1ContractInfo {
     other.label == label &&
     other.created == created &&
     other.ibcPortId == ibcPortId &&
+    other.ibc2PortId == ibc2PortId &&
     other.extension_ == extension_;
 
   @override
@@ -98,10 +108,11 @@ class CosmwasmWasmV1ContractInfo {
     (label == null ? 0 : label!.hashCode) +
     (created == null ? 0 : created!.hashCode) +
     (ibcPortId == null ? 0 : ibcPortId!.hashCode) +
+    (ibc2PortId == null ? 0 : ibc2PortId!.hashCode) +
     (extension_ == null ? 0 : extension_!.hashCode);
 
   @override
-  String toString() => 'CosmwasmWasmV1ContractInfo[codeId=$codeId, creator=$creator, admin=$admin, label=$label, created=$created, ibcPortId=$ibcPortId, extension_=$extension_]';
+  String toString() => 'CosmwasmWasmV1ContractInfo[codeId=$codeId, creator=$creator, admin=$admin, label=$label, created=$created, ibcPortId=$ibcPortId, ibc2PortId=$ibc2PortId, extension_=$extension_]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -134,6 +145,11 @@ class CosmwasmWasmV1ContractInfo {
       json[r'ibc_port_id'] = this.ibcPortId;
     } else {
       json[r'ibc_port_id'] = null;
+    }
+    if (this.ibc2PortId != null) {
+      json[r'ibc2_port_id'] = this.ibc2PortId;
+    } else {
+      json[r'ibc2_port_id'] = null;
     }
     if (this.extension_ != null) {
       json[r'extension'] = this.extension_;
@@ -168,7 +184,8 @@ class CosmwasmWasmV1ContractInfo {
         label: mapValueOfType<String>(json, r'label'),
         created: ContractInfoStoresAWASMContractInstanceCreated.fromJson(json[r'created']),
         ibcPortId: mapValueOfType<String>(json, r'ibc_port_id'),
-        extension_: CodesDefaultResponseDetailsInner.fromJson(json[r'extension']),
+        ibc2PortId: mapValueOfType<String>(json, r'ibc2_port_id'),
+        extension_: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'extension']),
       );
     }
     return null;

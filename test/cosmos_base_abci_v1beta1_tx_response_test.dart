@@ -74,7 +74,7 @@ void main() {
       // TODO
     });
 
-    // CodesDefaultResponseDetailsInner tx
+    // EvmAccountDefaultResponseDetailsInner tx
     test('to test the property `tx`', () async {
       // TODO
     });

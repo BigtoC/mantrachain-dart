@@ -188,6 +188,8 @@ class ApiClient {
           return ABCIQuery200ResponseProofOps.fromJson(value);
         case 'ABCIQuery200ResponseProofOpsOpsInner':
           return ABCIQuery200ResponseProofOpsOpsInner.fromJson(value);
+        case 'AccessControlDefinesThePermissionPolicyOfTheEVM':
+          return AccessControlDefinesThePermissionPolicyOfTheEVM.fromJson(value);
         case 'Account200Response':
           return Account200Response.fromJson(value);
         case 'AccountInfo200Response':
@@ -232,6 +234,10 @@ class ApiClient {
           return BankParams200ResponseParams.fromJson(value);
         case 'BankParams200ResponseParamsSendEnabledInner':
           return BankParams200ResponseParamsSendEnabledInner.fromJson(value);
+        case 'BaseFeeDefaultResponse':
+          return BaseFeeDefaultResponse.fromJson(value);
+        case 'BaseFeeDefaultResponseDetailsInner':
+          return BaseFeeDefaultResponseDetailsInner.fromJson(value);
         case 'BasicBlockInfo':
           return BasicBlockInfo.fromJson(value);
         case 'Bech32Prefix200Response':
@@ -242,8 +248,8 @@ class ApiClient {
           return BitarraySpecifiesWhichKeysWithinTheMultisigAreSigning.fromJson(value);
         case 'Blacklist200Response':
           return Blacklist200Response.fromJson(value);
-        case 'BlockHeightAfterWhichThePacketOrUpgradeTimesOut':
-          return BlockHeightAfterWhichThePacketOrUpgradeTimesOut.fromJson(value);
+        case 'BlockGas200Response':
+          return BlockGas200Response.fromJson(value);
         case 'BlockID':
           return BlockID.fromJson(value);
         case 'BodyIsTheProcessableContentOfTheTransaction':
@@ -262,18 +268,24 @@ class ApiClient {
           return BroadcastTxRequest.fromJson(value);
         case 'BuildAddress200Response':
           return BuildAddress200Response.fromJson(value);
+        case 'CallDefinesThePermissionPolicyForCallingContracts':
+          return CallDefinesThePermissionPolicyForCallingContracts.fromJson(value);
+        case 'ChainConfigDefinesTheEVMChainConfigurationParameters':
+          return ChainConfigDefinesTheEVMChainConfigurationParameters.fromJson(value);
         case 'Channel200Response':
           return Channel200Response.fromJson(value);
         case 'ChannelAssociatedWithTheRequestIdentifiers':
           return ChannelAssociatedWithTheRequestIdentifiers.fromJson(value);
-        case 'ChannelParams200Response':
-          return ChannelParams200Response.fromJson(value);
-        case 'ChannelParams200ResponseParams':
-          return ChannelParams200ResponseParams.fromJson(value);
         case 'Channels200Response':
           return Channels200Response.fromJson(value);
         case 'Channels200ResponseChannelsInner':
           return Channels200ResponseChannelsInner.fromJson(value);
+        case 'CircuitAccount200Response':
+          return CircuitAccount200Response.fromJson(value);
+        case 'CircuitAccounts200Response':
+          return CircuitAccounts200Response.fromJson(value);
+        case 'ClientCreator200Response':
+          return ClientCreator200Response.fromJson(value);
         case 'ClientParams200Response':
           return ClientParams200Response.fromJson(value);
         case 'ClientParams200ResponseParams':
@@ -296,12 +308,14 @@ class ApiClient {
           return CodeInfoResponseContainsCodeMetaDataFromCodeInfo.fromJson(value);
         case 'CodeInfoResponseContainsCodeMetaDataFromCodeInfoInstantiatePermission':
           return CodeInfoResponseContainsCodeMetaDataFromCodeInfoInstantiatePermission.fromJson(value);
-        case 'CodesDefaultResponse':
-          return CodesDefaultResponse.fromJson(value);
-        case 'CodesDefaultResponseDetailsInner':
-          return CodesDefaultResponseDetailsInner.fromJson(value);
         case 'CommunityPool200Response':
           return CommunityPool200Response.fromJson(value);
+        case 'CommunityPool200ResponsePoolInner':
+          return CommunityPool200ResponsePoolInner.fromJson(value);
+        case 'Config200Response':
+          return Config200Response.fromJson(value);
+        case 'ConfigIsTheEvmConfiguration':
+          return ConfigIsTheEvmConfiguration.fromJson(value);
         case 'ConnectMarketmapV2LastUpdatedResponse':
           return ConnectMarketmapV2LastUpdatedResponse.fromJson(value);
         case 'ConnectMarketmapV2Market':
@@ -372,6 +386,8 @@ class ApiClient {
           return ContractsByCreator200Response.fromJson(value);
         case 'ContractsByCreator200ResponsePagination':
           return ContractsByCreator200ResponsePagination.fromJson(value);
+        case 'CosmosAccount200Response':
+          return CosmosAccount200Response.fromJson(value);
         case 'CosmosAuthV1beta1AddressBytesToStringResponse':
           return CosmosAuthV1beta1AddressBytesToStringResponse.fromJson(value);
         case 'CosmosAuthV1beta1AddressStringToBytesResponse':
@@ -490,6 +506,18 @@ class ApiClient {
           return CosmosBaseV1beta1Coin.fromJson(value);
         case 'CosmosBaseV1beta1DecCoin':
           return CosmosBaseV1beta1DecCoin.fromJson(value);
+        case 'CosmosCircuitV1AccountResponse':
+          return CosmosCircuitV1AccountResponse.fromJson(value);
+        case 'CosmosCircuitV1AccountsResponse':
+          return CosmosCircuitV1AccountsResponse.fromJson(value);
+        case 'CosmosCircuitV1DisabledListResponse':
+          return CosmosCircuitV1DisabledListResponse.fromJson(value);
+        case 'CosmosCircuitV1GenesisAccountPermissions':
+          return CosmosCircuitV1GenesisAccountPermissions.fromJson(value);
+        case 'CosmosCircuitV1Permissions':
+          return CosmosCircuitV1Permissions.fromJson(value);
+        case 'CosmosCircuitV1PermissionsLevel':
+          return CosmosCircuitV1PermissionsLevelTypeTransformer().decode(value);
         case 'CosmosCryptoMultisigV1beta1CompactBitArray':
           return CosmosCryptoMultisigV1beta1CompactBitArray.fromJson(value);
         case 'CosmosDistributionV1beta1DelegationDelegatorReward':
@@ -526,6 +554,74 @@ class ApiClient {
           return CosmosEvidenceV1beta1QueryAllEvidenceResponse.fromJson(value);
         case 'CosmosEvidenceV1beta1QueryEvidenceResponse':
           return CosmosEvidenceV1beta1QueryEvidenceResponse.fromJson(value);
+        case 'CosmosEvmErc20V1Owner':
+          return CosmosEvmErc20V1OwnerTypeTransformer().decode(value);
+        case 'CosmosEvmErc20V1Params':
+          return CosmosEvmErc20V1Params.fromJson(value);
+        case 'CosmosEvmErc20V1QueryParamsResponse':
+          return CosmosEvmErc20V1QueryParamsResponse.fromJson(value);
+        case 'CosmosEvmErc20V1QueryTokenPairResponse':
+          return CosmosEvmErc20V1QueryTokenPairResponse.fromJson(value);
+        case 'CosmosEvmErc20V1QueryTokenPairsResponse':
+          return CosmosEvmErc20V1QueryTokenPairsResponse.fromJson(value);
+        case 'CosmosEvmErc20V1TokenPair':
+          return CosmosEvmErc20V1TokenPair.fromJson(value);
+        case 'CosmosEvmFeemarketV1Params':
+          return CosmosEvmFeemarketV1Params.fromJson(value);
+        case 'CosmosEvmFeemarketV1QueryBaseFeeResponse':
+          return CosmosEvmFeemarketV1QueryBaseFeeResponse.fromJson(value);
+        case 'CosmosEvmFeemarketV1QueryBlockGasResponse':
+          return CosmosEvmFeemarketV1QueryBlockGasResponse.fromJson(value);
+        case 'CosmosEvmFeemarketV1QueryParamsResponse':
+          return CosmosEvmFeemarketV1QueryParamsResponse.fromJson(value);
+        case 'CosmosEvmPrecisebankV1QueryFractionalBalanceResponse':
+          return CosmosEvmPrecisebankV1QueryFractionalBalanceResponse.fromJson(value);
+        case 'CosmosEvmPrecisebankV1QueryRemainderResponse':
+          return CosmosEvmPrecisebankV1QueryRemainderResponse.fromJson(value);
+        case 'CosmosEvmVmV1AccessControl':
+          return CosmosEvmVmV1AccessControl.fromJson(value);
+        case 'CosmosEvmVmV1AccessControlType':
+          return CosmosEvmVmV1AccessControlType.fromJson(value);
+        case 'CosmosEvmVmV1AccessType':
+          return CosmosEvmVmV1AccessTypeTypeTransformer().decode(value);
+        case 'CosmosEvmVmV1ChainConfig':
+          return CosmosEvmVmV1ChainConfig.fromJson(value);
+        case 'CosmosEvmVmV1EstimateGasResponse':
+          return CosmosEvmVmV1EstimateGasResponse.fromJson(value);
+        case 'CosmosEvmVmV1Log':
+          return CosmosEvmVmV1Log.fromJson(value);
+        case 'CosmosEvmVmV1MsgEthereumTx':
+          return CosmosEvmVmV1MsgEthereumTx.fromJson(value);
+        case 'CosmosEvmVmV1MsgEthereumTxResponse':
+          return CosmosEvmVmV1MsgEthereumTxResponse.fromJson(value);
+        case 'CosmosEvmVmV1Params':
+          return CosmosEvmVmV1Params.fromJson(value);
+        case 'CosmosEvmVmV1QueryAccountResponse':
+          return CosmosEvmVmV1QueryAccountResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryBalanceResponse':
+          return CosmosEvmVmV1QueryBalanceResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryBaseFeeResponse':
+          return CosmosEvmVmV1QueryBaseFeeResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryCodeResponse':
+          return CosmosEvmVmV1QueryCodeResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryConfigResponse':
+          return CosmosEvmVmV1QueryConfigResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryCosmosAccountResponse':
+          return CosmosEvmVmV1QueryCosmosAccountResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryGlobalMinGasPriceResponse':
+          return CosmosEvmVmV1QueryGlobalMinGasPriceResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryParamsResponse':
+          return CosmosEvmVmV1QueryParamsResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryStorageResponse':
+          return CosmosEvmVmV1QueryStorageResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryTraceBlockResponse':
+          return CosmosEvmVmV1QueryTraceBlockResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryTraceTxResponse':
+          return CosmosEvmVmV1QueryTraceTxResponse.fromJson(value);
+        case 'CosmosEvmVmV1QueryValidatorAccountResponse':
+          return CosmosEvmVmV1QueryValidatorAccountResponse.fromJson(value);
+        case 'CosmosEvmVmV1TraceConfig':
+          return CosmosEvmVmV1TraceConfig.fromJson(value);
         case 'CosmosFeegrantV1beta1Grant':
           return CosmosFeegrantV1beta1Grant.fromJson(value);
         case 'CosmosFeegrantV1beta1QueryAllowanceResponse':
@@ -786,6 +882,8 @@ class ApiClient {
           return CosmwasmWasmV1QueryWasmLimitsConfigResponse.fromJson(value);
         case 'CounterpartyChannelEnd':
           return CounterpartyChannelEnd.fromJson(value);
+        case 'CreateDefinesThePermissionPolicyForCreatingContracts':
+          return CreateDefinesThePermissionPolicyForCreatingContracts.fromJson(value);
         case 'CurrencyPairIsTheStandardRepresentationOfAPairOfAssetsWhereOneBaseIsPricedInTermsOfTheOtherQuote':
           return CurrencyPairIsTheStandardRepresentationOfAPairOfAssetsWhereOneBaseIsPricedInTermsOfTheOtherQuote.fromJson(value);
         case 'CurrencyPairIsTheStandardRepresentationOfAPairOfAssetsWhereOneBaseIsPricedInTermsOfTheOtherQuote1':
@@ -800,6 +898,8 @@ class ApiClient {
           return CurrentPlan200ResponsePlan.fromJson(value);
         case 'DataContainsTheSetOfTransactionsIncludedInTheBlock':
           return DataContainsTheSetOfTransactionsIncludedInTheBlock.fromJson(value);
+        case 'DataIsInnerTransactionDataOfTheEthereumTransaction':
+          return DataIsInnerTransactionDataOfTheEthereumTransaction.fromJson(value);
         case 'Delegation200Response':
           return Delegation200Response.fromJson(value);
         case 'DelegationRewards200Response':
@@ -826,6 +926,8 @@ class ApiClient {
           return DelegatorValidators200Response.fromJson(value);
         case 'DelegatorWithdrawAddress200Response':
           return DelegatorWithdrawAddress200Response.fromJson(value);
+        case 'Denom200Response':
+          return Denom200Response.fromJson(value);
         case 'DenomAuthorityMetadata200Response':
           return DenomAuthorityMetadata200Response.fromJson(value);
         case 'DenomAuthorityMetadata200ResponseAuthorityMetadata':
@@ -842,14 +944,12 @@ class ApiClient {
           return DenomOwners200ResponseDenomOwnersInner.fromJson(value);
         case 'DenomOwnersByQuery200Response':
           return DenomOwnersByQuery200Response.fromJson(value);
-        case 'DenomTrace200Response':
-          return DenomTrace200Response.fromJson(value);
-        case 'DenomTraces200Response':
-          return DenomTraces200Response.fromJson(value);
-        case 'DenomTraces200ResponseDenomTracesInner':
-          return DenomTraces200ResponseDenomTracesInner.fromJson(value);
         case 'DenomUnitsRepresentsTheListOfDenomUnitSForAGivenCoinInner':
           return DenomUnitsRepresentsTheListOfDenomUnitSForAGivenCoinInner.fromJson(value);
+        case 'Denoms200Response':
+          return Denoms200Response.fromJson(value);
+        case 'Denoms200ResponseDenomsInner':
+          return Denoms200ResponseDenomsInner.fromJson(value);
         case 'DenomsFromCreator200Response':
           return DenomsFromCreator200Response.fromJson(value);
         case 'DenomsMetadata200Response':
@@ -888,40 +988,48 @@ class ApiClient {
           return DeprecatedPleaseUseSdkBlockInsteadEvidenceEvidenceInnerLightClientAttackEvidenceConflictingBlockValidatorSetValidatorsInner.fromJson(value);
         case 'DeprecatedPleaseUseSdkBlockInsteadHeader':
           return DeprecatedPleaseUseSdkBlockInsteadHeader.fromJson(value);
+        case 'DisabledList200Response':
+          return DisabledList200Response.fromJson(value);
         case 'DistributionParams200Response':
           return DistributionParams200Response.fromJson(value);
         case 'DistributionParams200ResponseParams':
           return DistributionParams200ResponseParams.fromJson(value);
+        case 'Erc20Params200Response':
+          return Erc20Params200Response.fromJson(value);
         case 'EscrowAddress200Response':
           return EscrowAddress200Response.fromJson(value);
+        case 'EstimateGasResponseDefinesEstimateGasResponse':
+          return EstimateGasResponseDefinesEstimateGasResponse.fromJson(value);
+        case 'EthCall200Response':
+          return EthCall200Response.fromJson(value);
+        case 'EthCall200ResponseLogsInner':
+          return EthCall200ResponseLogsInner.fromJson(value);
         case 'Evidence200Response':
           return Evidence200Response.fromJson(value);
-        case 'FeeEnabledChannelContainsThePortIDChannelIDForAFeeEnabledChannel':
-          return FeeEnabledChannelContainsThePortIDChannelIDForAFeeEnabledChannel.fromJson(value);
-        case 'FeeEncapsulatesTheRecvAckAndTimeoutFeesAssociatedWithAnIBCPacket':
-          return FeeEncapsulatesTheRecvAckAndTimeoutFeesAssociatedWithAnIBCPacket.fromJson(value);
-        case 'FeemarketFeemarketV1GasPriceResponse':
-          return FeemarketFeemarketV1GasPriceResponse.fromJson(value);
-        case 'FeemarketFeemarketV1GasPricesResponse':
-          return FeemarketFeemarketV1GasPricesResponse.fromJson(value);
-        case 'FeemarketFeemarketV1Params':
-          return FeemarketFeemarketV1Params.fromJson(value);
-        case 'FeemarketFeemarketV1ParamsResponse':
-          return FeemarketFeemarketV1ParamsResponse.fromJson(value);
-        case 'FeemarketFeemarketV1State':
-          return FeemarketFeemarketV1State.fromJson(value);
-        case 'FeemarketFeemarketV1StateResponse':
-          return FeemarketFeemarketV1StateResponse.fromJson(value);
-        case 'FeemarketParams200Response':
-          return FeemarketParams200Response.fromJson(value);
-        case 'FeemarketParams200ResponseParams':
-          return FeemarketParams200ResponseParams.fromJson(value);
-        case 'GasPrice200Response':
-          return GasPrice200Response.fromJson(value);
-        case 'GasPrice200ResponsePrice':
-          return GasPrice200ResponsePrice.fromJson(value);
-        case 'GasPrices200Response':
-          return GasPrices200Response.fromJson(value);
+        case 'EvmAccount200Response':
+          return EvmAccount200Response.fromJson(value);
+        case 'EvmAccountDefaultResponse':
+          return EvmAccountDefaultResponse.fromJson(value);
+        case 'EvmAccountDefaultResponseDetailsInner':
+          return EvmAccountDefaultResponseDetailsInner.fromJson(value);
+        case 'EvmBalance200Response':
+          return EvmBalance200Response.fromJson(value);
+        case 'EvmBaseFee200Response':
+          return EvmBaseFee200Response.fromJson(value);
+        case 'EvmCode200Response':
+          return EvmCode200Response.fromJson(value);
+        case 'EvmParams200Response':
+          return EvmParams200Response.fromJson(value);
+        case 'FeeMarketParams200Response':
+          return FeeMarketParams200Response.fromJson(value);
+        case 'FractionalBalance200Response':
+          return FractionalBalance200Response.fromJson(value);
+        case 'FractionalBalance200ResponseFractionalBalance':
+          return FractionalBalance200ResponseFractionalBalance.fromJson(value);
+        case 'GenesisAccountPermissionsIsTheAccountPermissionsForTheCircuitBreakerInGenesis':
+          return GenesisAccountPermissionsIsTheAccountPermissionsForTheCircuitBreakerInGenesis.fromJson(value);
+        case 'GenesisAccountPermissionsIsTheAccountPermissionsForTheCircuitBreakerInGenesisPermissions':
+          return GenesisAccountPermissionsIsTheAccountPermissionsForTheCircuitBreakerInGenesisPermissions.fromJson(value);
         case 'GetAllCurrencyPairs200Response':
           return GetAllCurrencyPairs200Response.fromJson(value);
         case 'GetBlockByHeight200Response':
@@ -998,6 +1106,8 @@ class ApiClient {
           return HistoricalInfo200ResponseHist.fromJson(value);
         case 'HistoricalInfo200ResponseHistHeader':
           return HistoricalInfo200ResponseHistHeader.fromJson(value);
+        case 'HopDefinesAPortIDChannelIDPairSpecifyingAUniqueHopInATrace':
+          return HopDefinesAPortIDChannelIDPairSpecifyingAUniqueHopInATrace.fromJson(value);
         case 'IBCVersionWhichCanBeUtilisedToDetermineEncodingsOrProtocolsForChannelsOrPacketsUtilisingThisConnectionInner':
           return IBCVersionWhichCanBeUtilisedToDetermineEncodingsOrProtocolsForChannelsOrPacketsUtilisingThisConnectionInner.fromJson(value);
         case 'ICAControllerParams200Response':
@@ -1008,34 +1118,6 @@ class ApiClient {
           return ICAHostParams200Response.fromJson(value);
         case 'ICAHostParams200ResponseParams':
           return ICAHostParams200ResponseParams.fromJson(value);
-        case 'IbcApplicationsFeeV1Fee':
-          return IbcApplicationsFeeV1Fee.fromJson(value);
-        case 'IbcApplicationsFeeV1FeeEnabledChannel':
-          return IbcApplicationsFeeV1FeeEnabledChannel.fromJson(value);
-        case 'IbcApplicationsFeeV1IdentifiedPacketFees':
-          return IbcApplicationsFeeV1IdentifiedPacketFees.fromJson(value);
-        case 'IbcApplicationsFeeV1PacketFee':
-          return IbcApplicationsFeeV1PacketFee.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryCounterpartyPayeeResponse':
-          return IbcApplicationsFeeV1QueryCounterpartyPayeeResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryFeeEnabledChannelResponse':
-          return IbcApplicationsFeeV1QueryFeeEnabledChannelResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryFeeEnabledChannelsResponse':
-          return IbcApplicationsFeeV1QueryFeeEnabledChannelsResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryIncentivizedPacketResponse':
-          return IbcApplicationsFeeV1QueryIncentivizedPacketResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryIncentivizedPacketsForChannelResponse':
-          return IbcApplicationsFeeV1QueryIncentivizedPacketsForChannelResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryIncentivizedPacketsResponse':
-          return IbcApplicationsFeeV1QueryIncentivizedPacketsResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryPayeeResponse':
-          return IbcApplicationsFeeV1QueryPayeeResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryTotalAckFeesResponse':
-          return IbcApplicationsFeeV1QueryTotalAckFeesResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryTotalRecvFeesResponse':
-          return IbcApplicationsFeeV1QueryTotalRecvFeesResponse.fromJson(value);
-        case 'IbcApplicationsFeeV1QueryTotalTimeoutFeesResponse':
-          return IbcApplicationsFeeV1QueryTotalTimeoutFeesResponse.fromJson(value);
         case 'IbcApplicationsInterchainAccountsControllerV1Params':
           return IbcApplicationsInterchainAccountsControllerV1Params.fromJson(value);
         case 'IbcApplicationsInterchainAccountsControllerV1QueryInterchainAccountResponse':
@@ -1046,16 +1128,18 @@ class ApiClient {
           return IbcApplicationsInterchainAccountsHostV1Params.fromJson(value);
         case 'IbcApplicationsInterchainAccountsHostV1QueryParamsResponse':
           return IbcApplicationsInterchainAccountsHostV1QueryParamsResponse.fromJson(value);
-        case 'IbcApplicationsTransferV1DenomTrace':
-          return IbcApplicationsTransferV1DenomTrace.fromJson(value);
+        case 'IbcApplicationsTransferV1Denom':
+          return IbcApplicationsTransferV1Denom.fromJson(value);
+        case 'IbcApplicationsTransferV1Hop':
+          return IbcApplicationsTransferV1Hop.fromJson(value);
         case 'IbcApplicationsTransferV1Params':
           return IbcApplicationsTransferV1Params.fromJson(value);
         case 'IbcApplicationsTransferV1QueryDenomHashResponse':
           return IbcApplicationsTransferV1QueryDenomHashResponse.fromJson(value);
-        case 'IbcApplicationsTransferV1QueryDenomTraceResponse':
-          return IbcApplicationsTransferV1QueryDenomTraceResponse.fromJson(value);
-        case 'IbcApplicationsTransferV1QueryDenomTracesResponse':
-          return IbcApplicationsTransferV1QueryDenomTracesResponse.fromJson(value);
+        case 'IbcApplicationsTransferV1QueryDenomResponse':
+          return IbcApplicationsTransferV1QueryDenomResponse.fromJson(value);
+        case 'IbcApplicationsTransferV1QueryDenomsResponse':
+          return IbcApplicationsTransferV1QueryDenomsResponse.fromJson(value);
         case 'IbcApplicationsTransferV1QueryEscrowAddressResponse':
           return IbcApplicationsTransferV1QueryEscrowAddressResponse.fromJson(value);
         case 'IbcApplicationsTransferV1QueryParamsResponse':
@@ -1066,24 +1150,16 @@ class ApiClient {
           return IbcCoreChannelV1Channel.fromJson(value);
         case 'IbcCoreChannelV1Counterparty':
           return IbcCoreChannelV1Counterparty.fromJson(value);
-        case 'IbcCoreChannelV1ErrorReceipt':
-          return IbcCoreChannelV1ErrorReceipt.fromJson(value);
         case 'IbcCoreChannelV1IdentifiedChannel':
           return IbcCoreChannelV1IdentifiedChannel.fromJson(value);
         case 'IbcCoreChannelV1Order':
           return IbcCoreChannelV1OrderTypeTransformer().decode(value);
-        case 'IbcCoreChannelV1PacketId':
-          return IbcCoreChannelV1PacketId.fromJson(value);
         case 'IbcCoreChannelV1PacketState':
           return IbcCoreChannelV1PacketState.fromJson(value);
-        case 'IbcCoreChannelV1Params':
-          return IbcCoreChannelV1Params.fromJson(value);
         case 'IbcCoreChannelV1QueryChannelClientStateResponse':
           return IbcCoreChannelV1QueryChannelClientStateResponse.fromJson(value);
         case 'IbcCoreChannelV1QueryChannelConsensusStateResponse':
           return IbcCoreChannelV1QueryChannelConsensusStateResponse.fromJson(value);
-        case 'IbcCoreChannelV1QueryChannelParamsResponse':
-          return IbcCoreChannelV1QueryChannelParamsResponse.fromJson(value);
         case 'IbcCoreChannelV1QueryChannelResponse':
           return IbcCoreChannelV1QueryChannelResponse.fromJson(value);
         case 'IbcCoreChannelV1QueryChannelsResponse':
@@ -1108,18 +1184,8 @@ class ApiClient {
           return IbcCoreChannelV1QueryUnreceivedAcksResponse.fromJson(value);
         case 'IbcCoreChannelV1QueryUnreceivedPacketsResponse':
           return IbcCoreChannelV1QueryUnreceivedPacketsResponse.fromJson(value);
-        case 'IbcCoreChannelV1QueryUpgradeErrorResponse':
-          return IbcCoreChannelV1QueryUpgradeErrorResponse.fromJson(value);
-        case 'IbcCoreChannelV1QueryUpgradeResponse':
-          return IbcCoreChannelV1QueryUpgradeResponse.fromJson(value);
         case 'IbcCoreChannelV1State':
           return IbcCoreChannelV1StateTypeTransformer().decode(value);
-        case 'IbcCoreChannelV1Timeout':
-          return IbcCoreChannelV1Timeout.fromJson(value);
-        case 'IbcCoreChannelV1Upgrade':
-          return IbcCoreChannelV1Upgrade.fromJson(value);
-        case 'IbcCoreChannelV1UpgradeFields':
-          return IbcCoreChannelV1UpgradeFields.fromJson(value);
         case 'IbcCoreClientV1ConsensusStateWithHeight':
           return IbcCoreClientV1ConsensusStateWithHeight.fromJson(value);
         case 'IbcCoreClientV1Height':
@@ -1128,6 +1194,8 @@ class ApiClient {
           return IbcCoreClientV1IdentifiedClientState.fromJson(value);
         case 'IbcCoreClientV1Params':
           return IbcCoreClientV1Params.fromJson(value);
+        case 'IbcCoreClientV1QueryClientCreatorResponse':
+          return IbcCoreClientV1QueryClientCreatorResponse.fromJson(value);
         case 'IbcCoreClientV1QueryClientParamsResponse':
           return IbcCoreClientV1QueryClientParamsResponse.fromJson(value);
         case 'IbcCoreClientV1QueryClientStateResponse':
@@ -1150,10 +1218,10 @@ class ApiClient {
           return IbcCoreClientV1QueryVerifyMembershipRequest.fromJson(value);
         case 'IbcCoreClientV1QueryVerifyMembershipResponse':
           return IbcCoreClientV1QueryVerifyMembershipResponse.fromJson(value);
-        case 'IbcCoreCommitmentV1MerklePath':
-          return IbcCoreCommitmentV1MerklePath.fromJson(value);
         case 'IbcCoreCommitmentV1MerklePrefix':
           return IbcCoreCommitmentV1MerklePrefix.fromJson(value);
+        case 'IbcCoreCommitmentV2MerklePath':
+          return IbcCoreCommitmentV2MerklePath.fromJson(value);
         case 'IbcCoreConnectionV1ConnectionEnd':
           return IbcCoreConnectionV1ConnectionEnd.fromJson(value);
         case 'IbcCoreConnectionV1Counterparty':
@@ -1178,8 +1246,6 @@ class ApiClient {
           return IbcCoreConnectionV1StateTypeTransformer().decode(value);
         case 'IbcCoreConnectionV1Version':
           return IbcCoreConnectionV1Version.fromJson(value);
-        case 'IdentifiedPacketFeesContainsAListOfTypePacketFeeAndAssociatedPacketId':
-          return IdentifiedPacketFeesContainsAListOfTypePacketFeeAndAssociatedPacketId.fromJson(value);
         case 'Inflation200Response':
           return Inflation200Response.fromJson(value);
         case 'InfoIsTheSigningInfoOfAllValidatorsInner':
@@ -1188,10 +1254,6 @@ class ApiClient {
           return InterchainAccount200Response.fromJson(value);
         case 'LastUpdated200Response':
           return LastUpdated200Response.fromJson(value);
-        case 'LastUpdatedDefaultResponse':
-          return LastUpdatedDefaultResponse.fromJson(value);
-        case 'LastUpdatedDefaultResponseDetailsInner':
-          return LastUpdatedDefaultResponseDetailsInner.fromJson(value);
         case 'MantrachainSanctionV1QueryBlacklistResponse':
           return MantrachainSanctionV1QueryBlacklistResponse.fromJson(value);
         case 'MantrachainSanctionV1QueryParamsResponse':
@@ -1220,8 +1282,6 @@ class ApiClient {
           return MarketMapParams200ResponseParams.fromJson(value);
         case 'Markets200Response':
           return Markets200Response.fromJson(value);
-        case 'MerklePathIsThePathUsedToVerifyCommitmentProofsWhichCanBeAnArbitraryStructuredObjectDefinedByACommitmentTypeMerklePathIsRepresentedFromRootToLeaf':
-          return MerklePathIsThePathUsedToVerifyCommitmentProofsWhichCanBeAnArbitraryStructuredObjectDefinedByACommitmentTypeMerklePathIsRepresentedFromRootToLeaf.fromJson(value);
         case 'MerklePrefixIsMerklePathPrefixedToTheKeyTheConstructedKeyFromThePathAndTheKeyWillBeAppendPathKeyPathAppendPathKeyPrefixKey':
           return MerklePrefixIsMerklePathPrefixedToTheKeyTheConstructedKeyFromThePathAndTheKeyWillBeAppendPathKeyPathAppendPathKeyPrefixKey.fromJson(value);
         case 'ModelIsAStructThatHoldsAKVPair':
@@ -1248,14 +1308,20 @@ class ApiClient {
           return OsmosisTokenfactoryV1beta1QueryDenomsFromCreatorResponse.fromJson(value);
         case 'OsmosisTokenfactoryV1beta1QueryParamsResponse':
           return OsmosisTokenfactoryV1beta1QueryParamsResponse.fromJson(value);
-        case 'PacketFeeContainsICS29RelayerFeesRefundAddressAndOptionalListOfPermittedRelayers':
-          return PacketFeeContainsICS29RelayerFeesRefundAddressAndOptionalListOfPermittedRelayers.fromJson(value);
+        case 'OverridesCanBeUsedToExecuteATraceUsingFutureForkRules':
+          return OverridesCanBeUsedToExecuteATraceUsingFutureForkRules.fromJson(value);
         case 'PaginationResponse':
           return PaginationResponse.fromJson(value);
         case 'Params200Response':
           return Params200Response.fromJson(value);
         case 'Params200ResponseParam':
           return Params200ResponseParam.fromJson(value);
+        case 'ParamsAreTheErc20ModuleParameters':
+          return ParamsAreTheErc20ModuleParameters.fromJson(value);
+        case 'ParamsDefinesTheEVMModuleParameters':
+          return ParamsDefinesTheEVMModuleParameters.fromJson(value);
+        case 'ParamsDefinesTheEVMModuleParameters1':
+          return ParamsDefinesTheEVMModuleParameters1.fromJson(value);
         case 'PartsetHeader':
           return PartsetHeader.fromJson(value);
         case 'PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute':
@@ -1292,8 +1358,6 @@ class ApiClient {
           return QueryCodeResponseIsTheResponseTypeForTheQueryCodeRPCMethod.fromJson(value);
         case 'QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethod':
           return QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethod.fromJson(value);
-        case 'QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination':
-          return QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(value);
         case 'QueryConnectionChannelsResponseIsTheResponseTypeForTheQueryQueryConnectionChannelsRPCMethod':
           return QueryConnectionChannelsResponseIsTheResponseTypeForTheQueryQueryConnectionChannelsRPCMethod.fromJson(value);
         case 'QueryConnectionClientStateResponseIsTheResponseTypeForTheQueryConnectionClientStateRPCMethod':
@@ -1316,16 +1380,8 @@ class ApiClient {
           return QueryContractInfoResponseIsTheResponseTypeForTheQueryContractInfoRPCMethod.fromJson(value);
         case 'QueryContractsByCodeResponseIsTheResponseTypeForTheQueryContractsByCodeRPCMethod':
           return QueryContractsByCodeResponseIsTheResponseTypeForTheQueryContractsByCodeRPCMethod.fromJson(value);
-        case 'QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc':
-          return QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc.fromJson(value);
-        case 'QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc':
-          return QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc.fromJson(value);
-        case 'QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc':
-          return QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc.fromJson(value);
-        case 'QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc':
-          return QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc.fromJson(value);
-        case 'QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc':
-          return QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc.fromJson(value);
+        case 'QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice':
+          return QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice.fromJson(value);
         case 'QueryNextSequenceSendResponseIsTheRequestTypeForTheQueryQueryNextSequenceSendRPCMethod':
           return QueryNextSequenceSendResponseIsTheRequestTypeForTheQueryQueryNextSequenceSendRPCMethod.fromJson(value);
         case 'QueryPacketAcknowledgementResponseDefinesTheClientQueryResponseForAPacketWhichAlsoIncludesAProofAndTheHeightFromWhichTheProofWasRetrieved':
@@ -1344,8 +1400,6 @@ class ApiClient {
           return QueryParamsResponseIsTheResponseTypeForTheQueryParamsRPCMethod.fromJson(value);
         case 'QueryParamsResponseIsTheResponseTypeForTheQueryParamsRPCMethodParams':
           return QueryParamsResponseIsTheResponseTypeForTheQueryParamsRPCMethodParams.fromJson(value);
-        case 'QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc':
-          return QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc.fromJson(value);
         case 'QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod':
           return QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod.fromJson(value);
         case 'QueryRawContractStateResponseIsTheResponseTypeForTheQueryRawContractStateRPCMethod':
@@ -1360,32 +1414,18 @@ class ApiClient {
           return QuerySigningInfosResponseIsTheResponseTypeForTheQuerySigningInfosRPCMethodPagination.fromJson(value);
         case 'QuerySmartContractStateResponseIsTheResponseTypeForTheQuerySmartContractStateRPCMethod':
           return QuerySmartContractStateResponseIsTheResponseTypeForTheQuerySmartContractStateRPCMethod.fromJson(value);
-        case 'QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc':
-          return QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc.fromJson(value);
-        case 'QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc':
-          return QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc.fromJson(value);
         case 'QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethod':
           return QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethod.fromJson(value);
         case 'QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethodPagination':
           return QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethodPagination.fromJson(value);
-        case 'QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc':
-          return QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc.fromJson(value);
+        case 'QueryTraceBlockResponseDefinesTraceBlockResponse':
+          return QueryTraceBlockResponseDefinesTraceBlockResponse.fromJson(value);
+        case 'QueryTraceTxResponseDefinesTraceTxResponse':
+          return QueryTraceTxResponseDefinesTraceTxResponse.fromJson(value);
         case 'QueryUnreceivedAcksResponseIsTheResponseTypeForTheQueryUnreceivedAcksRPCMethod':
           return QueryUnreceivedAcksResponseIsTheResponseTypeForTheQueryUnreceivedAcksRPCMethod.fromJson(value);
         case 'QueryUnreceivedPacketsResponseIsTheResponseTypeForTheQueryUnreceivedPacketCommitmentsRPCMethod':
           return QueryUnreceivedPacketsResponseIsTheResponseTypeForTheQueryUnreceivedPacketCommitmentsRPCMethod.fromJson(value);
-        case 'QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod':
-          return QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod.fromJson(value);
-        case 'QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethodErrorReceipt':
-          return QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethodErrorReceipt.fromJson(value);
-        case 'QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod':
-          return QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod.fromJson(value);
-        case 'QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethodUpgrade':
-          return QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethodUpgrade.fromJson(value);
-        case 'QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethodUpgradeFields':
-          return QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethodUpgradeFields.fromJson(value);
-        case 'QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethodUpgradeTimeout':
-          return QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethodUpgradeTimeout.fromJson(value);
         case 'QueryValidatorCommissionResponseIsTheResponseTypeForTheQueryValidatorCommissionRPCMethod':
           return QueryValidatorCommissionResponseIsTheResponseTypeForTheQueryValidatorCommissionRPCMethod.fromJson(value);
         case 'QueryValidatorCommissionResponseIsTheResponseTypeForTheQueryValidatorCommissionRPCMethodCommission':
@@ -1398,6 +1438,8 @@ class ApiClient {
           return QueryValidatorsResponseIsResponseTypeForTheQueryValidatorsRPCMethod.fromJson(value);
         case 'QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod':
           return QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod.fromJson(value);
+        case 'QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethodMerklePath':
+          return QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethodMerklePath.fromJson(value);
         case 'QueryVerifyMembershipResponseIsTheResponseTypeForTheQueryVerifyMembershipRPCMethod':
           return QueryVerifyMembershipResponseIsTheResponseTypeForTheQueryVerifyMembershipRPCMethod.fromJson(value);
         case 'QuotaDefinesTheRateLimitThresholdsForTransferPackets':
@@ -1424,8 +1466,8 @@ class ApiClient {
           return RatelimitV1QueryRateLimitResponse.fromJson(value);
         case 'RatelimitV1QueryRateLimitsByChainIdResponse':
           return RatelimitV1QueryRateLimitsByChainIdResponse.fromJson(value);
-        case 'RatelimitV1QueryRateLimitsByChannelIdResponse':
-          return RatelimitV1QueryRateLimitsByChannelIdResponse.fromJson(value);
+        case 'RatelimitV1QueryRateLimitsByChannelOrClientIdResponse':
+          return RatelimitV1QueryRateLimitsByChannelOrClientIdResponse.fromJson(value);
         case 'RatelimitV1Quota':
           return RatelimitV1Quota.fromJson(value);
         case 'RatelimitV1RateLimit':
@@ -1442,6 +1484,10 @@ class ApiClient {
           return Redelegations200ResponseRedelegationResponsesInnerRedelegation.fromJson(value);
         case 'Redelegations200ResponseRedelegationResponsesInnerRedelegationEntriesInner':
           return Redelegations200ResponseRedelegationResponsesInnerRedelegationEntriesInner.fromJson(value);
+        case 'Remainder200Response':
+          return Remainder200Response.fromJson(value);
+        case 'Remainder200ResponseRemainder':
+          return Remainder200ResponseRemainder.fromJson(value);
         case 'SanctionParams200Response':
           return SanctionParams200Response.fromJson(value);
         case 'SendEnabled200Response':
@@ -1486,10 +1532,8 @@ class ApiClient {
           return StakingPool200Response.fromJson(value);
         case 'StakingPool200ResponsePool':
           return StakingPool200ResponsePool.fromJson(value);
-        case 'State200Response':
-          return State200Response.fromJson(value);
-        case 'State200ResponseState':
-          return State200ResponseState.fromJson(value);
+        case 'Storage200Response':
+          return Storage200Response.fromJson(value);
         case 'Subspaces200Response':
           return Subspaces200Response.fromJson(value);
         case 'Subspaces200ResponseSubspacesInner':
@@ -1554,12 +1598,22 @@ class ApiClient {
           return TendermintTypesVote.fromJson(value);
         case 'TendermintVersionConsensus':
           return TendermintVersionConsensus.fromJson(value);
+        case 'TokenPair200Response':
+          return TokenPair200Response.fromJson(value);
+        case 'TokenPairs200Response':
+          return TokenPairs200Response.fromJson(value);
+        case 'TokenPairs200ResponsePagination':
+          return TokenPairs200ResponsePagination.fromJson(value);
+        case 'TokenPairsIsASliceOfRegisteredTokenPairsForTheErc20ModuleInner':
+          return TokenPairsIsASliceOfRegisteredTokenPairsForTheErc20ModuleInner.fromJson(value);
+        case 'TokenPairsReturnsTheInfoAboutARegisteredTokenPairForTheErc20Module':
+          return TokenPairsReturnsTheInfoAboutARegisteredTokenPairForTheErc20Module.fromJson(value);
         case 'TokenfactoryParams200Response':
           return TokenfactoryParams200Response.fromJson(value);
         case 'TokenfactoryParams200ResponseParams':
           return TokenfactoryParams200ResponseParams.fromJson(value);
-        case 'Coin':
-          return Coin.fromJson(value);
+        case 'TokenfactoryParams200ResponseParamsDenomCreationFeeInner':
+          return TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(value);
         case 'TotalEscrowForDenom200Response':
           return TotalEscrowForDenom200Response.fromJson(value);
         case 'TransferParams200Response':
@@ -1580,8 +1634,6 @@ class ApiClient {
           return TxEncodeAminoRequest.fromJson(value);
         case 'UnbondingDelegation200Response':
           return UnbondingDelegation200Response.fromJson(value);
-        case 'UniquePacketIdentifierComprisedOfTheChannelIDPortIDAndSequence':
-          return UniquePacketIdentifierComprisedOfTheChannelIDPortIDAndSequence.fromJson(value);
         case 'UpgradedClientState200Response':
           return UpgradedClientState200Response.fromJson(value);
         case 'UpgradedConsensusState200Response':
@@ -1590,6 +1642,8 @@ class ApiClient {
           return UpgradedIBCConsensusState200Response.fromJson(value);
         case 'ValSigningInfoIsTheSigningInfoOfRequestedValConsAddress':
           return ValSigningInfoIsTheSigningInfoOfRequestedValConsAddress.fromJson(value);
+        case 'ValidatorAccount200Response':
+          return ValidatorAccount200Response.fromJson(value);
         case 'ValidatorDistributionInfo200Response':
           return ValidatorDistributionInfo200Response.fromJson(value);
         case 'ValidatorOutstandingRewards200Response':

@@ -16,7 +16,7 @@ void main() {
   // final instance = Account200Response();
 
   group('test Account200Response', () {
-    // CodesDefaultResponseDetailsInner account
+    // EvmAccountDefaultResponseDetailsInner account
     test('to test the property `account`', () async {
       // TODO
     });

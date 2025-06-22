@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **time** | [**DateTime**](DateTime.md) | Deprecated: Time based upgrades have been deprecated. Time based upgrade logic has been removed from the SDK. If this field is not empty, an error will be thrown. | [optional] 
 **height** | **String** | The height at which the upgrade must be performed. | [optional] 
 **info** | **String** |  | [optional] 
-**upgradedClientState** | [**CodesDefaultResponseDetailsInner**](CodesDefaultResponseDetailsInner.md) |  | [optional] 
+**upgradedClientState** | [**EvmAccountDefaultResponseDetailsInner**](EvmAccountDefaultResponseDetailsInner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

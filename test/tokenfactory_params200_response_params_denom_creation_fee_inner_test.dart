@@ -11,11 +11,11 @@
 import 'package:mantrachain_dart_sdk/api.dart';
 import 'package:test/test.dart';
 
-// tests for Coin
+// tests for TokenfactoryParams200ResponseParamsDenomCreationFeeInner
 void main() {
-  // final instance = Coin();
+  // final instance = TokenfactoryParams200ResponseParamsDenomCreationFeeInner();
 
-  group('test Coin', () {
+  group('test TokenfactoryParams200ResponseParamsDenomCreationFeeInner', () {
     // String denom
     test('to test the property `denom`', () async {
       // TODO

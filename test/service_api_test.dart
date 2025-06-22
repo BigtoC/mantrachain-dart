@@ -28,7 +28,7 @@ void main() {
 
     // BroadcastTx broadcast transaction.
     //
-    //Future<BroadcastTx200Response> broadcastTx(BroadcastTxRequest body) async
+    //Future<BroadcastTx200Response> broadcastTx(BroadcastTxRequest broadcastTxRequest) async
     test('test broadcastTx', () async {
       // TODO
     });
@@ -100,7 +100,7 @@ void main() {
 
     // Simulate simulates executing a transaction for estimating gas usage.
     //
-    //Future<Simulate200Response> simulate(CosmosTxV1beta1SimulateRequest body) async
+    //Future<Simulate200Response> simulate(CosmosTxV1beta1SimulateRequest cosmosTxV1beta1SimulateRequest) async
     test('test simulate', () async {
       // TODO
     });
@@ -109,7 +109,7 @@ void main() {
     //
     // Since: cosmos-sdk 0.47
     //
-    //Future<CosmosTxV1beta1TxDecodeResponse> txDecode(TxDecodeRequest body) async
+    //Future<CosmosTxV1beta1TxDecodeResponse> txDecode(TxDecodeRequest txDecodeRequest) async
     test('test txDecode', () async {
       // TODO
     });
@@ -118,7 +118,7 @@ void main() {
     //
     // Since: cosmos-sdk 0.47
     //
-    //Future<TxDecodeAmino200Response> txDecodeAmino(TxDecodeAminoRequest body) async
+    //Future<TxDecodeAmino200Response> txDecodeAmino(TxDecodeAminoRequest txDecodeAminoRequest) async
     test('test txDecodeAmino', () async {
       // TODO
     });
@@ -127,7 +127,7 @@ void main() {
     //
     // Since: cosmos-sdk 0.47
     //
-    //Future<TxEncode200Response> txEncode(CosmosTxV1beta1TxEncodeRequest body) async
+    //Future<TxEncode200Response> txEncode(CosmosTxV1beta1TxEncodeRequest cosmosTxV1beta1TxEncodeRequest) async
     test('test txEncode', () async {
       // TODO
     });
@@ -136,7 +136,7 @@ void main() {
     //
     // Since: cosmos-sdk 0.47
     //
-    //Future<TxEncodeAmino200Response> txEncodeAmino(TxEncodeAminoRequest body) async
+    //Future<TxEncodeAmino200Response> txEncodeAmino(TxEncodeAminoRequest txEncodeAminoRequest) async
     test('test txEncodeAmino', () async {
       // TODO
     });

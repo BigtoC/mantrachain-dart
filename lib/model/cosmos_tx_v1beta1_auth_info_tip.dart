@@ -17,7 +17,7 @@ class CosmosTxV1beta1AuthInfoTip {
     this.tipper,
   });
 
-  List<Coin> amount;
+  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> amount;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -71,7 +71,7 @@ class CosmosTxV1beta1AuthInfoTip {
       }());
 
       return CosmosTxV1beta1AuthInfoTip(
-        amount: Coin.listFromJson(json[r'amount']),
+        amount: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'amount']),
         tipper: mapValueOfType<String>(json, r'tipper'),
       );
     }

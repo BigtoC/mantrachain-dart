@@ -26,7 +26,7 @@ class DelegatorDelegations200Response {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DelegatorDelegations200Response &&
@@ -73,7 +73,7 @@ class DelegatorDelegations200Response {
 
       return DelegatorDelegations200Response(
         delegationResponses: DelegatorDelegations200ResponseDelegationResponsesInner.listFromJson(json[r'delegation_responses']),
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

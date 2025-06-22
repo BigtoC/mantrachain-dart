@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosAuthzV1beta1Grant();
 
   group('test CosmosAuthzV1beta1Grant', () {
-    // CodesDefaultResponseDetailsInner authorization
+    // EvmAccountDefaultResponseDetailsInner authorization
     test('to test the property `authorization`', () async {
       // TODO
     });

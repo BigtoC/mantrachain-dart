@@ -23,13 +23,13 @@ void main() {
     });
 
     // self_bond_rewards defines the self delegations rewards.
-    // List<GasPrice200ResponsePrice> selfBondRewards (default value: const [])
+    // List<CommunityPool200ResponsePoolInner> selfBondRewards (default value: const [])
     test('to test the property `selfBondRewards`', () async {
       // TODO
     });
 
     // commission defines the commission the validator received.
-    // List<GasPrice200ResponsePrice> commission (default value: const [])
+    // List<CommunityPool200ResponsePoolInner> commission (default value: const [])
     test('to test the property `commission`', () async {
       // TODO
     });

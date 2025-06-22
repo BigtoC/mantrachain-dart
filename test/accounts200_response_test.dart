@@ -16,12 +16,12 @@ void main() {
   // final instance = Accounts200Response();
 
   group('test Accounts200Response', () {
-    // List<CodesDefaultResponseDetailsInner> accounts (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> accounts (default value: const [])
     test('to test the property `accounts`', () async {
       // TODO
     });
 
-    // QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination pagination
+    // TokenPairs200ResponsePagination pagination
     test('to test the property `pagination`', () async {
       // TODO
     });

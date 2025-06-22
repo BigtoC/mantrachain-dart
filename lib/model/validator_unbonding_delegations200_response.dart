@@ -25,7 +25,7 @@ class ValidatorUnbondingDelegations200Response {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ValidatorUnbondingDelegations200Response &&
@@ -72,7 +72,7 @@ class ValidatorUnbondingDelegations200Response {
 
       return ValidatorUnbondingDelegations200Response(
         unbondingResponses: DelegatorUnbondingDelegations200ResponseUnbondingResponsesInner.listFromJson(json[r'unbonding_responses']),
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

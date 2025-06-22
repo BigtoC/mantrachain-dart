@@ -31,7 +31,7 @@ void main() {
       // TODO
     });
 
-    // List<CodesDefaultResponseDetailsInner> details (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> details (default value: const [])
     test('to test the property `details`', () async {
       // TODO
     });

@@ -16,7 +16,7 @@ class CosmosAuthV1beta1QueryModuleAccountsResponse {
     this.accounts = const [],
   });
 
-  List<CodesDefaultResponseDetailsInner> accounts;
+  List<EvmAccountDefaultResponseDetailsInner> accounts;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosAuthV1beta1QueryModuleAccountsResponse &&
@@ -55,7 +55,7 @@ class CosmosAuthV1beta1QueryModuleAccountsResponse {
       }());
 
       return CosmosAuthV1beta1QueryModuleAccountsResponse(
-        accounts: CodesDefaultResponseDetailsInner.listFromJson(json[r'accounts']),
+        accounts: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'accounts']),
       );
     }
     return null;

@@ -21,8 +21,8 @@ void main() {
       // TODO
     });
 
-    // String channelId
-    test('to test the property `channelId`', () async {
+    // String channelOrClientId
+    test('to test the property `channelOrClientId`', () async {
       // TODO
     });
 

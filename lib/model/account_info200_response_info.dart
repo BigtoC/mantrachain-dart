@@ -33,7 +33,7 @@ class AccountInfo200ResponseInfo {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? pubKey;
+  EvmAccountDefaultResponseDetailsInner? pubKey;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -114,7 +114,7 @@ class AccountInfo200ResponseInfo {
 
       return AccountInfo200ResponseInfo(
         address: mapValueOfType<String>(json, r'address'),
-        pubKey: CodesDefaultResponseDetailsInner.fromJson(json[r'pub_key']),
+        pubKey: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'pub_key']),
         accountNumber: mapValueOfType<String>(json, r'account_number'),
         sequence: mapValueOfType<String>(json, r'sequence'),
       );

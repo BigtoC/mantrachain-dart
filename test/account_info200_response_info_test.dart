@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // CodesDefaultResponseDetailsInner pubKey
+    // EvmAccountDefaultResponseDetailsInner pubKey
     test('to test the property `pubKey`', () async {
       // TODO
     });

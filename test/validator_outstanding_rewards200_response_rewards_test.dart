@@ -16,7 +16,7 @@ void main() {
   // final instance = ValidatorOutstandingRewards200ResponseRewards();
 
   group('test ValidatorOutstandingRewards200ResponseRewards', () {
-    // List<GasPrice200ResponsePrice> rewards (default value: const [])
+    // List<CommunityPool200ResponsePoolInner> rewards (default value: const [])
     test('to test the property `rewards`', () async {
       // TODO
     });

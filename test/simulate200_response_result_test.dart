@@ -35,7 +35,7 @@ void main() {
     });
 
     // msg_responses contains the Msg handler responses type packed in Anys.  Since: cosmos-sdk 0.46
-    // List<CodesDefaultResponseDetailsInner> msgResponses (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> msgResponses (default value: const [])
     test('to test the property `msgResponses`', () async {
       // TODO
     });

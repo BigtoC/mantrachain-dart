@@ -17,8 +17,8 @@ void main() {
 
   group('test CosmosGovV1beta1TallyResult', () {
     // yes is the number of yes votes on a proposal.
-    // String yes
-    test('to test the property `yes`', () async {
+    // String true_
+    test('to test the property `true_`', () async {
       // TODO
     });
 
@@ -29,8 +29,8 @@ void main() {
     });
 
     // no is the number of no votes on a proposal.
-    // String no
-    test('to test the property `no`', () async {
+    // String false_
+    test('to test the property `false_`', () async {
       // TODO
     });
 

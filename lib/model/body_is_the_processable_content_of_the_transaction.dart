@@ -21,7 +21,7 @@ class BodyIsTheProcessableContentOfTheTransaction {
   });
 
   /// messages is a list of messages to be executed. The required signers of those messages define the number and order of elements in AuthInfo's signer_infos and Tx's signatures. Each required signer address is added to the list only the first time it occurs. By convention, the first required signer (usually from the first message) is referred to as the primary signer and pays the fee for the whole transaction.
-  List<CodesDefaultResponseDetailsInner> messages;
+  List<EvmAccountDefaultResponseDetailsInner> messages;
 
   /// memo is any arbitrary note/comment to be added to the transaction. WARNING: in clients, any publicly exposed text should not be called memo, but should be called `note` instead (see https://github.com/cosmos/cosmos-sdk/issues/9122).
   ///
@@ -40,9 +40,9 @@ class BodyIsTheProcessableContentOfTheTransaction {
   ///
   String? timeoutHeight;
 
-  List<CodesDefaultResponseDetailsInner> extensionOptions;
+  List<EvmAccountDefaultResponseDetailsInner> extensionOptions;
 
-  List<CodesDefaultResponseDetailsInner> nonCriticalExtensionOptions;
+  List<EvmAccountDefaultResponseDetailsInner> nonCriticalExtensionOptions;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is BodyIsTheProcessableContentOfTheTransaction &&
@@ -101,11 +101,11 @@ class BodyIsTheProcessableContentOfTheTransaction {
       }());
 
       return BodyIsTheProcessableContentOfTheTransaction(
-        messages: CodesDefaultResponseDetailsInner.listFromJson(json[r'messages']),
+        messages: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'messages']),
         memo: mapValueOfType<String>(json, r'memo'),
         timeoutHeight: mapValueOfType<String>(json, r'timeout_height'),
-        extensionOptions: CodesDefaultResponseDetailsInner.listFromJson(json[r'extension_options']),
-        nonCriticalExtensionOptions: CodesDefaultResponseDetailsInner.listFromJson(json[r'non_critical_extension_options']),
+        extensionOptions: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'extension_options']),
+        nonCriticalExtensionOptions: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'non_critical_extension_options']),
       );
     }
     return null;

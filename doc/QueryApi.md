@@ -30,16 +30,20 @@ Method | HTTP request | Description
 [**authority**](QueryApi.md#authority) | **GET** /cosmos/upgrade/v1beta1/authority | Returns the account with authority to conduct upgrades
 [**balance**](QueryApi.md#balance) | **GET** /cosmos/bank/v1beta1/balances/{address}/by_denom | Balance queries the balance of a single coin for a single account.
 [**bankParams**](QueryApi.md#bankparams) | **GET** /cosmos/bank/v1beta1/params | Params queries the parameters of x/bank module.
+[**baseFee**](QueryApi.md#basefee) | **GET** /cosmos/evm/feemarket/v1/base_fee | BaseFee queries the base fee of the parent block of the current block.
 [**bech32Prefix**](QueryApi.md#bech32prefix) | **GET** /cosmos/auth/v1beta1/bech32 | Bech32Prefix queries bech32Prefix
 [**beforeSendHookAddress**](QueryApi.md#beforesendhookaddress) | **GET** /osmosis/tokenfactory/v1beta1/denoms/factory/{creator}/{subdenom}/before_send_hook | BeforeSendHookAddress defines a gRPC query method for getting the address registered for the before send hook.
 [**blacklist**](QueryApi.md#blacklist) | **GET** /MANTRA-Chain/mantrachain/sanction/v1/blacklist | Blacklist queries the blacklisted accounts.
+[**blockGas**](QueryApi.md#blockgas) | **GET** /cosmos/evm/feemarket/v1/block_gas | BlockGas queries the gas used at a given block height
 [**buildAddress**](QueryApi.md#buildaddress) | **GET** /cosmwasm/wasm/v1/contract/build_address | BuildAddress builds a contract address
 [**channel**](QueryApi.md#channel) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id} | Channel queries an IBC Channel.
 [**channelClientState**](QueryApi.md#channelclientstate) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/client_state | ChannelClientState queries for the client state for the channel associated with the provided channel identifiers.
 [**channelConsensusState**](QueryApi.md#channelconsensusstate) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/consensus_state/revision/{revision_number}/height/{revision_height} | ChannelConsensusState queries for the consensus state for the channel associated with the provided channel identifiers.
-[**channelParams**](QueryApi.md#channelparams) | **GET** /ibc/core/channel/v1/params | ChannelParams queries all parameters of the ibc channel submodule.
 [**channels**](QueryApi.md#channels) | **GET** /ibc/core/channel/v1/channels | Channels queries all the IBC channels of a chain.
+[**circuitAccount**](QueryApi.md#circuitaccount) | **GET** /cosmos/circuit/v1/accounts/{address} | Account returns account permissions.
+[**circuitAccounts**](QueryApi.md#circuitaccounts) | **GET** /cosmos/circuit/v1/accounts | Account returns account permissions.
 [**clientConnections**](QueryApi.md#clientconnections) | **GET** /ibc/core/connection/v1/client_connections/{client_id} | ClientConnections queries the connection paths associated with a client state.
+[**clientCreator**](QueryApi.md#clientcreator) | **GET** /ibc/core/client/v1/client_creator/{client_id} | ClientCreator queries the creator of a given client.
 [**clientParams**](QueryApi.md#clientparams) | **GET** /ibc/core/client/v1/params | ClientParams queries all parameters of the ibc client submodule.
 [**clientState**](QueryApi.md#clientstate) | **GET** /ibc/core/client/v1/client_states/{client_id} | ClientState queries an IBC light client.
 [**clientStates**](QueryApi.md#clientstates) | **GET** /ibc/core/client/v1/client_states | ClientStates queries all the IBC light clients of a chain.
@@ -48,6 +52,7 @@ Method | HTTP request | Description
 [**codeInfo**](QueryApi.md#codeinfo) | **GET** /cosmwasm/wasm/v1/code-info/{code_id} | CodeInfo gets the metadata for a single wasm code
 [**codes**](QueryApi.md#codes) | **GET** /cosmwasm/wasm/v1/code | Codes gets the metadata for all stored wasm codes
 [**communityPool**](QueryApi.md#communitypool) | **GET** /cosmos/distribution/v1beta1/community_pool | CommunityPool queries the community pool coins.
+[**config**](QueryApi.md#config) | **GET** /cosmos/evm/vm/v1/config | Config queries the EVM configuration
 [**connection**](QueryApi.md#connection) | **GET** /ibc/core/connection/v1/connections/{connection_id} | Connection queries an IBC connection end.
 [**connectionChannels**](QueryApi.md#connectionchannels) | **GET** /ibc/core/channel/v1/connections/{connection}/channels | ConnectionChannels queries all the channels associated with a connection end.
 [**connectionClientState**](QueryApi.md#connectionclientstate) | **GET** /ibc/core/connection/v1/connections/{connection_id}/client_state | ConnectionClientState queries the client state associated with the connection.
@@ -61,8 +66,8 @@ Method | HTTP request | Description
 [**contractInfo**](QueryApi.md#contractinfo) | **GET** /cosmwasm/wasm/v1/contract/{address} | ContractInfo gets the contract meta data
 [**contractsByCode**](QueryApi.md#contractsbycode) | **GET** /cosmwasm/wasm/v1/code/{code_id}/contracts | ContractsByCode lists all smart contracts for a code id
 [**contractsByCreator**](QueryApi.md#contractsbycreator) | **GET** /cosmwasm/wasm/v1/contracts/creator/{creator_address} | ContractsByCreator gets the contracts by creator
+[**cosmosAccount**](QueryApi.md#cosmosaccount) | **GET** /cosmos/evm/vm/v1/cosmos_account/{address} | CosmosAccount queries an Ethereum account's Cosmos Address.
 [**cosmosMintParams**](QueryApi.md#cosmosmintparams) | **GET** /cosmos/mint/v1beta1/params | Params returns the total set of minting parameters.
-[**counterpartyPayee**](QueryApi.md#counterpartypayee) | **GET** /ibc/apps/fee/v1/channels/{channel_id}/relayers/{relayer}/counterparty_payee | CounterpartyPayee returns the registered counterparty payee for forward relaying
 [**currentPlan**](QueryApi.md#currentplan) | **GET** /cosmos/upgrade/v1beta1/current_plan | CurrentPlan queries the current upgrade plan.
 [**delegation**](QueryApi.md#delegation) | **GET** /cosmos/staking/v1beta1/validators/{validator_addr}/delegations/{delegator_addr} | Delegation queries delegate info for given validator delegator pair.
 [**delegationRewards**](QueryApi.md#delegationrewards) | **GET** /cosmos/distribution/v1beta1/delegators/{delegator_address}/rewards/{validator_address} | DelegationRewards queries the total rewards accrued by a delegation.
@@ -72,31 +77,38 @@ Method | HTTP request | Description
 [**delegatorValidator**](QueryApi.md#delegatorvalidator) | **GET** /cosmos/staking/v1beta1/delegators/{delegator_addr}/validators/{validator_addr} | DelegatorValidator queries validator info for given delegator validator pair.
 [**delegatorValidators**](QueryApi.md#delegatorvalidators) | **GET** /cosmos/distribution/v1beta1/delegators/{delegator_address}/validators | DelegatorValidators queries the validators of a delegator.
 [**delegatorWithdrawAddress**](QueryApi.md#delegatorwithdrawaddress) | **GET** /cosmos/distribution/v1beta1/delegators/{delegator_address}/withdraw_address | DelegatorWithdrawAddress queries withdraw address of a delegator.
+[**denom**](QueryApi.md#denom) | **GET** /ibc/apps/transfer/v1/denoms/{hash} | Denom queries a denomination
 [**denomAuthorityMetadata**](QueryApi.md#denomauthoritymetadata) | **GET** /osmosis/tokenfactory/v1beta1/denoms/factory/{creator}/{subdenom}/authority_metadata | DenomAuthorityMetadata defines a gRPC query method for fetching DenomAuthorityMetadata for a particular denom.
 [**denomHash**](QueryApi.md#denomhash) | **GET** /ibc/apps/transfer/v1/denom_hashes/{trace} | DenomHash queries a denomination hash information.
 [**denomMetadata**](QueryApi.md#denommetadata) | **GET** /cosmos/bank/v1beta1/denoms_metadata/{denom} | DenomMetadata queries the client metadata of a given coin denomination.
 [**denomMetadataByQueryString**](QueryApi.md#denommetadatabyquerystring) | **GET** /cosmos/bank/v1beta1/denoms_metadata_by_query_string | DenomMetadataByQueryString queries the client metadata of a given coin denomination.
 [**denomOwners**](QueryApi.md#denomowners) | **GET** /cosmos/bank/v1beta1/denom_owners/{denom} | DenomOwners queries for all account addresses that own a particular token denomination.
 [**denomOwnersByQuery**](QueryApi.md#denomownersbyquery) | **GET** /cosmos/bank/v1beta1/denom_owners_by_query | DenomOwnersByQuery queries for all account addresses that own a particular token denomination.
-[**denomTrace**](QueryApi.md#denomtrace) | **GET** /ibc/apps/transfer/v1/denom_traces/{hash} | DenomTrace queries a denomination trace information.
-[**denomTraces**](QueryApi.md#denomtraces) | **GET** /ibc/apps/transfer/v1/denom_traces | DenomTraces queries all denomination traces.
+[**denoms**](QueryApi.md#denoms) | **GET** /ibc/apps/transfer/v1/denoms | Denoms queries all denominations
 [**denomsFromCreator**](QueryApi.md#denomsfromcreator) | **GET** /osmosis/tokenfactory/v1beta1/denoms_from_creator/{creator} | DenomsFromCreator defines a gRPC query method for fetching all denominations created by a specific admin/creator.
 [**denomsMetadata**](QueryApi.md#denomsmetadata) | **GET** /cosmos/bank/v1beta1/denoms_metadata | DenomsMetadata queries the client metadata for all registered coin denominations.
 [**deposit**](QueryApi.md#deposit) | **GET** /cosmos/gov/v1beta1/proposals/{proposal_id}/deposits/{depositor} | Deposit queries single deposit information based on proposalID, depositor address.
 [**deposits**](QueryApi.md#deposits) | **GET** /cosmos/gov/v1beta1/proposals/{proposal_id}/deposits | Deposits queries all deposits of a single proposal.
+[**disabledList**](QueryApi.md#disabledlist) | **GET** /cosmos/circuit/v1/disable_list | DisabledList returns a list of disabled message urls
 [**distributionParams**](QueryApi.md#distributionparams) | **GET** /cosmos/distribution/v1beta1/params | Params queries params of the distribution module.
+[**erc20Params**](QueryApi.md#erc20params) | **GET** /cosmos/evm/erc20/v1/params | Params retrieves the erc20 module params
 [**escrowAddress**](QueryApi.md#escrowaddress) | **GET** /ibc/apps/transfer/v1/channels/{channel_id}/ports/{port_id}/escrow_address | EscrowAddress returns the escrow address for a particular port and channel id.
+[**estimateGas**](QueryApi.md#estimategas) | **GET** /cosmos/evm/vm/v1/estimate_gas | EstimateGas implements the `eth_estimateGas` rpc api
+[**ethCall**](QueryApi.md#ethcall) | **GET** /cosmos/evm/vm/v1/eth_call | EthCall implements the `eth_call` rpc api
 [**evidence**](QueryApi.md#evidence) | **GET** /cosmos/evidence/v1beta1/evidence/{hash} | Evidence queries evidence based on evidence hash.
-[**feeEnabledChannel**](QueryApi.md#feeenabledchannel) | **GET** /ibc/apps/fee/v1/channels/{channel_id}/ports/{port_id}/fee_enabled | FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel
-[**feeEnabledChannels**](QueryApi.md#feeenabledchannels) | **GET** /ibc/apps/fee/v1/fee_enabled | FeeEnabledChannels returns a list of all fee enabled channels
-[**feemarketParams**](QueryApi.md#feemarketparams) | **GET** /feemarket/v1/params | Params returns the current feemarket module parameters.
-[**gasPrice**](QueryApi.md#gasprice) | **GET** /feemarket/v1/gas_price/{denom} | GasPrice returns the current feemarket module gas price for specified denom.
-[**gasPrices**](QueryApi.md#gasprices) | **GET** /feemarket/v1/gas_prices | GasPrices returns the current feemarket module list of gas prices in all available denoms.
+[**evmAccount**](QueryApi.md#evmaccount) | **GET** /cosmos/evm/vm/v1/account/{address} | Account queries an Ethereum account.
+[**evmBalance**](QueryApi.md#evmbalance) | **GET** /cosmos/evm/vm/v1/balances/{address} | Balance queries the balance of a the EVM denomination for a single account.
+[**evmBaseFee**](QueryApi.md#evmbasefee) | **GET** /cosmos/evm/vm/v1/base_fee | BaseFee queries the base fee of the parent block of the current block, it's similar to feemarket module's method, but also checks london hardfork status.
+[**evmCode**](QueryApi.md#evmcode) | **GET** /cosmos/evm/vm/v1/codes/{address} | Code queries the balance of all coins for a single account.
+[**evmParams**](QueryApi.md#evmparams) | **GET** /cosmos/evm/vm/v1/params | Params queries the parameters of x/vm module.
+[**feeMarketParams**](QueryApi.md#feemarketparams) | **GET** /cosmos/evm/feemarket/v1/params | Params queries the parameters of x/feemarket module.
+[**fractionalBalance**](QueryApi.md#fractionalbalance) | **GET** /cosmos/evm/precisebank/v1/fractional_balance/{address} | FractionalBalance returns only the fractional balance of an address. This does not include any integer balance.
 [**getAllCurrencyPairs**](QueryApi.md#getallcurrencypairs) | **GET** /connect/oracle/v2/get_all_tickers | Get all the currency pairs the x/oracle module is tracking price-data for.
 [**getCurrencyPairMapping**](QueryApi.md#getcurrencypairmapping) | **GET** /connect/oracle/v2/get_currency_pair_mapping | Get the mapping of currency pair ID -> currency pair. This is useful for indexers that have access to the ID of a currency pair, but no way to get the underlying currency pair from it.
 [**getCurrencyPairMappingList**](QueryApi.md#getcurrencypairmappinglist) | **GET** /connect/oracle/v2/get_currency_pair_mapping_list | Get the mapping of currency pair ID <-> currency pair as a list. This is useful for indexers that have access to the ID of a currency pair, but no way to get the underlying currency pair from it.
 [**getPrice**](QueryApi.md#getprice) | **GET** /connect/oracle/v2/get_price | Given a CurrencyPair (or its identifier) return the latest QuotePrice for that CurrencyPair.
 [**getPrices**](QueryApi.md#getprices) | **GET** /connect/oracle/v2/get_prices | 
+[**globalMinGasPrice**](QueryApi.md#globalmingasprice) | **GET** /cosmos/evm/vm/v1/min_gas_price | GlobalMinGasPrice queries the MinGasPrice it's similar to feemarket module's method, but makes the conversion to 18 decimals when the evm denom is represented with a different precision.
 [**govParams**](QueryApi.md#govparams) | **GET** /cosmos/gov/v1beta1/params/{params_type} | Params queries all parameters of the gov module.
 [**granteeGrants**](QueryApi.md#granteegrants) | **GET** /cosmos/authz/v1beta1/grants/grantee/{grantee} | GranteeGrants returns a list of `GrantAuthorization` by grantee.
 [**granterGrants**](QueryApi.md#grantergrants) | **GET** /cosmos/authz/v1beta1/grants/granter/{granter} | GranterGrants returns list of `GrantAuthorization`, granted by granter.
@@ -104,9 +116,6 @@ Method | HTTP request | Description
 [**historicalInfo**](QueryApi.md#historicalinfo) | **GET** /cosmos/staking/v1beta1/historical_info/{height} | HistoricalInfo queries the historical info for given height.
 [**iCAControllerParams**](QueryApi.md#icacontrollerparams) | **GET** /ibc/apps/interchain_accounts/controller/v1/params | Params queries all parameters of the ICA controller submodule.
 [**iCAHostParams**](QueryApi.md#icahostparams) | **GET** /ibc/apps/interchain_accounts/host/v1/params | Params queries all parameters of the ICA host submodule.
-[**incentivizedPacket**](QueryApi.md#incentivizedpacket) | **GET** /ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/incentivized_packet | IncentivizedPacket returns all packet fees for a packet given its identifier
-[**incentivizedPackets**](QueryApi.md#incentivizedpackets) | **GET** /ibc/apps/fee/v1/incentivized_packets | IncentivizedPackets returns all incentivized packets and their associated fees
-[**incentivizedPacketsForChannel**](QueryApi.md#incentivizedpacketsforchannel) | **GET** /ibc/apps/fee/v1/channels/{channel_id}/ports/{port_id}/incentivized_packets | Gets all incentivized packets for a specific channel
 [**inflation**](QueryApi.md#inflation) | **GET** /cosmos/mint/v1beta1/inflation | Inflation returns the current minting inflation value.
 [**interchainAccount**](QueryApi.md#interchainaccount) | **GET** /ibc/apps/interchain_accounts/controller/v1/owners/{owner}/connections/{connection_id} | InterchainAccount returns the interchain account address for a given owner address on a given connection
 [**lastUpdated**](QueryApi.md#lastupdated) | **GET** /connect/marketmap/v2/last_updated | LastUpdated returns the last height the market map was updated at.
@@ -125,15 +134,15 @@ Method | HTTP request | Description
 [**packetCommitments**](QueryApi.md#packetcommitments) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/packet_commitments | PacketCommitments returns all the packet commitments hashes associated with a channel.
 [**packetReceipt**](QueryApi.md#packetreceipt) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/packet_receipts/{sequence} | PacketReceipt queries if a given packet sequence has been received on the queried chain
 [**params**](QueryApi.md#params) | **GET** /cosmos/params/v1beta1/params | Params queries a specific parameter of a module, given its subspace and key.
-[**payee**](QueryApi.md#payee) | **GET** /ibc/apps/fee/v1/channels/{channel_id}/relayers/{relayer}/payee | Payee returns the registered payee address for a specific channel given the relayer address
 [**pinnedCodes**](QueryApi.md#pinnedcodes) | **GET** /cosmwasm/wasm/v1/codes/pinned | PinnedCodes gets the pinned code ids
 [**proposal**](QueryApi.md#proposal) | **GET** /cosmos/gov/v1beta1/proposals/{proposal_id} | Proposal queries proposal details based on ProposalID.
 [**proposals**](QueryApi.md#proposals) | **GET** /cosmos/gov/v1beta1/proposals | Proposals queries all proposals based on given status.
-[**rateLimit**](QueryApi.md#ratelimit) | **GET** /Stride-Labs/ibc-rate-limiting/ratelimit/ratelimit/{channel_id}/by_denom | Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_id}/by_denom?denom={denom}
+[**rateLimit**](QueryApi.md#ratelimit) | **GET** /Stride-Labs/ibc-rate-limiting/ratelimit/ratelimit/{channel_or_client_id}/by_denom | Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_or_client_id}/by_denom?denom={denom}
 [**rateLimitsByChainId**](QueryApi.md#ratelimitsbychainid) | **GET** /Stride-Labs/ibc-rate-limiting/ratelimit/ratelimits/{chain_id} | Queries all the rate limits for a given chain
-[**rateLimitsByChannelId**](QueryApi.md#ratelimitsbychannelid) | **GET** /Stride-Labs/ibc-rate-limiting/ratelimit/ratelimits/{channel_id} | Queries all the rate limits for a given channel ID
+[**rateLimitsByChannelOrClientId**](QueryApi.md#ratelimitsbychannelorclientid) | **GET** /Stride-Labs/ibc-rate-limiting/ratelimit/ratelimits/{channel_or_client_id} | Queries all the rate limits for a given channel ID
 [**rawContractState**](QueryApi.md#rawcontractstate) | **GET** /cosmwasm/wasm/v1/contract/{address}/raw/{query_data} | RawContractState gets single key from the raw store data of a contract
 [**redelegations**](QueryApi.md#redelegations) | **GET** /cosmos/staking/v1beta1/delegators/{delegator_addr}/redelegations | Redelegations queries redelegations of given address.
+[**remainder**](QueryApi.md#remainder) | **GET** /cosmos/evm/precisebank/v1/remainder | Remainder returns the amount backed by the reserve, but not yet owned by any account, i.e. not in circulation.
 [**sanctionParams**](QueryApi.md#sanctionparams) | **GET** /MANTRA-Chain/mantrachain/sanction/v1/params | Parameters queries the parameters of the module.
 [**sendEnabled**](QueryApi.md#sendenabled) | **GET** /cosmos/bank/v1beta1/send_enabled | SendEnabled queries for SendEnabled entries.
 [**signingInfo**](QueryApi.md#signinginfo) | **GET** /cosmos/slashing/v1beta1/signing_infos/{cons_address} | SigningInfo queries the signing info of given cons address
@@ -145,27 +154,27 @@ Method | HTTP request | Description
 [**stakingDelegatorValidators**](QueryApi.md#stakingdelegatorvalidators) | **GET** /cosmos/staking/v1beta1/delegators/{delegator_addr}/validators | DelegatorValidators queries all validators info for given delegator address.
 [**stakingParams**](QueryApi.md#stakingparams) | **GET** /cosmos/staking/v1beta1/params | Parameters queries the staking parameters.
 [**stakingPool**](QueryApi.md#stakingpool) | **GET** /cosmos/staking/v1beta1/pool | Pool queries the pool info.
-[**state**](QueryApi.md#state) | **GET** /feemarket/v1/state | State returns the current feemarket module state.
+[**storage**](QueryApi.md#storage) | **GET** /cosmos/evm/vm/v1/storage/{address}/{key} | Storage queries the balance of all coins for a single account.
 [**subspaces**](QueryApi.md#subspaces) | **GET** /cosmos/params/v1beta1/subspaces | Subspaces queries for all registered subspaces and all keys for a subspace.
 [**supplyOf**](QueryApi.md#supplyof) | **GET** /cosmos/bank/v1beta1/supply/by_denom | SupplyOf queries the supply of a single coin.
 [**tallyResult**](QueryApi.md#tallyresult) | **GET** /cosmos/gov/v1beta1/proposals/{proposal_id}/tally | TallyResult queries the tally of a proposal vote.
 [**taxParams**](QueryApi.md#taxparams) | **GET** /MANTRA-Chain/mantrachain/tax/v1/params | Parameters queries the parameters of the module.
+[**tokenPair**](QueryApi.md#tokenpair) | **GET** /cosmos/evm/erc20/v1/token_pairs/{token} | TokenPair retrieves a registered token pair
+[**tokenPairs**](QueryApi.md#tokenpairs) | **GET** /cosmos/evm/erc20/v1/token_pairs | TokenPairs retrieves registered token pairs
 [**tokenfactoryParams**](QueryApi.md#tokenfactoryparams) | **GET** /osmosis/tokenfactory/v1beta1/params | Params defines a gRPC query method that returns the tokenfactory module's parameters.
-[**totalAckFees**](QueryApi.md#totalackfees) | **GET** /ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_ack_fees | TotalAckFees returns the total acknowledgement fees for a packet given its identifier
-[**totalEscrowForDenom**](QueryApi.md#totalescrowfordenom) | **GET** /ibc/apps/transfer/v1/denoms/{denom}/total_escrow | TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.
-[**totalRecvFees**](QueryApi.md#totalrecvfees) | **GET** /ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_recv_fees | TotalRecvFees returns the total receive fees for a packet given its identifier
+[**totalEscrowForDenom**](QueryApi.md#totalescrowfordenom) | **GET** /ibc/apps/transfer/v1/total_escrow/{denom} | TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.
 [**totalSupply**](QueryApi.md#totalsupply) | **GET** /cosmos/bank/v1beta1/supply | TotalSupply queries the total supply of all coins.
-[**totalTimeoutFees**](QueryApi.md#totaltimeoutfees) | **GET** /ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_timeout_fees | TotalTimeoutFees returns the total timeout fees for a packet given its identifier
+[**traceBlock**](QueryApi.md#traceblock) | **GET** /cosmos/evm/vm/v1/trace_block | TraceBlock implements the `debug_traceBlockByNumber` and `debug_traceBlockByHash` rpc api
+[**traceTx**](QueryApi.md#tracetx) | **GET** /cosmos/evm/vm/v1/trace_tx | TraceTx implements the `debug_traceTransaction` rpc api
 [**transferParams**](QueryApi.md#transferparams) | **GET** /ibc/apps/transfer/v1/params | Params queries all parameters of the ibc-transfer module.
 [**unbondingDelegation**](QueryApi.md#unbondingdelegation) | **GET** /cosmos/staking/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}/unbonding_delegation | UnbondingDelegation queries unbonding info for given validator delegator pair.
 [**unreceivedAcks**](QueryApi.md#unreceivedacks) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/packet_commitments/{packet_ack_sequences}/unreceived_acks | UnreceivedAcks returns all the unreceived IBC acknowledgements associated with a channel and sequences.
 [**unreceivedPackets**](QueryApi.md#unreceivedpackets) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/packet_commitments/{packet_commitment_sequences}/unreceived_packets | UnreceivedPackets returns all the unreceived IBC packets associated with a channel and sequences.
-[**upgrade**](QueryApi.md#upgrade) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/upgrade | Upgrade returns the upgrade for a given port and channel id.
-[**upgradeError**](QueryApi.md#upgradeerror) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/upgrade_error | UpgradeError returns the error receipt if the upgrade handshake failed.
 [**upgradedClientState**](QueryApi.md#upgradedclientstate) | **GET** /ibc/core/client/v1/upgraded_client_states | UpgradedClientState queries an Upgraded IBC light client.
 [**upgradedConsensusState**](QueryApi.md#upgradedconsensusstate) | **GET** /cosmos/upgrade/v1beta1/upgraded_consensus_state/{last_height} | UpgradedConsensusState queries the consensus state that will serve as a trusted kernel for the next version of this chain. It will only be stored at the last height of this chain. UpgradedConsensusState RPC not supported with legacy querier This rpc is deprecated now that IBC has its own replacement (https://github.com/cosmos/ibc-go/blob/2c880a22e9f9cc75f62b527ca94aa75ce1106001/proto/ibc/core/client/v1/query.proto#L54)
 [**upgradedIBCConsensusState**](QueryApi.md#upgradedibcconsensusstate) | **GET** /ibc/core/client/v1/upgraded_consensus_states | UpgradedConsensusState queries an Upgraded IBC consensus state.
 [**validator**](QueryApi.md#validator) | **GET** /cosmos/staking/v1beta1/validators/{validator_addr} | Validator queries validator info for given validator address.
+[**validatorAccount**](QueryApi.md#validatoraccount) | **GET** /cosmos/evm/vm/v1/validator_account/{cons_address} | ValidatorAccount queries an Ethereum account's from a validator consensus Address.
 [**validatorCommission**](QueryApi.md#validatorcommission) | **GET** /cosmos/distribution/v1beta1/validators/{validator_address}/commission | ValidatorCommission queries accumulated commission for a validator.
 [**validatorDelegations**](QueryApi.md#validatordelegations) | **GET** /cosmos/staking/v1beta1/validators/{validator_addr}/delegations | ValidatorDelegations queries delegate info for given validator.
 [**validatorDistributionInfo**](QueryApi.md#validatordistributioninfo) | **GET** /cosmos/distribution/v1beta1/validators/{validator_address} | ValidatorDistributionInfo queries validator commission and self-delegation rewards for validator
@@ -1093,6 +1102,43 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **baseFee**
+> EvmBaseFee200Response baseFee()
+
+BaseFee queries the base fee of the parent block of the current block.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+
+try {
+    final result = api_instance.baseFee();
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->baseFee: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EvmBaseFee200Response**](EvmBaseFee200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **bech32Prefix**
 > Bech32Prefix200Response bech32Prefix()
 
@@ -1200,6 +1246,43 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Blacklist200Response**](Blacklist200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **blockGas**
+> BlockGas200Response blockGas()
+
+BlockGas queries the gas used at a given block height
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+
+try {
+    final result = api_instance.blockGas();
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->blockGas: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**BlockGas200Response**](BlockGas200Response.md)
 
 ### Authorization
 
@@ -1392,43 +1475,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **channelParams**
-> ChannelParams200Response channelParams()
-
-ChannelParams queries all parameters of the ibc channel submodule.
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-
-try {
-    final result = api_instance.channelParams();
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->channelParams: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ChannelParams200Response**](ChannelParams200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **channels**
 > Channels200Response channels(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse)
 
@@ -1478,6 +1524,96 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **circuitAccount**
+> CircuitAccount200Response circuitAccount(address)
+
+Account returns account permissions.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final address = address_example; // String | 
+
+try {
+    final result = api_instance.circuitAccount(address);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->circuitAccount: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **String**|  | 
+
+### Return type
+
+[**CircuitAccount200Response**](CircuitAccount200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **circuitAccounts**
+> CircuitAccounts200Response circuitAccounts(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse)
+
+Account returns account permissions.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+final paginationPeriodOffset = paginationPeriodOffset_example; // String | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+final paginationPeriodLimit = paginationPeriodLimit_example; // String | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+final paginationPeriodCountTotal = true; // bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+final paginationPeriodReverse = true; // bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+
+try {
+    final result = api_instance.circuitAccounts(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->circuitAccounts: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **paginationPeriodKey** | **String**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **paginationPeriodOffset** | **String**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **paginationPeriodLimit** | **String**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **paginationPeriodCountTotal** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **paginationPeriodReverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**CircuitAccounts200Response**](CircuitAccounts200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **clientConnections**
 > QueryClientConnectionsResponseIsTheResponseTypeForTheQueryClientConnectionsRPCMethod clientConnections(clientId)
 
@@ -1507,6 +1643,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**QueryClientConnectionsResponseIsTheResponseTypeForTheQueryClientConnectionsRPCMethod**](QueryClientConnectionsResponseIsTheResponseTypeForTheQueryClientConnectionsRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **clientCreator**
+> ClientCreator200Response clientCreator(clientId)
+
+ClientCreator queries the creator of a given client.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final clientId = clientId_example; // String | client unique identifier
+
+try {
+    final result = api_instance.clientCreator(clientId);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->clientCreator: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientId** | **String**| client unique identifier | 
+
+### Return type
+
+[**ClientCreator200Response**](ClientCreator200Response.md)
 
 ### Authorization
 
@@ -1855,6 +2032,43 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **config**
+> Config200Response config()
+
+Config queries the EVM configuration
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+
+try {
+    final result = api_instance.config();
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->config: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Config200Response**](Config200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **connection**
 > Connection200Response connection(connectionId)
 
@@ -2132,7 +2346,7 @@ final api_instance = QueryApi();
 final clientId = clientId_example; // String | client identifier
 final revisionNumber = revisionNumber_example; // String | consensus state revision number
 final revisionHeight = revisionHeight_example; // String | consensus state revision height
-final latestHeight = true; // bool | latest_height overrrides the height field and queries the latest stored ConsensusState.
+final latestHeight = true; // bool | latest_height overrides the height field and queries the latest stored ConsensusState.
 
 try {
     final result = api_instance.consensusState(clientId, revisionNumber, revisionHeight, latestHeight);
@@ -2149,7 +2363,7 @@ Name | Type | Description  | Notes
  **clientId** | **String**| client identifier | 
  **revisionNumber** | **String**| consensus state revision number | 
  **revisionHeight** | **String**| consensus state revision height | 
- **latestHeight** | **bool**| latest_height overrrides the height field and queries the latest stored ConsensusState. | [optional] 
+ **latestHeight** | **bool**| latest_height overrides the height field and queries the latest stored ConsensusState. | [optional] 
 
 ### Return type
 
@@ -2462,6 +2676,47 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **cosmosAccount**
+> CosmosAccount200Response cosmosAccount(address)
+
+CosmosAccount queries an Ethereum account's Cosmos Address.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final address = address_example; // String | address is the ethereum hex address to query the account for.
+
+try {
+    final result = api_instance.cosmosAccount(address);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->cosmosAccount: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **String**| address is the ethereum hex address to query the account for. | 
+
+### Return type
+
+[**CosmosAccount200Response**](CosmosAccount200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **cosmosMintParams**
 > CosmosMintParams200Response cosmosMintParams()
 
@@ -2487,49 +2742,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**CosmosMintParams200Response**](CosmosMintParams200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **counterpartyPayee**
-> QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc counterpartyPayee(channelId, relayer)
-
-CounterpartyPayee returns the registered counterparty payee for forward relaying
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final channelId = channelId_example; // String | unique channel identifier
-final relayer = relayer_example; // String | the relayer address to which the counterparty is registered
-
-try {
-    final result = api_instance.counterpartyPayee(channelId, relayer);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->counterpartyPayee: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **channelId** | **String**| unique channel identifier | 
- **relayer** | **String**| the relayer address to which the counterparty is registered | 
-
-### Return type
-
-[**QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc**](QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc.md)
 
 ### Authorization
 
@@ -2937,6 +3149,47 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **denom**
+> Denom200Response denom(hash)
+
+Denom queries a denomination
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final hash = hash_example; // String | hash (in hex format) or denom (full denom with ibc prefix) of the on chain denomination.
+
+try {
+    final result = api_instance.denom(hash);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->denom: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hash** | **String**| hash (in hex format) or denom (full denom with ibc prefix) of the on chain denomination. | 
+
+### Return type
+
+[**Denom200Response**](Denom200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **denomAuthorityMetadata**
 > DenomAuthorityMetadata200Response denomAuthorityMetadata(creator, subdenom)
 
@@ -3209,51 +3462,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **denomTrace**
-> DenomTrace200Response denomTrace(hash)
+# **denoms**
+> Denoms200Response denoms(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse)
 
-DenomTrace queries a denomination trace information.
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final hash = hash_example; // String | hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information.
-
-try {
-    final result = api_instance.denomTrace(hash);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->denomTrace: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **hash** | **String**| hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information. | 
-
-### Return type
-
-[**DenomTrace200Response**](DenomTrace200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **denomTraces**
-> DenomTraces200Response denomTraces(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse)
-
-DenomTraces queries all denomination traces.
+Denoms queries all denominations
 
 ### Example
 ```dart
@@ -3267,10 +3479,10 @@ final paginationPeriodCountTotal = true; // bool | count_total is set to true  t
 final paginationPeriodReverse = true; // bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
 
 try {
-    final result = api_instance.denomTraces(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse);
+    final result = api_instance.denoms(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse);
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->denomTraces: $e\n');
+    print('Exception when calling QueryApi->denoms: $e\n');
 }
 ```
 
@@ -3286,7 +3498,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DenomTraces200Response**](DenomTraces200Response.md)
+[**Denoms200Response**](Denoms200Response.md)
 
 ### Authorization
 
@@ -3483,6 +3695,43 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **disabledList**
+> DisabledList200Response disabledList()
+
+DisabledList returns a list of disabled message urls
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+
+try {
+    final result = api_instance.disabledList();
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->disabledList: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DisabledList200Response**](DisabledList200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **distributionParams**
 > DistributionParams200Response distributionParams()
 
@@ -3508,6 +3757,43 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**DistributionParams200Response**](DistributionParams200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **erc20Params**
+> Erc20Params200Response erc20Params()
+
+Params retrieves the erc20 module params
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+
+try {
+    final result = api_instance.erc20Params();
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->erc20Params: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Erc20Params200Response**](Erc20Params200Response.md)
 
 ### Authorization
 
@@ -3563,6 +3849,100 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **estimateGas**
+> EstimateGasResponseDefinesEstimateGasResponse estimateGas(args, gasCap, proposerAddress, chainId)
+
+EstimateGas implements the `eth_estimateGas` rpc api
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final args = BYTE_ARRAY_DATA_HERE; // String | args uses the same json format as the json rpc api.
+final gasCap = gasCap_example; // String | gas_cap defines the default gas cap to be used.
+final proposerAddress = BYTE_ARRAY_DATA_HERE; // String | proposer_address of the requested block in hex format.
+final chainId = chainId_example; // String | chain_id is the eip155 chain id parsed from the requested block header.
+
+try {
+    final result = api_instance.estimateGas(args, gasCap, proposerAddress, chainId);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->estimateGas: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **args** | **String**| args uses the same json format as the json rpc api. | [optional] 
+ **gasCap** | **String**| gas_cap defines the default gas cap to be used. | [optional] 
+ **proposerAddress** | **String**| proposer_address of the requested block in hex format. | [optional] 
+ **chainId** | **String**| chain_id is the eip155 chain id parsed from the requested block header. | [optional] 
+
+### Return type
+
+[**EstimateGasResponseDefinesEstimateGasResponse**](EstimateGasResponseDefinesEstimateGasResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ethCall**
+> EthCall200Response ethCall(args, gasCap, proposerAddress, chainId)
+
+EthCall implements the `eth_call` rpc api
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final args = BYTE_ARRAY_DATA_HERE; // String | args uses the same json format as the json rpc api.
+final gasCap = gasCap_example; // String | gas_cap defines the default gas cap to be used.
+final proposerAddress = BYTE_ARRAY_DATA_HERE; // String | proposer_address of the requested block in hex format.
+final chainId = chainId_example; // String | chain_id is the eip155 chain id parsed from the requested block header.
+
+try {
+    final result = api_instance.ethCall(args, gasCap, proposerAddress, chainId);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->ethCall: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **args** | **String**| args uses the same json format as the json rpc api. | [optional] 
+ **gasCap** | **String**| gas_cap defines the default gas cap to be used. | [optional] 
+ **proposerAddress** | **String**| proposer_address of the requested block in hex format. | [optional] 
+ **chainId** | **String**| chain_id is the eip155 chain id parsed from the requested block header. | [optional] 
+
+### Return type
+
+[**EthCall200Response**](EthCall200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **evidence**
 > Evidence200Response evidence(hash, evidenceHash)
 
@@ -3606,24 +3986,23 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **feeEnabledChannel**
-> QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc feeEnabledChannel(channelId, portId)
+# **evmAccount**
+> EvmAccount200Response evmAccount(address)
 
-FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel
+Account queries an Ethereum account.
 
 ### Example
 ```dart
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
-final channelId = channelId_example; // String | unique channel identifier
-final portId = portId_example; // String | unique port identifier
+final address = address_example; // String | address is the ethereum hex address to query the account for.
 
 try {
-    final result = api_instance.feeEnabledChannel(channelId, portId);
+    final result = api_instance.evmAccount(address);
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->feeEnabledChannel: $e\n');
+    print('Exception when calling QueryApi->evmAccount: $e\n');
 }
 ```
 
@@ -3631,12 +4010,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **channelId** | **String**| unique channel identifier | 
- **portId** | **String**| unique port identifier | 
+ **address** | **String**| address is the ethereum hex address to query the account for. | 
 
 ### Return type
 
-[**QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc**](QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc.md)
+[**EvmAccount200Response**](EvmAccount200Response.md)
 
 ### Authorization
 
@@ -3649,28 +4027,23 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **feeEnabledChannels**
-> QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc feeEnabledChannels(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse, queryHeight)
+# **evmBalance**
+> EvmBalance200Response evmBalance(address)
 
-FeeEnabledChannels returns a list of all fee enabled channels
+Balance queries the balance of a the EVM denomination for a single account.
 
 ### Example
 ```dart
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
-final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-final paginationPeriodOffset = paginationPeriodOffset_example; // String | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-final paginationPeriodLimit = paginationPeriodLimit_example; // String | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-final paginationPeriodCountTotal = true; // bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-final paginationPeriodReverse = true; // bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-final queryHeight = queryHeight_example; // String | block height at which to query.
+final address = address_example; // String | address is the ethereum hex address to query the balance for.
 
 try {
-    final result = api_instance.feeEnabledChannels(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse, queryHeight);
+    final result = api_instance.evmBalance(address);
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->feeEnabledChannels: $e\n');
+    print('Exception when calling QueryApi->evmBalance: $e\n');
 }
 ```
 
@@ -3678,16 +4051,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **paginationPeriodKey** | **String**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
- **paginationPeriodOffset** | **String**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
- **paginationPeriodLimit** | **String**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
- **paginationPeriodCountTotal** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
- **paginationPeriodReverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
- **queryHeight** | **String**| block height at which to query. | [optional] 
+ **address** | **String**| address is the ethereum hex address to query the balance for. | 
 
 ### Return type
 
-[**QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc**](QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc.md)
+[**EvmBalance200Response**](EvmBalance200Response.md)
 
 ### Authorization
 
@@ -3700,10 +4068,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **feemarketParams**
-> FeemarketParams200Response feemarketParams()
+# **evmBaseFee**
+> EvmBaseFee200Response evmBaseFee()
 
-Params returns the current feemarket module parameters.
+BaseFee queries the base fee of the parent block of the current block, it's similar to feemarket module's method, but also checks london hardfork status.
 
 ### Example
 ```dart
@@ -3712,10 +4080,10 @@ import 'package:mantrachain_dart_sdk/api.dart';
 final api_instance = QueryApi();
 
 try {
-    final result = api_instance.feemarketParams();
+    final result = api_instance.evmBaseFee();
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->feemarketParams: $e\n');
+    print('Exception when calling QueryApi->evmBaseFee: $e\n');
 }
 ```
 
@@ -3724,7 +4092,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FeemarketParams200Response**](FeemarketParams200Response.md)
+[**EvmBaseFee200Response**](EvmBaseFee200Response.md)
 
 ### Authorization
 
@@ -3737,23 +4105,23 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **gasPrice**
-> GasPrice200Response gasPrice(denom)
+# **evmCode**
+> EvmCode200Response evmCode(address)
 
-GasPrice returns the current feemarket module gas price for specified denom.
+Code queries the balance of all coins for a single account.
 
 ### Example
 ```dart
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
-final denom = denom_example; // String | denom we are querying gas price in
+final address = address_example; // String | address is the ethereum hex address to query the code for.
 
 try {
-    final result = api_instance.gasPrice(denom);
+    final result = api_instance.evmCode(address);
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->gasPrice: $e\n');
+    print('Exception when calling QueryApi->evmCode: $e\n');
 }
 ```
 
@@ -3761,11 +4129,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **denom** | **String**| denom we are querying gas price in | 
+ **address** | **String**| address is the ethereum hex address to query the code for. | 
 
 ### Return type
 
-[**GasPrice200Response**](GasPrice200Response.md)
+[**EvmCode200Response**](EvmCode200Response.md)
 
 ### Authorization
 
@@ -3778,10 +4146,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **gasPrices**
-> GasPrices200Response gasPrices()
+# **evmParams**
+> EvmParams200Response evmParams()
 
-GasPrices returns the current feemarket module list of gas prices in all available denoms.
+Params queries the parameters of x/vm module.
 
 ### Example
 ```dart
@@ -3790,10 +4158,10 @@ import 'package:mantrachain_dart_sdk/api.dart';
 final api_instance = QueryApi();
 
 try {
-    final result = api_instance.gasPrices();
+    final result = api_instance.evmParams();
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->gasPrices: $e\n');
+    print('Exception when calling QueryApi->evmParams: $e\n');
 }
 ```
 
@@ -3802,7 +4170,85 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GasPrices200Response**](GasPrices200Response.md)
+[**EvmParams200Response**](EvmParams200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **feeMarketParams**
+> FeeMarketParams200Response feeMarketParams()
+
+Params queries the parameters of x/feemarket module.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+
+try {
+    final result = api_instance.feeMarketParams();
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->feeMarketParams: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**FeeMarketParams200Response**](FeeMarketParams200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **fractionalBalance**
+> FractionalBalance200Response fractionalBalance(address)
+
+FractionalBalance returns only the fractional balance of an address. This does not include any integer balance.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final address = address_example; // String | address is the account address to query  fractional balance for.
+
+try {
+    final result = api_instance.fractionalBalance(address);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->fractionalBalance: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **String**| address is the account address to query  fractional balance for. | 
+
+### Return type
+
+[**FractionalBalance200Response**](FractionalBalance200Response.md)
 
 ### Authorization
 
@@ -3996,6 +4442,43 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetPrices200Response**](GetPrices200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **globalMinGasPrice**
+> QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice globalMinGasPrice()
+
+GlobalMinGasPrice queries the MinGasPrice it's similar to feemarket module's method, but makes the conversion to 18 decimals when the evm denom is represented with a different precision.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+
+try {
+    final result = api_instance.globalMinGasPrice();
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->globalMinGasPrice: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice**](QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice.md)
 
 ### Authorization
 
@@ -4313,159 +4796,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ICAHostParams200Response**](ICAHostParams200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **incentivizedPacket**
-> QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc incentivizedPacket(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence, queryHeight)
-
-IncentivizedPacket returns all packet fees for a packet given its identifier
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final packetIdPeriodChannelId = packetIdPeriodChannelId_example; // String | channel unique identifier
-final packetIdPeriodPortId = packetIdPeriodPortId_example; // String | channel port identifier
-final packetIdPeriodSequence = packetIdPeriodSequence_example; // String | packet sequence
-final queryHeight = queryHeight_example; // String | block height at which to query.
-
-try {
-    final result = api_instance.incentivizedPacket(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence, queryHeight);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->incentivizedPacket: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **packetIdPeriodChannelId** | **String**| channel unique identifier | 
- **packetIdPeriodPortId** | **String**| channel port identifier | 
- **packetIdPeriodSequence** | **String**| packet sequence | 
- **queryHeight** | **String**| block height at which to query. | [optional] 
-
-### Return type
-
-[**QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc**](QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **incentivizedPackets**
-> QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc incentivizedPackets(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse, queryHeight)
-
-IncentivizedPackets returns all incentivized packets and their associated fees
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-final paginationPeriodOffset = paginationPeriodOffset_example; // String | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-final paginationPeriodLimit = paginationPeriodLimit_example; // String | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-final paginationPeriodCountTotal = true; // bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-final paginationPeriodReverse = true; // bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-final queryHeight = queryHeight_example; // String | block height at which to query.
-
-try {
-    final result = api_instance.incentivizedPackets(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse, queryHeight);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->incentivizedPackets: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **paginationPeriodKey** | **String**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
- **paginationPeriodOffset** | **String**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
- **paginationPeriodLimit** | **String**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
- **paginationPeriodCountTotal** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
- **paginationPeriodReverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
- **queryHeight** | **String**| block height at which to query. | [optional] 
-
-### Return type
-
-[**QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc**](QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **incentivizedPacketsForChannel**
-> QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC incentivizedPacketsForChannel(channelId, portId, paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse, queryHeight)
-
-Gets all incentivized packets for a specific channel
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final channelId = channelId_example; // String | 
-final portId = portId_example; // String | 
-final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-final paginationPeriodOffset = paginationPeriodOffset_example; // String | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-final paginationPeriodLimit = paginationPeriodLimit_example; // String | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-final paginationPeriodCountTotal = true; // bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-final paginationPeriodReverse = true; // bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-final queryHeight = queryHeight_example; // String | Height to query at.
-
-try {
-    final result = api_instance.incentivizedPacketsForChannel(channelId, portId, paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse, queryHeight);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->incentivizedPacketsForChannel: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **channelId** | **String**|  | 
- **portId** | **String**|  | 
- **paginationPeriodKey** | **String**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
- **paginationPeriodOffset** | **String**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
- **paginationPeriodLimit** | **String**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
- **paginationPeriodCountTotal** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
- **paginationPeriodReverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
- **queryHeight** | **String**| Height to query at. | [optional] 
-
-### Return type
-
-[**QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC**](QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC.md)
 
 ### Authorization
 
@@ -5244,49 +5574,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **payee**
-> QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc payee(channelId, relayer)
-
-Payee returns the registered payee address for a specific channel given the relayer address
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final channelId = channelId_example; // String | unique channel identifier
-final relayer = relayer_example; // String | the relayer address to which the distribution address is registered
-
-try {
-    final result = api_instance.payee(channelId, relayer);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->payee: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **channelId** | **String**| unique channel identifier | 
- **relayer** | **String**| the relayer address to which the distribution address is registered | 
-
-### Return type
-
-[**QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc**](QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **pinnedCodes**
 > QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod pinnedCodes(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse)
 
@@ -5433,20 +5720,20 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rateLimit**
-> RateLimit200Response rateLimit(channelId, denom)
+> RateLimit200Response rateLimit(channelOrClientId, denom)
 
-Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_id}/by_denom?denom={denom}
+Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_or_client_id}/by_denom?denom={denom}
 
 ### Example
 ```dart
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
-final channelId = channelId_example; // String | 
+final channelOrClientId = channelOrClientId_example; // String | 
 final denom = denom_example; // String | 
 
 try {
-    final result = api_instance.rateLimit(channelId, denom);
+    final result = api_instance.rateLimit(channelOrClientId, denom);
     print(result);
 } catch (e) {
     print('Exception when calling QueryApi->rateLimit: $e\n');
@@ -5457,7 +5744,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **channelId** | **String**|  | 
+ **channelOrClientId** | **String**|  | 
  **denom** | **String**|  | [optional] 
 
 ### Return type
@@ -5516,8 +5803,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rateLimitsByChannelId**
-> AllRateLimits200Response rateLimitsByChannelId(channelId)
+# **rateLimitsByChannelOrClientId**
+> AllRateLimits200Response rateLimitsByChannelOrClientId(channelOrClientId)
 
 Queries all the rate limits for a given channel ID
 
@@ -5526,13 +5813,13 @@ Queries all the rate limits for a given channel ID
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
-final channelId = channelId_example; // String | 
+final channelOrClientId = channelOrClientId_example; // String | 
 
 try {
-    final result = api_instance.rateLimitsByChannelId(channelId);
+    final result = api_instance.rateLimitsByChannelOrClientId(channelOrClientId);
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->rateLimitsByChannelId: $e\n');
+    print('Exception when calling QueryApi->rateLimitsByChannelOrClientId: $e\n');
 }
 ```
 
@@ -5540,7 +5827,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **channelId** | **String**|  | 
+ **channelOrClientId** | **String**|  | 
 
 ### Return type
 
@@ -5645,6 +5932,43 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Redelegations200Response**](Redelegations200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **remainder**
+> Remainder200Response remainder()
+
+Remainder returns the amount backed by the reserve, but not yet owned by any account, i.e. not in circulation.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+
+try {
+    final result = api_instance.remainder();
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->remainder: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Remainder200Response**](Remainder200Response.md)
 
 ### Authorization
 
@@ -6142,31 +6466,37 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **state**
-> State200Response state()
+# **storage**
+> Storage200Response storage(address, key)
 
-State returns the current feemarket module state.
+Storage queries the balance of all coins for a single account.
 
 ### Example
 ```dart
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
+final address = address_example; // String | address is the ethereum hex address to query the storage state for.
+final key = key_example; // String | key defines the key of the storage state
 
 try {
-    final result = api_instance.state();
+    final result = api_instance.storage(address, key);
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->state: $e\n');
+    print('Exception when calling QueryApi->storage: $e\n');
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **String**| address is the ethereum hex address to query the storage state for. | 
+ **key** | **String**| key defines the key of the storage state | 
 
 ### Return type
 
-[**State200Response**](State200Response.md)
+[**Storage200Response**](Storage200Response.md)
 
 ### Authorization
 
@@ -6339,6 +6669,96 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **tokenPair**
+> TokenPair200Response tokenPair(token)
+
+TokenPair retrieves a registered token pair
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final token = token_example; // String | token identifier can be either the hex contract address of the ERC20 or the Cosmos base denomination
+
+try {
+    final result = api_instance.tokenPair(token);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->tokenPair: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **String**| token identifier can be either the hex contract address of the ERC20 or the Cosmos base denomination | 
+
+### Return type
+
+[**TokenPair200Response**](TokenPair200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **tokenPairs**
+> TokenPairs200Response tokenPairs(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse)
+
+TokenPairs retrieves registered token pairs
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final paginationPeriodKey = BYTE_ARRAY_DATA_HERE; // String | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+final paginationPeriodOffset = paginationPeriodOffset_example; // String | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+final paginationPeriodLimit = paginationPeriodLimit_example; // String | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+final paginationPeriodCountTotal = true; // bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+final paginationPeriodReverse = true; // bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+
+try {
+    final result = api_instance.tokenPairs(paginationPeriodKey, paginationPeriodOffset, paginationPeriodLimit, paginationPeriodCountTotal, paginationPeriodReverse);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->tokenPairs: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **paginationPeriodKey** | **String**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **paginationPeriodOffset** | **String**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **paginationPeriodLimit** | **String**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **paginationPeriodCountTotal** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **paginationPeriodReverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**TokenPairs200Response**](TokenPairs200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **tokenfactoryParams**
 > TokenfactoryParams200Response tokenfactoryParams()
 
@@ -6364,51 +6784,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**TokenfactoryParams200Response**](TokenfactoryParams200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **totalAckFees**
-> QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc totalAckFees(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence)
-
-TotalAckFees returns the total acknowledgement fees for a packet given its identifier
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final packetIdPeriodChannelId = packetIdPeriodChannelId_example; // String | channel unique identifier
-final packetIdPeriodPortId = packetIdPeriodPortId_example; // String | channel port identifier
-final packetIdPeriodSequence = packetIdPeriodSequence_example; // String | packet sequence
-
-try {
-    final result = api_instance.totalAckFees(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->totalAckFees: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **packetIdPeriodChannelId** | **String**| channel unique identifier | 
- **packetIdPeriodPortId** | **String**| channel port identifier | 
- **packetIdPeriodSequence** | **String**| packet sequence | 
-
-### Return type
-
-[**QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc**](QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc.md)
 
 ### Authorization
 
@@ -6450,51 +6825,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TotalEscrowForDenom200Response**](TotalEscrowForDenom200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **totalRecvFees**
-> QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc totalRecvFees(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence)
-
-TotalRecvFees returns the total receive fees for a packet given its identifier
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final packetIdPeriodChannelId = packetIdPeriodChannelId_example; // String | channel unique identifier
-final packetIdPeriodPortId = packetIdPeriodPortId_example; // String | channel port identifier
-final packetIdPeriodSequence = packetIdPeriodSequence_example; // String | packet sequence
-
-try {
-    final result = api_instance.totalRecvFees(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->totalRecvFees: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **packetIdPeriodChannelId** | **String**| channel unique identifier | 
- **packetIdPeriodPortId** | **String**| channel port identifier | 
- **packetIdPeriodSequence** | **String**| packet sequence | 
-
-### Return type
-
-[**QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc**](QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc.md)
 
 ### Authorization
 
@@ -6558,25 +6888,60 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **totalTimeoutFees**
-> QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc totalTimeoutFees(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence)
+# **traceBlock**
+> QueryTraceBlockResponseDefinesTraceBlockResponse traceBlock(traceConfigPeriodTracer, traceConfigPeriodTimeout, traceConfigPeriodReexec, traceConfigPeriodDisableStack, traceConfigPeriodDisableStorage, traceConfigPeriodDebug, traceConfigPeriodLimit, traceConfigPeriodOverridesPeriodHomesteadBlock, traceConfigPeriodOverridesPeriodDaoForkBlock, traceConfigPeriodOverridesPeriodDaoForkSupport, traceConfigPeriodOverridesPeriodEip150Block, traceConfigPeriodOverridesPeriodEip150Hash, traceConfigPeriodOverridesPeriodEip155Block, traceConfigPeriodOverridesPeriodEip158Block, traceConfigPeriodOverridesPeriodByzantiumBlock, traceConfigPeriodOverridesPeriodConstantinopleBlock, traceConfigPeriodOverridesPeriodPetersburgBlock, traceConfigPeriodOverridesPeriodIstanbulBlock, traceConfigPeriodOverridesPeriodMuirGlacierBlock, traceConfigPeriodOverridesPeriodBerlinBlock, traceConfigPeriodOverridesPeriodLondonBlock, traceConfigPeriodOverridesPeriodArrowGlacierBlock, traceConfigPeriodOverridesPeriodGrayGlacierBlock, traceConfigPeriodOverridesPeriodMergeNetsplitBlock, traceConfigPeriodOverridesPeriodShanghaiBlock, traceConfigPeriodOverridesPeriodCancunBlock, traceConfigPeriodOverridesPeriodChainId, traceConfigPeriodOverridesPeriodDenom, traceConfigPeriodOverridesPeriodDecimals, traceConfigPeriodEnableMemory, traceConfigPeriodEnableReturnData, traceConfigPeriodTracerJsonConfig, blockNumber, blockHash, blockTime, proposerAddress, chainId, blockMaxGas)
 
-TotalTimeoutFees returns the total timeout fees for a packet given its identifier
+TraceBlock implements the `debug_traceBlockByNumber` and `debug_traceBlockByHash` rpc api
 
 ### Example
 ```dart
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
-final packetIdPeriodChannelId = packetIdPeriodChannelId_example; // String | channel unique identifier
-final packetIdPeriodPortId = packetIdPeriodPortId_example; // String | channel port identifier
-final packetIdPeriodSequence = packetIdPeriodSequence_example; // String | packet sequence
+final traceConfigPeriodTracer = traceConfigPeriodTracer_example; // String | tracer is a custom javascript tracer.
+final traceConfigPeriodTimeout = traceConfigPeriodTimeout_example; // String | timeout overrides the default timeout of 5 seconds for JavaScript-based tracing calls.
+final traceConfigPeriodReexec = traceConfigPeriodReexec_example; // String | reexec defines the number of blocks the tracer is willing to go back.
+final traceConfigPeriodDisableStack = true; // bool | disable_stack switches stack capture.
+final traceConfigPeriodDisableStorage = true; // bool | disable_storage switches storage capture.
+final traceConfigPeriodDebug = true; // bool | debug can be used to print output during capture end.
+final traceConfigPeriodLimit = 56; // int | limit defines the maximum length of output, but zero means unlimited.
+final traceConfigPeriodOverridesPeriodHomesteadBlock = traceConfigPeriodOverridesPeriodHomesteadBlock_example; // String | homestead_block switch (nil no fork, 0 = already homestead).
+final traceConfigPeriodOverridesPeriodDaoForkBlock = traceConfigPeriodOverridesPeriodDaoForkBlock_example; // String | dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork).
+final traceConfigPeriodOverridesPeriodDaoForkSupport = true; // bool | dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork.
+final traceConfigPeriodOverridesPeriodEip150Block = traceConfigPeriodOverridesPeriodEip150Block_example; // String | eip150_block: EIP150 implements the Gas price changes (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork).
+final traceConfigPeriodOverridesPeriodEip150Hash = traceConfigPeriodOverridesPeriodEip150Hash_example; // String | eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed).
+final traceConfigPeriodOverridesPeriodEip155Block = traceConfigPeriodOverridesPeriodEip155Block_example; // String | eip155_block: EIP155Block HF block.
+final traceConfigPeriodOverridesPeriodEip158Block = traceConfigPeriodOverridesPeriodEip158Block_example; // String | eip158_block: EIP158 HF block.
+final traceConfigPeriodOverridesPeriodByzantiumBlock = traceConfigPeriodOverridesPeriodByzantiumBlock_example; // String | byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium).
+final traceConfigPeriodOverridesPeriodConstantinopleBlock = traceConfigPeriodOverridesPeriodConstantinopleBlock_example; // String | constantinople_block: Constantinople switch block (nil no fork, 0 = already activated).
+final traceConfigPeriodOverridesPeriodPetersburgBlock = traceConfigPeriodOverridesPeriodPetersburgBlock_example; // String | petersburg_block: Petersburg switch block (nil same as Constantinople).
+final traceConfigPeriodOverridesPeriodIstanbulBlock = traceConfigPeriodOverridesPeriodIstanbulBlock_example; // String | istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul).
+final traceConfigPeriodOverridesPeriodMuirGlacierBlock = traceConfigPeriodOverridesPeriodMuirGlacierBlock_example; // String | muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated).
+final traceConfigPeriodOverridesPeriodBerlinBlock = traceConfigPeriodOverridesPeriodBerlinBlock_example; // String | berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin).
+final traceConfigPeriodOverridesPeriodLondonBlock = traceConfigPeriodOverridesPeriodLondonBlock_example; // String | london_block: London switch block (nil = no fork, 0 = already on london).
+final traceConfigPeriodOverridesPeriodArrowGlacierBlock = traceConfigPeriodOverridesPeriodArrowGlacierBlock_example; // String | arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated).
+final traceConfigPeriodOverridesPeriodGrayGlacierBlock = traceConfigPeriodOverridesPeriodGrayGlacierBlock_example; // String | gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated).
+final traceConfigPeriodOverridesPeriodMergeNetsplitBlock = traceConfigPeriodOverridesPeriodMergeNetsplitBlock_example; // String | merge_netsplit_block: Virtual fork after The Merge to use as a network splitter.
+final traceConfigPeriodOverridesPeriodShanghaiBlock = traceConfigPeriodOverridesPeriodShanghaiBlock_example; // String | shanghai_block switch block (nil = no fork, 0 = already on shanghai).
+final traceConfigPeriodOverridesPeriodCancunBlock = traceConfigPeriodOverridesPeriodCancunBlock_example; // String | cancun_block switch block (nil = no fork, 0 = already on cancun).
+final traceConfigPeriodOverridesPeriodChainId = traceConfigPeriodOverridesPeriodChainId_example; // String | chain_id is the id of the chain (EIP-155).
+final traceConfigPeriodOverridesPeriodDenom = traceConfigPeriodOverridesPeriodDenom_example; // String | denom is the denomination used on the EVM.
+final traceConfigPeriodOverridesPeriodDecimals = traceConfigPeriodOverridesPeriodDecimals_example; // String | decimals is the real decimal precision of the denomination used on the EVM.
+final traceConfigPeriodEnableMemory = true; // bool | enable_memory switches memory capture.
+final traceConfigPeriodEnableReturnData = true; // bool | enable_return_data switches the capture of return data.
+final traceConfigPeriodTracerJsonConfig = traceConfigPeriodTracerJsonConfig_example; // String | tracer_json_config configures the tracer using a JSON string.
+final blockNumber = blockNumber_example; // String | block_number of the traced block.
+final blockHash = blockHash_example; // String | block_hash (hex) of the traced block.
+final blockTime = 2013-10-20T19:20:30+01:00; // DateTime | block_time of the traced block.
+final proposerAddress = BYTE_ARRAY_DATA_HERE; // String | proposer_address is the address of the requested block.
+final chainId = chainId_example; // String | chain_id is the eip155 chain id parsed from the requested block header.
+final blockMaxGas = blockMaxGas_example; // String | block_max_gas of the traced block.
 
 try {
-    final result = api_instance.totalTimeoutFees(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence);
+    final result = api_instance.traceBlock(traceConfigPeriodTracer, traceConfigPeriodTimeout, traceConfigPeriodReexec, traceConfigPeriodDisableStack, traceConfigPeriodDisableStorage, traceConfigPeriodDebug, traceConfigPeriodLimit, traceConfigPeriodOverridesPeriodHomesteadBlock, traceConfigPeriodOverridesPeriodDaoForkBlock, traceConfigPeriodOverridesPeriodDaoForkSupport, traceConfigPeriodOverridesPeriodEip150Block, traceConfigPeriodOverridesPeriodEip150Hash, traceConfigPeriodOverridesPeriodEip155Block, traceConfigPeriodOverridesPeriodEip158Block, traceConfigPeriodOverridesPeriodByzantiumBlock, traceConfigPeriodOverridesPeriodConstantinopleBlock, traceConfigPeriodOverridesPeriodPetersburgBlock, traceConfigPeriodOverridesPeriodIstanbulBlock, traceConfigPeriodOverridesPeriodMuirGlacierBlock, traceConfigPeriodOverridesPeriodBerlinBlock, traceConfigPeriodOverridesPeriodLondonBlock, traceConfigPeriodOverridesPeriodArrowGlacierBlock, traceConfigPeriodOverridesPeriodGrayGlacierBlock, traceConfigPeriodOverridesPeriodMergeNetsplitBlock, traceConfigPeriodOverridesPeriodShanghaiBlock, traceConfigPeriodOverridesPeriodCancunBlock, traceConfigPeriodOverridesPeriodChainId, traceConfigPeriodOverridesPeriodDenom, traceConfigPeriodOverridesPeriodDecimals, traceConfigPeriodEnableMemory, traceConfigPeriodEnableReturnData, traceConfigPeriodTracerJsonConfig, blockNumber, blockHash, blockTime, proposerAddress, chainId, blockMaxGas);
     print(result);
 } catch (e) {
-    print('Exception when calling QueryApi->totalTimeoutFees: $e\n');
+    print('Exception when calling QueryApi->traceBlock: $e\n');
 }
 ```
 
@@ -6584,13 +6949,173 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **packetIdPeriodChannelId** | **String**| channel unique identifier | 
- **packetIdPeriodPortId** | **String**| channel port identifier | 
- **packetIdPeriodSequence** | **String**| packet sequence | 
+ **traceConfigPeriodTracer** | **String**| tracer is a custom javascript tracer. | [optional] 
+ **traceConfigPeriodTimeout** | **String**| timeout overrides the default timeout of 5 seconds for JavaScript-based tracing calls. | [optional] 
+ **traceConfigPeriodReexec** | **String**| reexec defines the number of blocks the tracer is willing to go back. | [optional] 
+ **traceConfigPeriodDisableStack** | **bool**| disable_stack switches stack capture. | [optional] 
+ **traceConfigPeriodDisableStorage** | **bool**| disable_storage switches storage capture. | [optional] 
+ **traceConfigPeriodDebug** | **bool**| debug can be used to print output during capture end. | [optional] 
+ **traceConfigPeriodLimit** | **int**| limit defines the maximum length of output, but zero means unlimited. | [optional] 
+ **traceConfigPeriodOverridesPeriodHomesteadBlock** | **String**| homestead_block switch (nil no fork, 0 = already homestead). | [optional] 
+ **traceConfigPeriodOverridesPeriodDaoForkBlock** | **String**| dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork). | [optional] 
+ **traceConfigPeriodOverridesPeriodDaoForkSupport** | **bool**| dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork. | [optional] 
+ **traceConfigPeriodOverridesPeriodEip150Block** | **String**| eip150_block: EIP150 implements the Gas price changes (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork). | [optional] 
+ **traceConfigPeriodOverridesPeriodEip150Hash** | **String**| eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed). | [optional] 
+ **traceConfigPeriodOverridesPeriodEip155Block** | **String**| eip155_block: EIP155Block HF block. | [optional] 
+ **traceConfigPeriodOverridesPeriodEip158Block** | **String**| eip158_block: EIP158 HF block. | [optional] 
+ **traceConfigPeriodOverridesPeriodByzantiumBlock** | **String**| byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium). | [optional] 
+ **traceConfigPeriodOverridesPeriodConstantinopleBlock** | **String**| constantinople_block: Constantinople switch block (nil no fork, 0 = already activated). | [optional] 
+ **traceConfigPeriodOverridesPeriodPetersburgBlock** | **String**| petersburg_block: Petersburg switch block (nil same as Constantinople). | [optional] 
+ **traceConfigPeriodOverridesPeriodIstanbulBlock** | **String**| istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul). | [optional] 
+ **traceConfigPeriodOverridesPeriodMuirGlacierBlock** | **String**| muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated). | [optional] 
+ **traceConfigPeriodOverridesPeriodBerlinBlock** | **String**| berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin). | [optional] 
+ **traceConfigPeriodOverridesPeriodLondonBlock** | **String**| london_block: London switch block (nil = no fork, 0 = already on london). | [optional] 
+ **traceConfigPeriodOverridesPeriodArrowGlacierBlock** | **String**| arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated). | [optional] 
+ **traceConfigPeriodOverridesPeriodGrayGlacierBlock** | **String**| gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated). | [optional] 
+ **traceConfigPeriodOverridesPeriodMergeNetsplitBlock** | **String**| merge_netsplit_block: Virtual fork after The Merge to use as a network splitter. | [optional] 
+ **traceConfigPeriodOverridesPeriodShanghaiBlock** | **String**| shanghai_block switch block (nil = no fork, 0 = already on shanghai). | [optional] 
+ **traceConfigPeriodOverridesPeriodCancunBlock** | **String**| cancun_block switch block (nil = no fork, 0 = already on cancun). | [optional] 
+ **traceConfigPeriodOverridesPeriodChainId** | **String**| chain_id is the id of the chain (EIP-155). | [optional] 
+ **traceConfigPeriodOverridesPeriodDenom** | **String**| denom is the denomination used on the EVM. | [optional] 
+ **traceConfigPeriodOverridesPeriodDecimals** | **String**| decimals is the real decimal precision of the denomination used on the EVM. | [optional] 
+ **traceConfigPeriodEnableMemory** | **bool**| enable_memory switches memory capture. | [optional] 
+ **traceConfigPeriodEnableReturnData** | **bool**| enable_return_data switches the capture of return data. | [optional] 
+ **traceConfigPeriodTracerJsonConfig** | **String**| tracer_json_config configures the tracer using a JSON string. | [optional] 
+ **blockNumber** | **String**| block_number of the traced block. | [optional] 
+ **blockHash** | **String**| block_hash (hex) of the traced block. | [optional] 
+ **blockTime** | **DateTime**| block_time of the traced block. | [optional] 
+ **proposerAddress** | **String**| proposer_address is the address of the requested block. | [optional] 
+ **chainId** | **String**| chain_id is the eip155 chain id parsed from the requested block header. | [optional] 
+ **blockMaxGas** | **String**| block_max_gas of the traced block. | [optional] 
 
 ### Return type
 
-[**QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc**](QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc.md)
+[**QueryTraceBlockResponseDefinesTraceBlockResponse**](QueryTraceBlockResponseDefinesTraceBlockResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **traceTx**
+> QueryTraceTxResponseDefinesTraceTxResponse traceTx(msgPeriodDataPeriodTypeUrl, msgPeriodDataPeriodValue, msgPeriodSize, msgPeriodHash, msgPeriodFrom, traceConfigPeriodTracer, traceConfigPeriodTimeout, traceConfigPeriodReexec, traceConfigPeriodDisableStack, traceConfigPeriodDisableStorage, traceConfigPeriodDebug, traceConfigPeriodLimit, traceConfigPeriodOverridesPeriodHomesteadBlock, traceConfigPeriodOverridesPeriodDaoForkBlock, traceConfigPeriodOverridesPeriodDaoForkSupport, traceConfigPeriodOverridesPeriodEip150Block, traceConfigPeriodOverridesPeriodEip150Hash, traceConfigPeriodOverridesPeriodEip155Block, traceConfigPeriodOverridesPeriodEip158Block, traceConfigPeriodOverridesPeriodByzantiumBlock, traceConfigPeriodOverridesPeriodConstantinopleBlock, traceConfigPeriodOverridesPeriodPetersburgBlock, traceConfigPeriodOverridesPeriodIstanbulBlock, traceConfigPeriodOverridesPeriodMuirGlacierBlock, traceConfigPeriodOverridesPeriodBerlinBlock, traceConfigPeriodOverridesPeriodLondonBlock, traceConfigPeriodOverridesPeriodArrowGlacierBlock, traceConfigPeriodOverridesPeriodGrayGlacierBlock, traceConfigPeriodOverridesPeriodMergeNetsplitBlock, traceConfigPeriodOverridesPeriodShanghaiBlock, traceConfigPeriodOverridesPeriodCancunBlock, traceConfigPeriodOverridesPeriodChainId, traceConfigPeriodOverridesPeriodDenom, traceConfigPeriodOverridesPeriodDecimals, traceConfigPeriodEnableMemory, traceConfigPeriodEnableReturnData, traceConfigPeriodTracerJsonConfig, blockNumber, blockHash, blockTime, proposerAddress, chainId, blockMaxGas)
+
+TraceTx implements the `debug_traceTransaction` rpc api
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final msgPeriodDataPeriodTypeUrl = msgPeriodDataPeriodTypeUrl_example; // String | A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][]   value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the   URL, or have them precompiled into a binary to avoid any   lookup. Therefore, binary compatibility needs to be preserved   on changes to types. (Use versioned type names to manage   breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com. As of May 2023, there are no widely used type server implementations and no plans to implement one.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics.
+final msgPeriodDataPeriodValue = BYTE_ARRAY_DATA_HERE; // String | Must be a valid serialized protocol buffer of the above specified type.
+final msgPeriodSize = 1.2; // double | size is the encoded storage size of the transaction (DEPRECATED).
+final msgPeriodHash = msgPeriodHash_example; // String | hash of the transaction in hex format.
+final msgPeriodFrom = msgPeriodFrom_example; // String | from is the ethereum signer address in hex format. This address value is checked against the address derived from the signature (V, R, S) using the secp256k1 elliptic curve.
+final traceConfigPeriodTracer = traceConfigPeriodTracer_example; // String | tracer is a custom javascript tracer.
+final traceConfigPeriodTimeout = traceConfigPeriodTimeout_example; // String | timeout overrides the default timeout of 5 seconds for JavaScript-based tracing calls.
+final traceConfigPeriodReexec = traceConfigPeriodReexec_example; // String | reexec defines the number of blocks the tracer is willing to go back.
+final traceConfigPeriodDisableStack = true; // bool | disable_stack switches stack capture.
+final traceConfigPeriodDisableStorage = true; // bool | disable_storage switches storage capture.
+final traceConfigPeriodDebug = true; // bool | debug can be used to print output during capture end.
+final traceConfigPeriodLimit = 56; // int | limit defines the maximum length of output, but zero means unlimited.
+final traceConfigPeriodOverridesPeriodHomesteadBlock = traceConfigPeriodOverridesPeriodHomesteadBlock_example; // String | homestead_block switch (nil no fork, 0 = already homestead).
+final traceConfigPeriodOverridesPeriodDaoForkBlock = traceConfigPeriodOverridesPeriodDaoForkBlock_example; // String | dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork).
+final traceConfigPeriodOverridesPeriodDaoForkSupport = true; // bool | dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork.
+final traceConfigPeriodOverridesPeriodEip150Block = traceConfigPeriodOverridesPeriodEip150Block_example; // String | eip150_block: EIP150 implements the Gas price changes (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork).
+final traceConfigPeriodOverridesPeriodEip150Hash = traceConfigPeriodOverridesPeriodEip150Hash_example; // String | eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed).
+final traceConfigPeriodOverridesPeriodEip155Block = traceConfigPeriodOverridesPeriodEip155Block_example; // String | eip155_block: EIP155Block HF block.
+final traceConfigPeriodOverridesPeriodEip158Block = traceConfigPeriodOverridesPeriodEip158Block_example; // String | eip158_block: EIP158 HF block.
+final traceConfigPeriodOverridesPeriodByzantiumBlock = traceConfigPeriodOverridesPeriodByzantiumBlock_example; // String | byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium).
+final traceConfigPeriodOverridesPeriodConstantinopleBlock = traceConfigPeriodOverridesPeriodConstantinopleBlock_example; // String | constantinople_block: Constantinople switch block (nil no fork, 0 = already activated).
+final traceConfigPeriodOverridesPeriodPetersburgBlock = traceConfigPeriodOverridesPeriodPetersburgBlock_example; // String | petersburg_block: Petersburg switch block (nil same as Constantinople).
+final traceConfigPeriodOverridesPeriodIstanbulBlock = traceConfigPeriodOverridesPeriodIstanbulBlock_example; // String | istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul).
+final traceConfigPeriodOverridesPeriodMuirGlacierBlock = traceConfigPeriodOverridesPeriodMuirGlacierBlock_example; // String | muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated).
+final traceConfigPeriodOverridesPeriodBerlinBlock = traceConfigPeriodOverridesPeriodBerlinBlock_example; // String | berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin).
+final traceConfigPeriodOverridesPeriodLondonBlock = traceConfigPeriodOverridesPeriodLondonBlock_example; // String | london_block: London switch block (nil = no fork, 0 = already on london).
+final traceConfigPeriodOverridesPeriodArrowGlacierBlock = traceConfigPeriodOverridesPeriodArrowGlacierBlock_example; // String | arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated).
+final traceConfigPeriodOverridesPeriodGrayGlacierBlock = traceConfigPeriodOverridesPeriodGrayGlacierBlock_example; // String | gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated).
+final traceConfigPeriodOverridesPeriodMergeNetsplitBlock = traceConfigPeriodOverridesPeriodMergeNetsplitBlock_example; // String | merge_netsplit_block: Virtual fork after The Merge to use as a network splitter.
+final traceConfigPeriodOverridesPeriodShanghaiBlock = traceConfigPeriodOverridesPeriodShanghaiBlock_example; // String | shanghai_block switch block (nil = no fork, 0 = already on shanghai).
+final traceConfigPeriodOverridesPeriodCancunBlock = traceConfigPeriodOverridesPeriodCancunBlock_example; // String | cancun_block switch block (nil = no fork, 0 = already on cancun).
+final traceConfigPeriodOverridesPeriodChainId = traceConfigPeriodOverridesPeriodChainId_example; // String | chain_id is the id of the chain (EIP-155).
+final traceConfigPeriodOverridesPeriodDenom = traceConfigPeriodOverridesPeriodDenom_example; // String | denom is the denomination used on the EVM.
+final traceConfigPeriodOverridesPeriodDecimals = traceConfigPeriodOverridesPeriodDecimals_example; // String | decimals is the real decimal precision of the denomination used on the EVM.
+final traceConfigPeriodEnableMemory = true; // bool | enable_memory switches memory capture.
+final traceConfigPeriodEnableReturnData = true; // bool | enable_return_data switches the capture of return data.
+final traceConfigPeriodTracerJsonConfig = traceConfigPeriodTracerJsonConfig_example; // String | tracer_json_config configures the tracer using a JSON string.
+final blockNumber = blockNumber_example; // String | block_number of requested transaction.
+final blockHash = blockHash_example; // String | block_hash of requested transaction.
+final blockTime = 2013-10-20T19:20:30+01:00; // DateTime | block_time of requested transaction.
+final proposerAddress = BYTE_ARRAY_DATA_HERE; // String | proposer_address is the proposer of the requested block.
+final chainId = chainId_example; // String | chain_id is the eip155 chain id parsed from the requested block header.
+final blockMaxGas = blockMaxGas_example; // String | block_max_gas of the block of the requested transaction.
+
+try {
+    final result = api_instance.traceTx(msgPeriodDataPeriodTypeUrl, msgPeriodDataPeriodValue, msgPeriodSize, msgPeriodHash, msgPeriodFrom, traceConfigPeriodTracer, traceConfigPeriodTimeout, traceConfigPeriodReexec, traceConfigPeriodDisableStack, traceConfigPeriodDisableStorage, traceConfigPeriodDebug, traceConfigPeriodLimit, traceConfigPeriodOverridesPeriodHomesteadBlock, traceConfigPeriodOverridesPeriodDaoForkBlock, traceConfigPeriodOverridesPeriodDaoForkSupport, traceConfigPeriodOverridesPeriodEip150Block, traceConfigPeriodOverridesPeriodEip150Hash, traceConfigPeriodOverridesPeriodEip155Block, traceConfigPeriodOverridesPeriodEip158Block, traceConfigPeriodOverridesPeriodByzantiumBlock, traceConfigPeriodOverridesPeriodConstantinopleBlock, traceConfigPeriodOverridesPeriodPetersburgBlock, traceConfigPeriodOverridesPeriodIstanbulBlock, traceConfigPeriodOverridesPeriodMuirGlacierBlock, traceConfigPeriodOverridesPeriodBerlinBlock, traceConfigPeriodOverridesPeriodLondonBlock, traceConfigPeriodOverridesPeriodArrowGlacierBlock, traceConfigPeriodOverridesPeriodGrayGlacierBlock, traceConfigPeriodOverridesPeriodMergeNetsplitBlock, traceConfigPeriodOverridesPeriodShanghaiBlock, traceConfigPeriodOverridesPeriodCancunBlock, traceConfigPeriodOverridesPeriodChainId, traceConfigPeriodOverridesPeriodDenom, traceConfigPeriodOverridesPeriodDecimals, traceConfigPeriodEnableMemory, traceConfigPeriodEnableReturnData, traceConfigPeriodTracerJsonConfig, blockNumber, blockHash, blockTime, proposerAddress, chainId, blockMaxGas);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->traceTx: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **msgPeriodDataPeriodTypeUrl** | **String**| A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][]   value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the   URL, or have them precompiled into a binary to avoid any   lookup. Therefore, binary compatibility needs to be preserved   on changes to types. (Use versioned type names to manage   breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com. As of May 2023, there are no widely used type server implementations and no plans to implement one.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics. | [optional] 
+ **msgPeriodDataPeriodValue** | **String**| Must be a valid serialized protocol buffer of the above specified type. | [optional] 
+ **msgPeriodSize** | **double**| size is the encoded storage size of the transaction (DEPRECATED). | [optional] 
+ **msgPeriodHash** | **String**| hash of the transaction in hex format. | [optional] 
+ **msgPeriodFrom** | **String**| from is the ethereum signer address in hex format. This address value is checked against the address derived from the signature (V, R, S) using the secp256k1 elliptic curve. | [optional] 
+ **traceConfigPeriodTracer** | **String**| tracer is a custom javascript tracer. | [optional] 
+ **traceConfigPeriodTimeout** | **String**| timeout overrides the default timeout of 5 seconds for JavaScript-based tracing calls. | [optional] 
+ **traceConfigPeriodReexec** | **String**| reexec defines the number of blocks the tracer is willing to go back. | [optional] 
+ **traceConfigPeriodDisableStack** | **bool**| disable_stack switches stack capture. | [optional] 
+ **traceConfigPeriodDisableStorage** | **bool**| disable_storage switches storage capture. | [optional] 
+ **traceConfigPeriodDebug** | **bool**| debug can be used to print output during capture end. | [optional] 
+ **traceConfigPeriodLimit** | **int**| limit defines the maximum length of output, but zero means unlimited. | [optional] 
+ **traceConfigPeriodOverridesPeriodHomesteadBlock** | **String**| homestead_block switch (nil no fork, 0 = already homestead). | [optional] 
+ **traceConfigPeriodOverridesPeriodDaoForkBlock** | **String**| dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork). | [optional] 
+ **traceConfigPeriodOverridesPeriodDaoForkSupport** | **bool**| dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork. | [optional] 
+ **traceConfigPeriodOverridesPeriodEip150Block** | **String**| eip150_block: EIP150 implements the Gas price changes (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork). | [optional] 
+ **traceConfigPeriodOverridesPeriodEip150Hash** | **String**| eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed). | [optional] 
+ **traceConfigPeriodOverridesPeriodEip155Block** | **String**| eip155_block: EIP155Block HF block. | [optional] 
+ **traceConfigPeriodOverridesPeriodEip158Block** | **String**| eip158_block: EIP158 HF block. | [optional] 
+ **traceConfigPeriodOverridesPeriodByzantiumBlock** | **String**| byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium). | [optional] 
+ **traceConfigPeriodOverridesPeriodConstantinopleBlock** | **String**| constantinople_block: Constantinople switch block (nil no fork, 0 = already activated). | [optional] 
+ **traceConfigPeriodOverridesPeriodPetersburgBlock** | **String**| petersburg_block: Petersburg switch block (nil same as Constantinople). | [optional] 
+ **traceConfigPeriodOverridesPeriodIstanbulBlock** | **String**| istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul). | [optional] 
+ **traceConfigPeriodOverridesPeriodMuirGlacierBlock** | **String**| muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated). | [optional] 
+ **traceConfigPeriodOverridesPeriodBerlinBlock** | **String**| berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin). | [optional] 
+ **traceConfigPeriodOverridesPeriodLondonBlock** | **String**| london_block: London switch block (nil = no fork, 0 = already on london). | [optional] 
+ **traceConfigPeriodOverridesPeriodArrowGlacierBlock** | **String**| arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated). | [optional] 
+ **traceConfigPeriodOverridesPeriodGrayGlacierBlock** | **String**| gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated). | [optional] 
+ **traceConfigPeriodOverridesPeriodMergeNetsplitBlock** | **String**| merge_netsplit_block: Virtual fork after The Merge to use as a network splitter. | [optional] 
+ **traceConfigPeriodOverridesPeriodShanghaiBlock** | **String**| shanghai_block switch block (nil = no fork, 0 = already on shanghai). | [optional] 
+ **traceConfigPeriodOverridesPeriodCancunBlock** | **String**| cancun_block switch block (nil = no fork, 0 = already on cancun). | [optional] 
+ **traceConfigPeriodOverridesPeriodChainId** | **String**| chain_id is the id of the chain (EIP-155). | [optional] 
+ **traceConfigPeriodOverridesPeriodDenom** | **String**| denom is the denomination used on the EVM. | [optional] 
+ **traceConfigPeriodOverridesPeriodDecimals** | **String**| decimals is the real decimal precision of the denomination used on the EVM. | [optional] 
+ **traceConfigPeriodEnableMemory** | **bool**| enable_memory switches memory capture. | [optional] 
+ **traceConfigPeriodEnableReturnData** | **bool**| enable_return_data switches the capture of return data. | [optional] 
+ **traceConfigPeriodTracerJsonConfig** | **String**| tracer_json_config configures the tracer using a JSON string. | [optional] 
+ **blockNumber** | **String**| block_number of requested transaction. | [optional] 
+ **blockHash** | **String**| block_hash of requested transaction. | [optional] 
+ **blockTime** | **DateTime**| block_time of requested transaction. | [optional] 
+ **proposerAddress** | **String**| proposer_address is the proposer of the requested block. | [optional] 
+ **chainId** | **String**| chain_id is the eip155 chain id parsed from the requested block header. | [optional] 
+ **blockMaxGas** | **String**| block_max_gas of the block of the requested transaction. | [optional] 
+
+### Return type
+
+[**QueryTraceTxResponseDefinesTraceTxResponse**](QueryTraceTxResponseDefinesTraceTxResponse.md)
 
 ### Authorization
 
@@ -6773,92 +7298,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **upgrade**
-> QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod upgrade(channelId, portId)
-
-Upgrade returns the upgrade for a given port and channel id.
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final channelId = channelId_example; // String | 
-final portId = portId_example; // String | 
-
-try {
-    final result = api_instance.upgrade(channelId, portId);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->upgrade: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **channelId** | **String**|  | 
- **portId** | **String**|  | 
-
-### Return type
-
-[**QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod**](QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **upgradeError**
-> QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod upgradeError(channelId, portId)
-
-UpgradeError returns the error receipt if the upgrade handshake failed.
-
-### Example
-```dart
-import 'package:mantrachain_dart_sdk/api.dart';
-
-final api_instance = QueryApi();
-final channelId = channelId_example; // String | 
-final portId = portId_example; // String | 
-
-try {
-    final result = api_instance.upgradeError(channelId, portId);
-    print(result);
-} catch (e) {
-    print('Exception when calling QueryApi->upgradeError: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **channelId** | **String**|  | 
- **portId** | **String**|  | 
-
-### Return type
-
-[**QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod**](QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **upgradedClientState**
 > UpgradedClientState200Response upgradedClientState()
 
@@ -7003,6 +7442,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**QueryValidatorResponseIsResponseTypeForTheQueryValidatorRPCMethod**](QueryValidatorResponseIsResponseTypeForTheQueryValidatorRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validatorAccount**
+> ValidatorAccount200Response validatorAccount(consAddress)
+
+ValidatorAccount queries an Ethereum account's from a validator consensus Address.
+
+### Example
+```dart
+import 'package:mantrachain_dart_sdk/api.dart';
+
+final api_instance = QueryApi();
+final consAddress = consAddress_example; // String | cons_address is the validator cons address to query the account for.
+
+try {
+    final result = api_instance.validatorAccount(consAddress);
+    print(result);
+} catch (e) {
+    print('Exception when calling QueryApi->validatorAccount: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **consAddress** | **String**| cons_address is the validator cons address to query the account for. | 
+
+### Return type
+
+[**ValidatorAccount200Response**](ValidatorAccount200Response.md)
 
 ### Authorization
 
@@ -7353,7 +7833,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verifyMembership**
-> QueryVerifyMembershipResponseIsTheResponseTypeForTheQueryVerifyMembershipRPCMethod verifyMembership(body)
+> QueryVerifyMembershipResponseIsTheResponseTypeForTheQueryVerifyMembershipRPCMethod verifyMembership(queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod)
 
 VerifyMembership queries an IBC light client for proof verification of a value at a given key path.
 
@@ -7362,10 +7842,10 @@ VerifyMembership queries an IBC light client for proof verification of a value a
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = QueryApi();
-final body = QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod(); // QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod | 
+final queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod = QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod(); // QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod | 
 
 try {
-    final result = api_instance.verifyMembership(body);
+    final result = api_instance.verifyMembership(queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod);
     print(result);
 } catch (e) {
     print('Exception when calling QueryApi->verifyMembership: $e\n');
@@ -7376,7 +7856,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod**](QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod.md)|  | 
+ **queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod** | [**QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod**](QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod.md)|  | 
 
 ### Return type
 
@@ -7388,7 +7868,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

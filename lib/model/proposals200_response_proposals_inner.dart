@@ -15,7 +15,8 @@ class Proposals200ResponseProposalsInner {
   Proposals200ResponseProposalsInner({
     this.proposalId,
     this.content,
-    this.status = const Proposals200ResponseProposalsInnerStatusEnum._('PROPOSAL_STATUS_UNSPECIFIED'),
+    this.status = const Proposals200ResponseProposalsInnerStatusEnum._(
+        'PROPOSAL_STATUS_UNSPECIFIED'),
     this.finalTallyResult,
     this.submitTime,
     this.depositEndTime,
@@ -39,7 +40,7 @@ class Proposals200ResponseProposalsInner {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? content;
+  EvmAccountDefaultResponseDetailsInner? content;
 
   /// status defines the proposal status.
   Proposals200ResponseProposalsInnerStatusEnum status;
@@ -71,7 +72,7 @@ class Proposals200ResponseProposalsInner {
   DateTime? depositEndTime;
 
   /// total_deposit is the total deposit on the proposal.
-  List<Coin> totalDeposit;
+  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> totalDeposit;
 
   /// voting_start_time is the starting time to vote on a proposal.
   ///
@@ -92,32 +93,35 @@ class Proposals200ResponseProposalsInner {
   DateTime? votingEndTime;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Proposals200ResponseProposalsInner &&
-    other.proposalId == proposalId &&
-    other.content == content &&
-    other.status == status &&
-    other.finalTallyResult == finalTallyResult &&
-    other.submitTime == submitTime &&
-    other.depositEndTime == depositEndTime &&
-    _deepEquality.equals(other.totalDeposit, totalDeposit) &&
-    other.votingStartTime == votingStartTime &&
-    other.votingEndTime == votingEndTime;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Proposals200ResponseProposalsInner &&
+          other.proposalId == proposalId &&
+          other.content == content &&
+          other.status == status &&
+          other.finalTallyResult == finalTallyResult &&
+          other.submitTime == submitTime &&
+          other.depositEndTime == depositEndTime &&
+          _deepEquality.equals(other.totalDeposit, totalDeposit) &&
+          other.votingStartTime == votingStartTime &&
+          other.votingEndTime == votingEndTime;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (proposalId == null ? 0 : proposalId!.hashCode) +
-    (content == null ? 0 : content!.hashCode) +
-    (status.hashCode) +
-    (finalTallyResult == null ? 0 : finalTallyResult!.hashCode) +
-    (submitTime == null ? 0 : submitTime!.hashCode) +
-    (depositEndTime == null ? 0 : depositEndTime!.hashCode) +
-    (totalDeposit.hashCode) +
-    (votingStartTime == null ? 0 : votingStartTime!.hashCode) +
-    (votingEndTime == null ? 0 : votingEndTime!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (proposalId == null ? 0 : proposalId!.hashCode) +
+      (content == null ? 0 : content!.hashCode) +
+      (status.hashCode) +
+      (finalTallyResult == null ? 0 : finalTallyResult!.hashCode) +
+      (submitTime == null ? 0 : submitTime!.hashCode) +
+      (depositEndTime == null ? 0 : depositEndTime!.hashCode) +
+      (totalDeposit.hashCode) +
+      (votingStartTime == null ? 0 : votingStartTime!.hashCode) +
+      (votingEndTime == null ? 0 : votingEndTime!.hashCode);
 
   @override
-  String toString() => 'Proposals200ResponseProposalsInner[proposalId=$proposalId, content=$content, status=$status, finalTallyResult=$finalTallyResult, submitTime=$submitTime, depositEndTime=$depositEndTime, totalDeposit=$totalDeposit, votingStartTime=$votingStartTime, votingEndTime=$votingEndTime]';
+  String toString() =>
+      'Proposals200ResponseProposalsInner[proposalId=$proposalId, content=$content, status=$status, finalTallyResult=$finalTallyResult, submitTime=$submitTime, depositEndTime=$depositEndTime, totalDeposit=$totalDeposit, votingStartTime=$votingStartTime, votingEndTime=$votingEndTime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -131,7 +135,7 @@ class Proposals200ResponseProposalsInner {
     } else {
       json[r'content'] = null;
     }
-      json[r'status'] = this.status;
+    json[r'status'] = this.status;
     if (this.finalTallyResult != null) {
       json[r'final_tally_result'] = this.finalTallyResult;
     } else {
@@ -143,13 +147,15 @@ class Proposals200ResponseProposalsInner {
       json[r'submit_time'] = null;
     }
     if (this.depositEndTime != null) {
-      json[r'deposit_end_time'] = this.depositEndTime!.toUtc().toIso8601String();
+      json[r'deposit_end_time'] =
+          this.depositEndTime!.toUtc().toIso8601String();
     } else {
       json[r'deposit_end_time'] = null;
     }
-      json[r'total_deposit'] = this.totalDeposit;
+    json[r'total_deposit'] = this.totalDeposit;
     if (this.votingStartTime != null) {
-      json[r'voting_start_time'] = this.votingStartTime!.toUtc().toIso8601String();
+      json[r'voting_start_time'] =
+          this.votingStartTime!.toUtc().toIso8601String();
     } else {
       json[r'voting_start_time'] = null;
     }
@@ -173,20 +179,29 @@ class Proposals200ResponseProposalsInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Proposals200ResponseProposalsInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Proposals200ResponseProposalsInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Proposals200ResponseProposalsInner[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Proposals200ResponseProposalsInner[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return Proposals200ResponseProposalsInner(
         proposalId: mapValueOfType<String>(json, r'proposal_id'),
-        content: CodesDefaultResponseDetailsInner.fromJson(json[r'content']),
-        status: Proposals200ResponseProposalsInnerStatusEnum.fromJson(json[r'status']) ?? Proposals200ResponseProposalsInnerStatusEnum.PROPOSAL_STATUS_UNSPECIFIED,
-        finalTallyResult: Proposals200ResponseProposalsInnerFinalTallyResult.fromJson(json[r'final_tally_result']),
+        content:
+            EvmAccountDefaultResponseDetailsInner.fromJson(json[r'content']),
+        status: Proposals200ResponseProposalsInnerStatusEnum.fromJson(
+                json[r'status']) ??
+            Proposals200ResponseProposalsInnerStatusEnum
+                .PROPOSAL_STATUS_UNSPECIFIED,
+        finalTallyResult:
+            Proposals200ResponseProposalsInnerFinalTallyResult.fromJson(
+                json[r'final_tally_result']),
         submitTime: mapDateTime(json, r'submit_time', r''),
         depositEndTime: mapDateTime(json, r'deposit_end_time', r''),
-        totalDeposit: Coin.listFromJson(json[r'total_deposit']),
+        totalDeposit: TokenfactoryParams200ResponseParamsDenomCreationFeeInner
+            .listFromJson(json[r'total_deposit']),
         votingStartTime: mapDateTime(json, r'voting_start_time', r''),
         votingEndTime: mapDateTime(json, r'voting_end_time', r''),
       );
@@ -194,7 +209,10 @@ class Proposals200ResponseProposalsInner {
     return null;
   }
 
-  static List<Proposals200ResponseProposalsInner> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Proposals200ResponseProposalsInner> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Proposals200ResponseProposalsInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -207,7 +225,8 @@ class Proposals200ResponseProposalsInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, Proposals200ResponseProposalsInner> mapFromJson(dynamic json) {
+  static Map<String, Proposals200ResponseProposalsInner> mapFromJson(
+      dynamic json) {
     final map = <String, Proposals200ResponseProposalsInner>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -222,21 +241,26 @@ class Proposals200ResponseProposalsInner {
   }
 
   // maps a json object with a list of Proposals200ResponseProposalsInner-objects as value to a dart map
-  static Map<String, List<Proposals200ResponseProposalsInner>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Proposals200ResponseProposalsInner>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Proposals200ResponseProposalsInner>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Proposals200ResponseProposalsInner.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Proposals200ResponseProposalsInner.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
 
 /// status defines the proposal status.
@@ -252,12 +276,22 @@ class Proposals200ResponseProposalsInnerStatusEnum {
 
   String toJson() => value;
 
-  static const PROPOSAL_STATUS_UNSPECIFIED = Proposals200ResponseProposalsInnerStatusEnum._(r'PROPOSAL_STATUS_UNSPECIFIED');
-  static const PROPOSAL_STATUS_DEPOSIT_PERIOD = Proposals200ResponseProposalsInnerStatusEnum._(r'PROPOSAL_STATUS_DEPOSIT_PERIOD');
-  static const PROPOSAL_STATUS_VOTING_PERIOD = Proposals200ResponseProposalsInnerStatusEnum._(r'PROPOSAL_STATUS_VOTING_PERIOD');
-  static const PROPOSAL_STATUS_PASSED = Proposals200ResponseProposalsInnerStatusEnum._(r'PROPOSAL_STATUS_PASSED');
-  static const PROPOSAL_STATUS_REJECTED = Proposals200ResponseProposalsInnerStatusEnum._(r'PROPOSAL_STATUS_REJECTED');
-  static const PROPOSAL_STATUS_FAILED = Proposals200ResponseProposalsInnerStatusEnum._(r'PROPOSAL_STATUS_FAILED');
+  static const PROPOSAL_STATUS_UNSPECIFIED =
+      Proposals200ResponseProposalsInnerStatusEnum._(
+          r'PROPOSAL_STATUS_UNSPECIFIED');
+  static const PROPOSAL_STATUS_DEPOSIT_PERIOD =
+      Proposals200ResponseProposalsInnerStatusEnum._(
+          r'PROPOSAL_STATUS_DEPOSIT_PERIOD');
+  static const PROPOSAL_STATUS_VOTING_PERIOD =
+      Proposals200ResponseProposalsInnerStatusEnum._(
+          r'PROPOSAL_STATUS_VOTING_PERIOD');
+  static const PROPOSAL_STATUS_PASSED =
+      Proposals200ResponseProposalsInnerStatusEnum._(r'PROPOSAL_STATUS_PASSED');
+  static const PROPOSAL_STATUS_REJECTED =
+      Proposals200ResponseProposalsInnerStatusEnum._(
+          r'PROPOSAL_STATUS_REJECTED');
+  static const PROPOSAL_STATUS_FAILED =
+      Proposals200ResponseProposalsInnerStatusEnum._(r'PROPOSAL_STATUS_FAILED');
 
   /// List of all possible values in this [enum][Proposals200ResponseProposalsInnerStatusEnum].
   static const values = <Proposals200ResponseProposalsInnerStatusEnum>[
@@ -269,13 +303,20 @@ class Proposals200ResponseProposalsInnerStatusEnum {
     PROPOSAL_STATUS_FAILED,
   ];
 
-  static Proposals200ResponseProposalsInnerStatusEnum? fromJson(dynamic value) => Proposals200ResponseProposalsInnerStatusEnumTypeTransformer().decode(value);
+  static Proposals200ResponseProposalsInnerStatusEnum? fromJson(
+          dynamic value) =>
+      Proposals200ResponseProposalsInnerStatusEnumTypeTransformer()
+          .decode(value);
 
-  static List<Proposals200ResponseProposalsInnerStatusEnum> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Proposals200ResponseProposalsInnerStatusEnum> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Proposals200ResponseProposalsInnerStatusEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = Proposals200ResponseProposalsInnerStatusEnum.fromJson(row);
+        final value =
+            Proposals200ResponseProposalsInnerStatusEnum.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -288,11 +329,14 @@ class Proposals200ResponseProposalsInnerStatusEnum {
 /// Transformation class that can [encode] an instance of [Proposals200ResponseProposalsInnerStatusEnum] to String,
 /// and [decode] dynamic data back to [Proposals200ResponseProposalsInnerStatusEnum].
 class Proposals200ResponseProposalsInnerStatusEnumTypeTransformer {
-  factory Proposals200ResponseProposalsInnerStatusEnumTypeTransformer() => _instance ??= const Proposals200ResponseProposalsInnerStatusEnumTypeTransformer._();
+  factory Proposals200ResponseProposalsInnerStatusEnumTypeTransformer() =>
+      _instance ??=
+          const Proposals200ResponseProposalsInnerStatusEnumTypeTransformer._();
 
   const Proposals200ResponseProposalsInnerStatusEnumTypeTransformer._();
 
-  String encode(Proposals200ResponseProposalsInnerStatusEnum data) => data.value;
+  String encode(Proposals200ResponseProposalsInnerStatusEnum data) =>
+      data.value;
 
   /// Decodes a [dynamic value][data] to a Proposals200ResponseProposalsInnerStatusEnum.
   ///
@@ -302,15 +346,28 @@ class Proposals200ResponseProposalsInnerStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  Proposals200ResponseProposalsInnerStatusEnum? decode(dynamic data, {bool allowNull = true}) {
+  Proposals200ResponseProposalsInnerStatusEnum? decode(dynamic data,
+      {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'PROPOSAL_STATUS_UNSPECIFIED': return Proposals200ResponseProposalsInnerStatusEnum.PROPOSAL_STATUS_UNSPECIFIED;
-        case r'PROPOSAL_STATUS_DEPOSIT_PERIOD': return Proposals200ResponseProposalsInnerStatusEnum.PROPOSAL_STATUS_DEPOSIT_PERIOD;
-        case r'PROPOSAL_STATUS_VOTING_PERIOD': return Proposals200ResponseProposalsInnerStatusEnum.PROPOSAL_STATUS_VOTING_PERIOD;
-        case r'PROPOSAL_STATUS_PASSED': return Proposals200ResponseProposalsInnerStatusEnum.PROPOSAL_STATUS_PASSED;
-        case r'PROPOSAL_STATUS_REJECTED': return Proposals200ResponseProposalsInnerStatusEnum.PROPOSAL_STATUS_REJECTED;
-        case r'PROPOSAL_STATUS_FAILED': return Proposals200ResponseProposalsInnerStatusEnum.PROPOSAL_STATUS_FAILED;
+        case r'PROPOSAL_STATUS_UNSPECIFIED':
+          return Proposals200ResponseProposalsInnerStatusEnum
+              .PROPOSAL_STATUS_UNSPECIFIED;
+        case r'PROPOSAL_STATUS_DEPOSIT_PERIOD':
+          return Proposals200ResponseProposalsInnerStatusEnum
+              .PROPOSAL_STATUS_DEPOSIT_PERIOD;
+        case r'PROPOSAL_STATUS_VOTING_PERIOD':
+          return Proposals200ResponseProposalsInnerStatusEnum
+              .PROPOSAL_STATUS_VOTING_PERIOD;
+        case r'PROPOSAL_STATUS_PASSED':
+          return Proposals200ResponseProposalsInnerStatusEnum
+              .PROPOSAL_STATUS_PASSED;
+        case r'PROPOSAL_STATUS_REJECTED':
+          return Proposals200ResponseProposalsInnerStatusEnum
+              .PROPOSAL_STATUS_REJECTED;
+        case r'PROPOSAL_STATUS_FAILED':
+          return Proposals200ResponseProposalsInnerStatusEnum
+              .PROPOSAL_STATUS_FAILED;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -323,5 +380,3 @@ class Proposals200ResponseProposalsInnerStatusEnumTypeTransformer {
   /// Singleton [Proposals200ResponseProposalsInnerStatusEnumTypeTransformer] instance.
   static Proposals200ResponseProposalsInnerStatusEnumTypeTransformer? _instance;
 }
-
-

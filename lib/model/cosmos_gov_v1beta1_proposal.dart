@@ -39,7 +39,7 @@ class CosmosGovV1beta1Proposal {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? content;
+  EvmAccountDefaultResponseDetailsInner? content;
 
   /// status defines the proposal status.
   CosmosGovV1beta1ProposalStatusEnum status;
@@ -71,7 +71,7 @@ class CosmosGovV1beta1Proposal {
   DateTime? depositEndTime;
 
   /// total_deposit is the total deposit on the proposal.
-  List<Coin> totalDeposit;
+  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> totalDeposit;
 
   /// voting_start_time is the starting time to vote on a proposal.
   ///
@@ -181,12 +181,12 @@ class CosmosGovV1beta1Proposal {
 
       return CosmosGovV1beta1Proposal(
         proposalId: mapValueOfType<String>(json, r'proposal_id'),
-        content: CodesDefaultResponseDetailsInner.fromJson(json[r'content']),
+        content: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'content']),
         status: CosmosGovV1beta1ProposalStatusEnum.fromJson(json[r'status']) ?? CosmosGovV1beta1ProposalStatusEnum.PROPOSAL_STATUS_UNSPECIFIED,
         finalTallyResult: Proposals200ResponseProposalsInnerFinalTallyResult.fromJson(json[r'final_tally_result']),
         submitTime: mapDateTime(json, r'submit_time', r''),
         depositEndTime: mapDateTime(json, r'deposit_end_time', r''),
-        totalDeposit: Coin.listFromJson(json[r'total_deposit']),
+        totalDeposit: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'total_deposit']),
         votingStartTime: mapDateTime(json, r'voting_start_time', r''),
         votingEndTime: mapDateTime(json, r'voting_end_time', r''),
       );

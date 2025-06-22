@@ -17,7 +17,7 @@ class CosmosDistributionV1beta1QueryCommunityPoolResponse {
   });
 
   /// pool defines community pool's coins.
-  List<GasPrice200ResponsePrice> pool;
+  List<CommunityPool200ResponsePoolInner> pool;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosDistributionV1beta1QueryCommunityPoolResponse &&
@@ -56,7 +56,7 @@ class CosmosDistributionV1beta1QueryCommunityPoolResponse {
       }());
 
       return CosmosDistributionV1beta1QueryCommunityPoolResponse(
-        pool: GasPrice200ResponsePrice.listFromJson(json[r'pool']),
+        pool: CommunityPool200ResponsePoolInner.listFromJson(json[r'pool']),
       );
     }
     return null;

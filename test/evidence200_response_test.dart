@@ -16,7 +16,7 @@ void main() {
   // final instance = Evidence200Response();
 
   group('test Evidence200Response', () {
-    // CodesDefaultResponseDetailsInner evidence
+    // EvmAccountDefaultResponseDetailsInner evidence
     test('to test the property `evidence`', () async {
       // TODO
     });

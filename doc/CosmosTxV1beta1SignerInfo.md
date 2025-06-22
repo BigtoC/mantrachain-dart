@@ -8,7 +8,7 @@ import 'package:mantrachain_dart_sdk/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**publicKey** | [**CodesDefaultResponseDetailsInner**](CodesDefaultResponseDetailsInner.md) |  | [optional] 
+**publicKey** | [**EvmAccountDefaultResponseDetailsInner**](EvmAccountDefaultResponseDetailsInner.md) |  | [optional] 
 **modeInfo** | [**CosmosTxV1beta1ModeInfo**](CosmosTxV1beta1ModeInfo.md) |  | [optional] 
 **sequence** | **String** | sequence is the sequence of the account, which describes the number of committed transactions signed by a given address. It is used to prevent replay attacks. | [optional] 
 

@@ -25,7 +25,7 @@ class DenomOwnersByQuery200Response {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DenomOwnersByQuery200Response &&
@@ -72,7 +72,7 @@ class DenomOwnersByQuery200Response {
 
       return DenomOwnersByQuery200Response(
         denomOwners: DenomOwners200ResponseDenomOwnersInner.listFromJson(json[r'denom_owners']),
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

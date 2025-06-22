@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosTxV1beta1SignerInfo();
 
   group('test CosmosTxV1beta1SignerInfo', () {
-    // CodesDefaultResponseDetailsInner publicKey
+    // EvmAccountDefaultResponseDetailsInner publicKey
     test('to test the property `publicKey`', () async {
       // TODO
     });

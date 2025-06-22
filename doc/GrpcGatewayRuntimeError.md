@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **error** | **String** |  | [optional] 
 **code** | **int** |  | [optional] 
 **message** | **String** |  | [optional] 
-**details** | [**List<CodesDefaultResponseDetailsInner>**](CodesDefaultResponseDetailsInner.md) |  | [optional] [default to const []]
+**details** | [**List<EvmAccountDefaultResponseDetailsInner>**](EvmAccountDefaultResponseDetailsInner.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

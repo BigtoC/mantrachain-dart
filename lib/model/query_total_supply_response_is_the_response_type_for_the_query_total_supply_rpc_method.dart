@@ -17,7 +17,7 @@ class QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethod {
     this.pagination,
   });
 
-  List<Coin> supply;
+  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> supply;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -71,7 +71,7 @@ class QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethod {
       }());
 
       return QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethod(
-        supply: Coin.listFromJson(json[r'supply']),
+        supply: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'supply']),
         pagination: QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethodPagination.fromJson(json[r'pagination']),
       );
     }

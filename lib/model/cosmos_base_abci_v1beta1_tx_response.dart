@@ -116,7 +116,7 @@ class CosmosBaseAbciV1beta1TxResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? tx;
+  EvmAccountDefaultResponseDetailsInner? tx;
 
   /// Time of the previous block. For heights > 1, it's the weighted median of the timestamps of the valid votes in the block.LastCommit. For height == 1, it's genesis time.
   ///
@@ -257,7 +257,7 @@ class CosmosBaseAbciV1beta1TxResponse {
         info: mapValueOfType<String>(json, r'info'),
         gasWanted: mapValueOfType<String>(json, r'gas_wanted'),
         gasUsed: mapValueOfType<String>(json, r'gas_used'),
-        tx: CodesDefaultResponseDetailsInner.fromJson(json[r'tx']),
+        tx: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'tx']),
         timestamp: mapValueOfType<String>(json, r'timestamp'),
         events: Simulate200ResponseResultEventsInner.listFromJson(json[r'events']),
       );

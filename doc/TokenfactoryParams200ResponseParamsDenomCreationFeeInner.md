@@ -1,4 +1,4 @@
-# openapi.model.Coin
+# openapi.model.TokenfactoryParams200ResponseParamsDenomCreationFeeInner
 
 ## Load the model package
 ```dart

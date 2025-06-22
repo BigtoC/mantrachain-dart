@@ -17,7 +17,7 @@ class DelegationRewards200Response {
   });
 
   /// rewards defines the rewards accrued by a delegation.
-  List<GasPrice200ResponsePrice> rewards;
+  List<CommunityPool200ResponsePoolInner> rewards;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DelegationRewards200Response &&
@@ -56,7 +56,7 @@ class DelegationRewards200Response {
       }());
 
       return DelegationRewards200Response(
-        rewards: GasPrice200ResponsePrice.listFromJson(json[r'rewards']),
+        rewards: CommunityPool200ResponsePoolInner.listFromJson(json[r'rewards']),
       );
     }
     return null;

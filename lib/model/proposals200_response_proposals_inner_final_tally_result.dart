@@ -13,9 +13,9 @@ part of openapi.api;
 class Proposals200ResponseProposalsInnerFinalTallyResult {
   /// Returns a new [Proposals200ResponseProposalsInnerFinalTallyResult] instance.
   Proposals200ResponseProposalsInnerFinalTallyResult({
-    this.yes,
+    this.true_,
     this.abstain,
-    this.no,
+    this.false_,
     this.noWithVeto,
   });
 
@@ -26,7 +26,7 @@ class Proposals200ResponseProposalsInnerFinalTallyResult {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? yes;
+  String? true_;
 
   /// abstain is the number of abstain votes on a proposal.
   ///
@@ -44,7 +44,7 @@ class Proposals200ResponseProposalsInnerFinalTallyResult {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? no;
+  String? false_;
 
   /// no_with_veto is the number of no with veto votes on a proposal.
   ///
@@ -57,38 +57,38 @@ class Proposals200ResponseProposalsInnerFinalTallyResult {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Proposals200ResponseProposalsInnerFinalTallyResult &&
-    other.yes == yes &&
+    other.true_ == true_ &&
     other.abstain == abstain &&
-    other.no == no &&
+    other.false_ == false_ &&
     other.noWithVeto == noWithVeto;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (yes == null ? 0 : yes!.hashCode) +
+    (true_ == null ? 0 : true_!.hashCode) +
     (abstain == null ? 0 : abstain!.hashCode) +
-    (no == null ? 0 : no!.hashCode) +
+    (false_ == null ? 0 : false_!.hashCode) +
     (noWithVeto == null ? 0 : noWithVeto!.hashCode);
 
   @override
-  String toString() => 'Proposals200ResponseProposalsInnerFinalTallyResult[yes=$yes, abstain=$abstain, no=$no, noWithVeto=$noWithVeto]';
+  String toString() => 'Proposals200ResponseProposalsInnerFinalTallyResult[true_=$true_, abstain=$abstain, false_=$false_, noWithVeto=$noWithVeto]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.yes != null) {
-      json[r'yes'] = this.yes;
+    if (this.true_ != null) {
+      json[r'true'] = this.true_;
     } else {
-      json[r'yes'] = null;
+      json[r'true'] = null;
     }
     if (this.abstain != null) {
       json[r'abstain'] = this.abstain;
     } else {
       json[r'abstain'] = null;
     }
-    if (this.no != null) {
-      json[r'no'] = this.no;
+    if (this.false_ != null) {
+      json[r'false'] = this.false_;
     } else {
-      json[r'no'] = null;
+      json[r'false'] = null;
     }
     if (this.noWithVeto != null) {
       json[r'no_with_veto'] = this.noWithVeto;
@@ -117,9 +117,9 @@ class Proposals200ResponseProposalsInnerFinalTallyResult {
       }());
 
       return Proposals200ResponseProposalsInnerFinalTallyResult(
-        yes: mapValueOfType<String>(json, r'yes'),
+        true_: mapValueOfType<String>(json, r'true'),
         abstain: mapValueOfType<String>(json, r'abstain'),
-        no: mapValueOfType<String>(json, r'no'),
+        false_: mapValueOfType<String>(json, r'false'),
         noWithVeto: mapValueOfType<String>(json, r'no_with_veto'),
       );
     }
