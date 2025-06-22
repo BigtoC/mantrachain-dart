@@ -33,7 +33,7 @@ class CosmosBaseTendermintV1beta1Validator {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? pubKey;
+  EvmAccountDefaultResponseDetailsInner? pubKey;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -114,7 +114,7 @@ class CosmosBaseTendermintV1beta1Validator {
 
       return CosmosBaseTendermintV1beta1Validator(
         address: mapValueOfType<String>(json, r'address'),
-        pubKey: CodesDefaultResponseDetailsInner.fromJson(json[r'pub_key']),
+        pubKey: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'pub_key']),
         votingPower: mapValueOfType<String>(json, r'voting_power'),
         proposerPriority: mapValueOfType<String>(json, r'proposer_priority'),
       );

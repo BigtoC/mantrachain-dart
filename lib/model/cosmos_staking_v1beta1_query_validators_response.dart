@@ -26,7 +26,7 @@ class CosmosStakingV1beta1QueryValidatorsResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosStakingV1beta1QueryValidatorsResponse &&
@@ -73,7 +73,7 @@ class CosmosStakingV1beta1QueryValidatorsResponse {
 
       return CosmosStakingV1beta1QueryValidatorsResponse(
         validators: StakingDelegatorValidators200ResponseValidatorsInner.listFromJson(json[r'validators']),
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

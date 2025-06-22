@@ -22,7 +22,7 @@ class Evidence200Response {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? evidence;
+  EvmAccountDefaultResponseDetailsInner? evidence;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Evidence200Response &&
@@ -65,7 +65,7 @@ class Evidence200Response {
       }());
 
       return Evidence200Response(
-        evidence: CodesDefaultResponseDetailsInner.fromJson(json[r'evidence']),
+        evidence: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'evidence']),
       );
     }
     return null;

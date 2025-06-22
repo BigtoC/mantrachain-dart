@@ -17,7 +17,7 @@ class CosmosAuthV1beta1QueryAccountsResponse {
     this.pagination,
   });
 
-  List<CodesDefaultResponseDetailsInner> accounts;
+  List<EvmAccountDefaultResponseDetailsInner> accounts;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -25,7 +25,7 @@ class CosmosAuthV1beta1QueryAccountsResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosAuthV1beta1QueryAccountsResponse &&
@@ -71,8 +71,8 @@ class CosmosAuthV1beta1QueryAccountsResponse {
       }());
 
       return CosmosAuthV1beta1QueryAccountsResponse(
-        accounts: CodesDefaultResponseDetailsInner.listFromJson(json[r'accounts']),
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        accounts: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'accounts']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

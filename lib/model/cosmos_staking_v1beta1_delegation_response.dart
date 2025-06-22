@@ -31,7 +31,7 @@ class CosmosStakingV1beta1DelegationResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  Coin? balance;
+  TokenfactoryParams200ResponseParamsDenomCreationFeeInner? balance;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosStakingV1beta1DelegationResponse &&
@@ -82,7 +82,7 @@ class CosmosStakingV1beta1DelegationResponse {
 
       return CosmosStakingV1beta1DelegationResponse(
         delegation: DelegatorDelegations200ResponseDelegationResponsesInnerDelegation.fromJson(json[r'delegation']),
-        balance: Coin.fromJson(json[r'balance']),
+        balance: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(json[r'balance']),
       );
     }
     return null;

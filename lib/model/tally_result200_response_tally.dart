@@ -13,9 +13,9 @@ part of openapi.api;
 class TallyResult200ResponseTally {
   /// Returns a new [TallyResult200ResponseTally] instance.
   TallyResult200ResponseTally({
-    this.yes,
+    this.true_,
     this.abstain,
-    this.no,
+    this.false_,
     this.noWithVeto,
   });
 
@@ -26,7 +26,7 @@ class TallyResult200ResponseTally {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? yes;
+  String? true_;
 
   /// abstain is the number of abstain votes on a proposal.
   ///
@@ -44,7 +44,7 @@ class TallyResult200ResponseTally {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? no;
+  String? false_;
 
   /// no_with_veto is the number of no with veto votes on a proposal.
   ///
@@ -56,39 +56,42 @@ class TallyResult200ResponseTally {
   String? noWithVeto;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TallyResult200ResponseTally &&
-    other.yes == yes &&
-    other.abstain == abstain &&
-    other.no == no &&
-    other.noWithVeto == noWithVeto;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TallyResult200ResponseTally &&
+          other.true_ == true_ &&
+          other.abstain == abstain &&
+          other.false_ == false_ &&
+          other.noWithVeto == noWithVeto;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (yes == null ? 0 : yes!.hashCode) +
-    (abstain == null ? 0 : abstain!.hashCode) +
-    (no == null ? 0 : no!.hashCode) +
-    (noWithVeto == null ? 0 : noWithVeto!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (true_ == null ? 0 : true_!.hashCode) +
+      (abstain == null ? 0 : abstain!.hashCode) +
+      (false_ == null ? 0 : false_!.hashCode) +
+      (noWithVeto == null ? 0 : noWithVeto!.hashCode);
 
   @override
-  String toString() => 'TallyResult200ResponseTally[yes=$yes, abstain=$abstain, no=$no, noWithVeto=$noWithVeto]';
+  String toString() =>
+      'TallyResult200ResponseTally[true_=$true_, abstain=$abstain, false_=$false_, noWithVeto=$noWithVeto]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.yes != null) {
-      json[r'yes'] = this.yes;
+    if (this.true_ != null) {
+      json[r'true'] = this.true_;
     } else {
-      json[r'yes'] = null;
+      json[r'true'] = null;
     }
     if (this.abstain != null) {
       json[r'abstain'] = this.abstain;
     } else {
       json[r'abstain'] = null;
     }
-    if (this.no != null) {
-      json[r'no'] = this.no;
+    if (this.false_ != null) {
+      json[r'false'] = this.false_;
     } else {
-      json[r'no'] = null;
+      json[r'false'] = null;
     }
     if (this.noWithVeto != null) {
       json[r'no_with_veto'] = this.noWithVeto;
@@ -110,23 +113,28 @@ class TallyResult200ResponseTally {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TallyResult200ResponseTally[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TallyResult200ResponseTally[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TallyResult200ResponseTally[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TallyResult200ResponseTally[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return TallyResult200ResponseTally(
-        yes: mapValueOfType<String>(json, r'yes'),
+        true_: mapValueOfType<String>(json, r'true'),
         abstain: mapValueOfType<String>(json, r'abstain'),
-        no: mapValueOfType<String>(json, r'no'),
+        false_: mapValueOfType<String>(json, r'false'),
         noWithVeto: mapValueOfType<String>(json, r'no_with_veto'),
       );
     }
     return null;
   }
 
-  static List<TallyResult200ResponseTally> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TallyResult200ResponseTally> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TallyResult200ResponseTally>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -154,20 +162,24 @@ class TallyResult200ResponseTally {
   }
 
   // maps a json object with a list of TallyResult200ResponseTally-objects as value to a dart map
-  static Map<String, List<TallyResult200ResponseTally>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TallyResult200ResponseTally>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TallyResult200ResponseTally>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TallyResult200ResponseTally.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TallyResult200ResponseTally.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

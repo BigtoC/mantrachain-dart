@@ -24,7 +24,7 @@ class CosmosTxV1beta1SignerInfo {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? publicKey;
+  EvmAccountDefaultResponseDetailsInner? publicKey;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -98,7 +98,7 @@ class CosmosTxV1beta1SignerInfo {
       }());
 
       return CosmosTxV1beta1SignerInfo(
-        publicKey: CodesDefaultResponseDetailsInner.fromJson(json[r'public_key']),
+        publicKey: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'public_key']),
         modeInfo: CosmosTxV1beta1ModeInfo.fromJson(json[r'mode_info']),
         sequence: mapValueOfType<String>(json, r'sequence'),
       );

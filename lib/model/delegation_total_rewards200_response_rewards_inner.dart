@@ -25,7 +25,7 @@ class DelegationTotalRewards200ResponseRewardsInner {
   ///
   String? validatorAddress;
 
-  List<GasPrice200ResponsePrice> reward;
+  List<CommunityPool200ResponsePoolInner> reward;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DelegationTotalRewards200ResponseRewardsInner &&
@@ -72,7 +72,7 @@ class DelegationTotalRewards200ResponseRewardsInner {
 
       return DelegationTotalRewards200ResponseRewardsInner(
         validatorAddress: mapValueOfType<String>(json, r'validator_address'),
-        reward: GasPrice200ResponsePrice.listFromJson(json[r'reward']),
+        reward: CommunityPool200ResponsePoolInner.listFromJson(json[r'reward']),
       );
     }
     return null;

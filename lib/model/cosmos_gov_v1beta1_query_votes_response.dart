@@ -26,7 +26,7 @@ class CosmosGovV1beta1QueryVotesResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosGovV1beta1QueryVotesResponse &&
@@ -73,7 +73,7 @@ class CosmosGovV1beta1QueryVotesResponse {
 
       return CosmosGovV1beta1QueryVotesResponse(
         votes: Votes200ResponseVotesInner.listFromJson(json[r'votes']),
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

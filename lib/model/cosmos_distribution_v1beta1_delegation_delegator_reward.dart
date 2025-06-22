@@ -25,7 +25,7 @@ class CosmosDistributionV1beta1DelegationDelegatorReward {
   ///
   String? validatorAddress;
 
-  List<GasPrice200ResponsePrice> reward;
+  List<CommunityPool200ResponsePoolInner> reward;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosDistributionV1beta1DelegationDelegatorReward &&
@@ -72,7 +72,7 @@ class CosmosDistributionV1beta1DelegationDelegatorReward {
 
       return CosmosDistributionV1beta1DelegationDelegatorReward(
         validatorAddress: mapValueOfType<String>(json, r'validator_address'),
-        reward: GasPrice200ResponsePrice.listFromJson(json[r'reward']),
+        reward: CommunityPool200ResponsePoolInner.listFromJson(json[r'reward']),
       );
     }
     return null;

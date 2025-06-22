@@ -25,7 +25,7 @@ class CosmwasmWasmV1QueryPinnedCodesResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination? pagination;
+  TokenPairs200ResponsePagination? pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmwasmWasmV1QueryPinnedCodesResponse &&
@@ -74,7 +74,7 @@ class CosmwasmWasmV1QueryPinnedCodesResponse {
         codeIds: json[r'code_ids'] is Iterable
             ? (json[r'code_ids'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        pagination: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination.fromJson(json[r'pagination']),
+        pagination: TokenPairs200ResponsePagination.fromJson(json[r'pagination']),
       );
     }
     return null;

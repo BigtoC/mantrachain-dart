@@ -18,7 +18,7 @@ class CosmosGovV1beta1DepositParams {
   });
 
   /// Minimum deposit for a proposal to enter voting period.
-  List<Coin> minDeposit;
+  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> minDeposit;
 
   /// Maximum period for Atom holders to deposit on a proposal. Initial value: 2 months.
   ///
@@ -73,7 +73,7 @@ class CosmosGovV1beta1DepositParams {
       }());
 
       return CosmosGovV1beta1DepositParams(
-        minDeposit: Coin.listFromJson(json[r'min_deposit']),
+        minDeposit: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'min_deposit']),
         maxDepositPeriod: mapValueOfType<String>(json, r'max_deposit_period'),
       );
     }

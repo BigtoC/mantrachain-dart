@@ -43,7 +43,7 @@ class CosmosStakingV1beta1Validator {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? consensusPubkey;
+  EvmAccountDefaultResponseDetailsInner? consensusPubkey;
 
   /// jailed defined whether the validator has been jailed from bonded status or not.
   ///
@@ -246,7 +246,7 @@ class CosmosStakingV1beta1Validator {
 
       return CosmosStakingV1beta1Validator(
         operatorAddress: mapValueOfType<String>(json, r'operator_address'),
-        consensusPubkey: CodesDefaultResponseDetailsInner.fromJson(json[r'consensus_pubkey']),
+        consensusPubkey: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'consensus_pubkey']),
         jailed: mapValueOfType<bool>(json, r'jailed'),
         status: CosmosStakingV1beta1ValidatorStatusEnum.fromJson(json[r'status']) ?? CosmosStakingV1beta1ValidatorStatusEnum.BOND_STATUS_UNSPECIFIED,
         tokens: mapValueOfType<String>(json, r'tokens'),

@@ -19,7 +19,7 @@ class TokenfactoryParams200ResponseParams {
   });
 
   /// DenomCreationFee defines the fee to be charged on the creation of a new denom. The fee is drawn from the MsgCreateDenom's sender account, and transferred to the community pool.
-  List<Coin> denomCreationFee;
+  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> denomCreationFee;
 
   /// DenomCreationGasConsume defines the gas cost for creating a new denom. This is intended as a spam deterrence mechanism.  See: https://github.com/CosmWasm/token-factory/issues/11
   ///
@@ -89,7 +89,7 @@ class TokenfactoryParams200ResponseParams {
       }());
 
       return TokenfactoryParams200ResponseParams(
-        denomCreationFee: Coin.listFromJson(json[r'denom_creation_fee']),
+        denomCreationFee: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'denom_creation_fee']),
         denomCreationGasConsume: mapValueOfType<String>(json, r'denom_creation_gas_consume'),
         feeCollectorAddress: mapValueOfType<String>(json, r'fee_collector_address'),
       );

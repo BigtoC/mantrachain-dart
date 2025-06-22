@@ -23,7 +23,7 @@ class Grants200ResponseGrantsInner {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? authorization;
+  EvmAccountDefaultResponseDetailsInner? authorization;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -81,7 +81,7 @@ class Grants200ResponseGrantsInner {
       }());
 
       return Grants200ResponseGrantsInner(
-        authorization: CodesDefaultResponseDetailsInner.fromJson(json[r'authorization']),
+        authorization: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'authorization']),
         expiration: mapDateTime(json, r'expiration', r''),
       );
     }

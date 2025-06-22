@@ -16,7 +16,7 @@ class ValidatorOutstandingRewards200ResponseRewards {
     this.rewards = const [],
   });
 
-  List<GasPrice200ResponsePrice> rewards;
+  List<CommunityPool200ResponsePoolInner> rewards;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ValidatorOutstandingRewards200ResponseRewards &&
@@ -55,7 +55,7 @@ class ValidatorOutstandingRewards200ResponseRewards {
       }());
 
       return ValidatorOutstandingRewards200ResponseRewards(
-        rewards: GasPrice200ResponsePrice.listFromJson(json[r'rewards']),
+        rewards: CommunityPool200ResponsePoolInner.listFromJson(json[r'rewards']),
       );
     }
     return null;

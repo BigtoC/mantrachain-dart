@@ -22,7 +22,7 @@ class IbcApplicationsTransferV1QueryTotalEscrowForDenomResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  Coin? amount;
+  TokenfactoryParams200ResponseParamsDenomCreationFeeInner? amount;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is IbcApplicationsTransferV1QueryTotalEscrowForDenomResponse &&
@@ -65,7 +65,7 @@ class IbcApplicationsTransferV1QueryTotalEscrowForDenomResponse {
       }());
 
       return IbcApplicationsTransferV1QueryTotalEscrowForDenomResponse(
-        amount: Coin.fromJson(json[r'amount']),
+        amount: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.fromJson(json[r'amount']),
       );
     }
     return null;

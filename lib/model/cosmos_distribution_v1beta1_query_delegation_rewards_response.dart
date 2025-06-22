@@ -17,7 +17,7 @@ class CosmosDistributionV1beta1QueryDelegationRewardsResponse {
   });
 
   /// rewards defines the rewards accrued by a delegation.
-  List<GasPrice200ResponsePrice> rewards;
+  List<CommunityPool200ResponsePoolInner> rewards;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosDistributionV1beta1QueryDelegationRewardsResponse &&
@@ -56,7 +56,7 @@ class CosmosDistributionV1beta1QueryDelegationRewardsResponse {
       }());
 
       return CosmosDistributionV1beta1QueryDelegationRewardsResponse(
-        rewards: GasPrice200ResponsePrice.listFromJson(json[r'rewards']),
+        rewards: CommunityPool200ResponsePoolInner.listFromJson(json[r'rewards']),
       );
     }
     return null;

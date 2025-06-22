@@ -43,7 +43,7 @@ class GrpcGatewayRuntimeError {
   ///
   String? message;
 
-  List<CodesDefaultResponseDetailsInner> details;
+  List<EvmAccountDefaultResponseDetailsInner> details;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GrpcGatewayRuntimeError &&
@@ -106,7 +106,7 @@ class GrpcGatewayRuntimeError {
         error: mapValueOfType<String>(json, r'error'),
         code: mapValueOfType<int>(json, r'code'),
         message: mapValueOfType<String>(json, r'message'),
-        details: CodesDefaultResponseDetailsInner.listFromJson(json[r'details']),
+        details: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'details']),
       );
     }
     return null;

@@ -37,7 +37,7 @@ class CosmosGovV1beta1Deposit {
   String? depositor;
 
   /// amount to be deposited by depositor.
-  List<Coin> amount;
+  List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> amount;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CosmosGovV1beta1Deposit &&
@@ -92,7 +92,7 @@ class CosmosGovV1beta1Deposit {
       return CosmosGovV1beta1Deposit(
         proposalId: mapValueOfType<String>(json, r'proposal_id'),
         depositor: mapValueOfType<String>(json, r'depositor'),
-        amount: Coin.listFromJson(json[r'amount']),
+        amount: TokenfactoryParams200ResponseParamsDenomCreationFeeInner.listFromJson(json[r'amount']),
       );
     }
     return null;

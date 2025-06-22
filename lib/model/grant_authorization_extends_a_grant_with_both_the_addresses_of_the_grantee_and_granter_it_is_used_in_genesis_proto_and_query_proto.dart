@@ -41,7 +41,7 @@ class GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterI
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodesDefaultResponseDetailsInner? authorization;
+  EvmAccountDefaultResponseDetailsInner? authorization;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -115,7 +115,7 @@ class GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterI
       return GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto(
         granter: mapValueOfType<String>(json, r'granter'),
         grantee: mapValueOfType<String>(json, r'grantee'),
-        authorization: CodesDefaultResponseDetailsInner.fromJson(json[r'authorization']),
+        authorization: EvmAccountDefaultResponseDetailsInner.fromJson(json[r'authorization']),
         expiration: mapDateTime(json, r'expiration', r''),
       );
     }

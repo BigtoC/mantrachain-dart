@@ -14,7 +14,7 @@ class PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute {
   /// Returns a new [PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute] instance.
   PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute({
     this.denom,
-    this.channelId,
+    this.channelOrClientId,
   });
 
   ///
@@ -31,21 +31,21 @@ class PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? channelId;
+  String? channelOrClientId;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute &&
     other.denom == denom &&
-    other.channelId == channelId;
+    other.channelOrClientId == channelOrClientId;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (denom == null ? 0 : denom!.hashCode) +
-    (channelId == null ? 0 : channelId!.hashCode);
+    (channelOrClientId == null ? 0 : channelOrClientId!.hashCode);
 
   @override
-  String toString() => 'PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute[denom=$denom, channelId=$channelId]';
+  String toString() => 'PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute[denom=$denom, channelOrClientId=$channelOrClientId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -54,10 +54,10 @@ class PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute {
     } else {
       json[r'denom'] = null;
     }
-    if (this.channelId != null) {
-      json[r'channel_id'] = this.channelId;
+    if (this.channelOrClientId != null) {
+      json[r'channel_or_client_id'] = this.channelOrClientId;
     } else {
-      json[r'channel_id'] = null;
+      json[r'channel_or_client_id'] = null;
     }
     return json;
   }
@@ -82,7 +82,7 @@ class PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute {
 
       return PathHoldsTheDenomAndChannelIDThatDefineTheRateLimitedRoute(
         denom: mapValueOfType<String>(json, r'denom'),
-        channelId: mapValueOfType<String>(json, r'channel_id'),
+        channelOrClientId: mapValueOfType<String>(json, r'channel_or_client_id'),
       );
     }
     return null;

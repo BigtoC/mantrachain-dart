@@ -18,10 +18,9 @@ class IbcCoreChannelV1Channel {
     this.counterparty,
     this.connectionHops = const [],
     this.version,
-    this.upgradeSequence,
   });
 
-  /// State defines if a channel is in one of the following states: CLOSED, INIT, TRYOPEN, OPEN, FLUSHING, FLUSHCOMPLETE or UNINITIALIZED.   - STATE_UNINITIALIZED_UNSPECIFIED: Default State  - STATE_INIT: A channel has just started the opening handshake.  - STATE_TRYOPEN: A channel has acknowledged the handshake step on the counterparty chain.  - STATE_OPEN: A channel has completed the handshake. Open channels are ready to send and receive packets.  - STATE_CLOSED: A channel has been closed and can no longer be used to send or receive packets.  - STATE_FLUSHING: A channel has just accepted the upgrade handshake attempt and is flushing in-flight packets.  - STATE_FLUSHCOMPLETE: A channel has just completed flushing any in-flight packets.
+  /// State defines if a channel is in one of the following states: CLOSED, INIT, TRYOPEN, OPEN, or UNINITIALIZED.   - STATE_UNINITIALIZED_UNSPECIFIED: Default State  - STATE_INIT: A channel has just started the opening handshake.  - STATE_TRYOPEN: A channel has acknowledged the handshake step on the counterparty chain.  - STATE_OPEN: A channel has completed the handshake. Open channels are ready to send and receive packets.  - STATE_CLOSED: A channel has been closed and can no longer be used to send or receive packets.
   IbcCoreChannelV1ChannelStateEnum state;
 
   /// - ORDER_NONE_UNSPECIFIED: zero-value for channel ordering  - ORDER_UNORDERED: packets can be delivered in any order, which may differ from the order in which they were sent.  - ORDER_ORDERED: packets are delivered exactly in the order which they were sent
@@ -45,22 +44,13 @@ class IbcCoreChannelV1Channel {
   ///
   String? version;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? upgradeSequence;
-
   @override
   bool operator ==(Object other) => identical(this, other) || other is IbcCoreChannelV1Channel &&
     other.state == state &&
     other.ordering == ordering &&
     other.counterparty == counterparty &&
     _deepEquality.equals(other.connectionHops, connectionHops) &&
-    other.version == version &&
-    other.upgradeSequence == upgradeSequence;
+    other.version == version;
 
   @override
   int get hashCode =>
@@ -69,11 +59,10 @@ class IbcCoreChannelV1Channel {
     (ordering.hashCode) +
     (counterparty == null ? 0 : counterparty!.hashCode) +
     (connectionHops.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (upgradeSequence == null ? 0 : upgradeSequence!.hashCode);
+    (version == null ? 0 : version!.hashCode);
 
   @override
-  String toString() => 'IbcCoreChannelV1Channel[state=$state, ordering=$ordering, counterparty=$counterparty, connectionHops=$connectionHops, version=$version, upgradeSequence=$upgradeSequence]';
+  String toString() => 'IbcCoreChannelV1Channel[state=$state, ordering=$ordering, counterparty=$counterparty, connectionHops=$connectionHops, version=$version]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -89,11 +78,6 @@ class IbcCoreChannelV1Channel {
       json[r'version'] = this.version;
     } else {
       json[r'version'] = null;
-    }
-    if (this.upgradeSequence != null) {
-      json[r'upgrade_sequence'] = this.upgradeSequence;
-    } else {
-      json[r'upgrade_sequence'] = null;
     }
     return json;
   }
@@ -124,7 +108,6 @@ class IbcCoreChannelV1Channel {
             ? (json[r'connection_hops'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         version: mapValueOfType<String>(json, r'version'),
-        upgradeSequence: mapValueOfType<String>(json, r'upgrade_sequence'),
       );
     }
     return null;
@@ -175,7 +158,7 @@ class IbcCoreChannelV1Channel {
   };
 }
 
-/// State defines if a channel is in one of the following states: CLOSED, INIT, TRYOPEN, OPEN, FLUSHING, FLUSHCOMPLETE or UNINITIALIZED.   - STATE_UNINITIALIZED_UNSPECIFIED: Default State  - STATE_INIT: A channel has just started the opening handshake.  - STATE_TRYOPEN: A channel has acknowledged the handshake step on the counterparty chain.  - STATE_OPEN: A channel has completed the handshake. Open channels are ready to send and receive packets.  - STATE_CLOSED: A channel has been closed and can no longer be used to send or receive packets.  - STATE_FLUSHING: A channel has just accepted the upgrade handshake attempt and is flushing in-flight packets.  - STATE_FLUSHCOMPLETE: A channel has just completed flushing any in-flight packets.
+/// State defines if a channel is in one of the following states: CLOSED, INIT, TRYOPEN, OPEN, or UNINITIALIZED.   - STATE_UNINITIALIZED_UNSPECIFIED: Default State  - STATE_INIT: A channel has just started the opening handshake.  - STATE_TRYOPEN: A channel has acknowledged the handshake step on the counterparty chain.  - STATE_OPEN: A channel has completed the handshake. Open channels are ready to send and receive packets.  - STATE_CLOSED: A channel has been closed and can no longer be used to send or receive packets.
 class IbcCoreChannelV1ChannelStateEnum {
   /// Instantiate a new enum with the provided [value].
   const IbcCoreChannelV1ChannelStateEnum._(this.value);
@@ -193,8 +176,6 @@ class IbcCoreChannelV1ChannelStateEnum {
   static const STATE_TRYOPEN = IbcCoreChannelV1ChannelStateEnum._(r'STATE_TRYOPEN');
   static const STATE_OPEN = IbcCoreChannelV1ChannelStateEnum._(r'STATE_OPEN');
   static const STATE_CLOSED = IbcCoreChannelV1ChannelStateEnum._(r'STATE_CLOSED');
-  static const STATE_FLUSHING = IbcCoreChannelV1ChannelStateEnum._(r'STATE_FLUSHING');
-  static const STATE_FLUSHCOMPLETE = IbcCoreChannelV1ChannelStateEnum._(r'STATE_FLUSHCOMPLETE');
 
   /// List of all possible values in this [enum][IbcCoreChannelV1ChannelStateEnum].
   static const values = <IbcCoreChannelV1ChannelStateEnum>[
@@ -203,8 +184,6 @@ class IbcCoreChannelV1ChannelStateEnum {
     STATE_TRYOPEN,
     STATE_OPEN,
     STATE_CLOSED,
-    STATE_FLUSHING,
-    STATE_FLUSHCOMPLETE,
   ];
 
   static IbcCoreChannelV1ChannelStateEnum? fromJson(dynamic value) => IbcCoreChannelV1ChannelStateEnumTypeTransformer().decode(value);
@@ -248,8 +227,6 @@ class IbcCoreChannelV1ChannelStateEnumTypeTransformer {
         case r'STATE_TRYOPEN': return IbcCoreChannelV1ChannelStateEnum.STATE_TRYOPEN;
         case r'STATE_OPEN': return IbcCoreChannelV1ChannelStateEnum.STATE_OPEN;
         case r'STATE_CLOSED': return IbcCoreChannelV1ChannelStateEnum.STATE_CLOSED;
-        case r'STATE_FLUSHING': return IbcCoreChannelV1ChannelStateEnum.STATE_FLUSHING;
-        case r'STATE_FLUSHCOMPLETE': return IbcCoreChannelV1ChannelStateEnum.STATE_FLUSHCOMPLETE;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

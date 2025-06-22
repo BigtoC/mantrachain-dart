@@ -16,7 +16,7 @@ class ModuleAccounts200Response {
     this.accounts = const [],
   });
 
-  List<CodesDefaultResponseDetailsInner> accounts;
+  List<EvmAccountDefaultResponseDetailsInner> accounts;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ModuleAccounts200Response &&
@@ -55,7 +55,7 @@ class ModuleAccounts200Response {
       }());
 
       return ModuleAccounts200Response(
-        accounts: CodesDefaultResponseDetailsInner.listFromJson(json[r'accounts']),
+        accounts: EvmAccountDefaultResponseDetailsInner.listFromJson(json[r'accounts']),
       );
     }
     return null;
