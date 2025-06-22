@@ -9,7 +9,7 @@ import 'package:mantrachain_dart_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operatorAddress** | **String** | operator_address defines the address of the validator's operator; bech encoded in JSON. | [optional] 
-**consensusPubkey** | [**CodesDefaultResponseDetailsInner**](CodesDefaultResponseDetailsInner.md) |  | [optional] 
+**consensusPubkey** | [**EvmAccountDefaultResponseDetailsInner**](EvmAccountDefaultResponseDetailsInner.md) |  | [optional] 
 **jailed** | **bool** | jailed defined whether the validator has been jailed from bonded status or not. | [optional] 
 **status** | **String** | status is the validator status (bonded/unbonding/unbonded). | [optional] [default to 'BOND_STATUS_UNSPECIFIED']
 **tokens** | **String** | tokens define the delegated tokens (incl. self-delegation). | [optional] 

@@ -9,7 +9,7 @@ import 'package:mantrachain_dart_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **denom** | **String** |  | [optional] 
-**channelId** | **String** |  | [optional] 
+**channelOrClientId** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

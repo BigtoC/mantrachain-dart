@@ -77,7 +77,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **broadcastTx**
-> BroadcastTx200Response broadcastTx(body)
+> BroadcastTx200Response broadcastTx(broadcastTxRequest)
 
 BroadcastTx broadcast transaction.
 
@@ -86,10 +86,10 @@ BroadcastTx broadcast transaction.
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
-final body = BroadcastTxRequest(); // BroadcastTxRequest | 
+final broadcastTxRequest = BroadcastTxRequest(); // BroadcastTxRequest | 
 
 try {
-    final result = api_instance.broadcastTx(body);
+    final result = api_instance.broadcastTx(broadcastTxRequest);
     print(result);
 } catch (e) {
     print('Exception when calling ServiceApi->broadcastTx: $e\n');
@@ -100,7 +100,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**BroadcastTxRequest**](BroadcastTxRequest.md)|  | 
+ **broadcastTxRequest** | [**BroadcastTxRequest**](BroadcastTxRequest.md)|  | 
 
 ### Return type
 
@@ -112,7 +112,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -523,7 +523,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **simulate**
-> Simulate200Response simulate(body)
+> Simulate200Response simulate(cosmosTxV1beta1SimulateRequest)
 
 Simulate simulates executing a transaction for estimating gas usage.
 
@@ -532,10 +532,10 @@ Simulate simulates executing a transaction for estimating gas usage.
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
-final body = CosmosTxV1beta1SimulateRequest(); // CosmosTxV1beta1SimulateRequest | 
+final cosmosTxV1beta1SimulateRequest = CosmosTxV1beta1SimulateRequest(); // CosmosTxV1beta1SimulateRequest | 
 
 try {
-    final result = api_instance.simulate(body);
+    final result = api_instance.simulate(cosmosTxV1beta1SimulateRequest);
     print(result);
 } catch (e) {
     print('Exception when calling ServiceApi->simulate: $e\n');
@@ -546,7 +546,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CosmosTxV1beta1SimulateRequest**](CosmosTxV1beta1SimulateRequest.md)|  | 
+ **cosmosTxV1beta1SimulateRequest** | [**CosmosTxV1beta1SimulateRequest**](CosmosTxV1beta1SimulateRequest.md)|  | 
 
 ### Return type
 
@@ -558,13 +558,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **txDecode**
-> CosmosTxV1beta1TxDecodeResponse txDecode(body)
+> CosmosTxV1beta1TxDecodeResponse txDecode(txDecodeRequest)
 
 TxDecode decodes the transaction.
 
@@ -575,10 +575,10 @@ Since: cosmos-sdk 0.47
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
-final body = TxDecodeRequest(); // TxDecodeRequest | 
+final txDecodeRequest = TxDecodeRequest(); // TxDecodeRequest | 
 
 try {
-    final result = api_instance.txDecode(body);
+    final result = api_instance.txDecode(txDecodeRequest);
     print(result);
 } catch (e) {
     print('Exception when calling ServiceApi->txDecode: $e\n');
@@ -589,7 +589,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TxDecodeRequest**](TxDecodeRequest.md)|  | 
+ **txDecodeRequest** | [**TxDecodeRequest**](TxDecodeRequest.md)|  | 
 
 ### Return type
 
@@ -601,13 +601,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **txDecodeAmino**
-> TxDecodeAmino200Response txDecodeAmino(body)
+> TxDecodeAmino200Response txDecodeAmino(txDecodeAminoRequest)
 
 TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.
 
@@ -618,10 +618,10 @@ Since: cosmos-sdk 0.47
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
-final body = TxDecodeAminoRequest(); // TxDecodeAminoRequest | 
+final txDecodeAminoRequest = TxDecodeAminoRequest(); // TxDecodeAminoRequest | 
 
 try {
-    final result = api_instance.txDecodeAmino(body);
+    final result = api_instance.txDecodeAmino(txDecodeAminoRequest);
     print(result);
 } catch (e) {
     print('Exception when calling ServiceApi->txDecodeAmino: $e\n');
@@ -632,7 +632,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TxDecodeAminoRequest**](TxDecodeAminoRequest.md)|  | 
+ **txDecodeAminoRequest** | [**TxDecodeAminoRequest**](TxDecodeAminoRequest.md)|  | 
 
 ### Return type
 
@@ -644,13 +644,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **txEncode**
-> TxEncode200Response txEncode(body)
+> TxEncode200Response txEncode(cosmosTxV1beta1TxEncodeRequest)
 
 TxEncode encodes the transaction.
 
@@ -661,10 +661,10 @@ Since: cosmos-sdk 0.47
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
-final body = CosmosTxV1beta1TxEncodeRequest(); // CosmosTxV1beta1TxEncodeRequest | 
+final cosmosTxV1beta1TxEncodeRequest = CosmosTxV1beta1TxEncodeRequest(); // CosmosTxV1beta1TxEncodeRequest | 
 
 try {
-    final result = api_instance.txEncode(body);
+    final result = api_instance.txEncode(cosmosTxV1beta1TxEncodeRequest);
     print(result);
 } catch (e) {
     print('Exception when calling ServiceApi->txEncode: $e\n');
@@ -675,7 +675,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CosmosTxV1beta1TxEncodeRequest**](CosmosTxV1beta1TxEncodeRequest.md)|  | 
+ **cosmosTxV1beta1TxEncodeRequest** | [**CosmosTxV1beta1TxEncodeRequest**](CosmosTxV1beta1TxEncodeRequest.md)|  | 
 
 ### Return type
 
@@ -687,13 +687,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **txEncodeAmino**
-> TxEncodeAmino200Response txEncodeAmino(body)
+> TxEncodeAmino200Response txEncodeAmino(txEncodeAminoRequest)
 
 TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.
 
@@ -704,10 +704,10 @@ Since: cosmos-sdk 0.47
 import 'package:mantrachain_dart_sdk/api.dart';
 
 final api_instance = ServiceApi();
-final body = TxEncodeAminoRequest(); // TxEncodeAminoRequest | 
+final txEncodeAminoRequest = TxEncodeAminoRequest(); // TxEncodeAminoRequest | 
 
 try {
-    final result = api_instance.txEncodeAmino(body);
+    final result = api_instance.txEncodeAmino(txEncodeAminoRequest);
     print(result);
 } catch (e) {
     print('Exception when calling ServiceApi->txEncodeAmino: $e\n');
@@ -718,7 +718,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TxEncodeAminoRequest**](TxEncodeAminoRequest.md)|  | 
+ **txEncodeAminoRequest** | [**TxEncodeAminoRequest**](TxEncodeAminoRequest.md)|  | 
 
 ### Return type
 
@@ -730,7 +730,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

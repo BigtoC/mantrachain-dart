@@ -14,7 +14,8 @@ Name | Type | Description | Notes
 **label** | **String** | Label is optional metadata to be stored with a contract instance. | [optional] 
 **created** | [**ContractInfoStoresAWASMContractInstanceCreated**](ContractInfoStoresAWASMContractInstanceCreated.md) |  | [optional] 
 **ibcPortId** | **String** |  | [optional] 
-**extension_** | [**CodesDefaultResponseDetailsInner**](CodesDefaultResponseDetailsInner.md) |  | [optional] 
+**ibc2PortId** | **String** |  | [optional] 
+**extension_** | [**EvmAccountDefaultResponseDetailsInner**](EvmAccountDefaultResponseDetailsInner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
