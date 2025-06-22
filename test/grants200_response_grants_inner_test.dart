@@ -16,7 +16,7 @@ void main() {
   // final instance = Grants200ResponseGrantsInner();
 
   group('test Grants200ResponseGrantsInner', () {
-    // CodesDefaultResponseDetailsInner authorization
+    // EvmAccountDefaultResponseDetailsInner authorization
     test('to test the property `authorization`', () async {
       // TODO
     });

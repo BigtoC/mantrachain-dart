@@ -16,7 +16,7 @@ void main() {
   // final instance = QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethod();
 
   group('test QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCMethod', () {
-    // List<Coin> supply (default value: const [])
+    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> supply (default value: const [])
     test('to test the property `supply`', () async {
       // TODO
     });

@@ -47,7 +47,12 @@ void main() {
       // TODO
     });
 
-    // CodesDefaultResponseDetailsInner extension_
+    // String ibc2PortId
+    test('to test the property `ibc2PortId`', () async {
+      // TODO
+    });
+
+    // EvmAccountDefaultResponseDetailsInner extension_
     test('to test the property `extension_`', () async {
       // TODO
     });

@@ -16,7 +16,7 @@ void main() {
   // final instance = SupplyOf200Response();
 
   group('test SupplyOf200Response', () {
-    // Coin amount
+    // TokenfactoryParams200ResponseParamsDenomCreationFeeInner amount
     test('to test the property `amount`', () async {
       // TODO
     });

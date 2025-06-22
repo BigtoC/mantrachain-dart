@@ -16,7 +16,7 @@ void main() {
   // final instance = IbcCoreChannelV1IdentifiedChannel();
 
   group('test IbcCoreChannelV1IdentifiedChannel', () {
-    // State defines if a channel is in one of the following states: CLOSED, INIT, TRYOPEN, OPEN, FLUSHING, FLUSHCOMPLETE or UNINITIALIZED.   - STATE_UNINITIALIZED_UNSPECIFIED: Default State  - STATE_INIT: A channel has just started the opening handshake.  - STATE_TRYOPEN: A channel has acknowledged the handshake step on the counterparty chain.  - STATE_OPEN: A channel has completed the handshake. Open channels are ready to send and receive packets.  - STATE_CLOSED: A channel has been closed and can no longer be used to send or receive packets.  - STATE_FLUSHING: A channel has just accepted the upgrade handshake attempt and is flushing in-flight packets.  - STATE_FLUSHCOMPLETE: A channel has just completed flushing any in-flight packets.
+    // State defines if a channel is in one of the following states: CLOSED, INIT, TRYOPEN, OPEN, or UNINITIALIZED.   - STATE_UNINITIALIZED_UNSPECIFIED: Default State  - STATE_INIT: A channel has just started the opening handshake.  - STATE_TRYOPEN: A channel has acknowledged the handshake step on the counterparty chain.  - STATE_OPEN: A channel has completed the handshake. Open channels are ready to send and receive packets.  - STATE_CLOSED: A channel has been closed and can no longer be used to send or receive packets.
     // String state (default value: 'STATE_UNINITIALIZED_UNSPECIFIED')
     test('to test the property `state`', () async {
       // TODO
@@ -50,11 +50,6 @@ void main() {
 
     // String channelId
     test('to test the property `channelId`', () async {
-      // TODO
-    });
-
-    // String upgradeSequence
-    test('to test the property `upgradeSequence`', () async {
       // TODO
     });
 

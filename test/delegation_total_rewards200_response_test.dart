@@ -23,7 +23,7 @@ void main() {
     });
 
     // total defines the sum of all the rewards.
-    // List<GasPrice200ResponsePrice> total (default value: const [])
+    // List<CommunityPool200ResponsePoolInner> total (default value: const [])
     test('to test the property `total`', () async {
       // TODO
     });

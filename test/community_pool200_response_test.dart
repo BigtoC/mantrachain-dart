@@ -17,7 +17,7 @@ void main() {
 
   group('test CommunityPool200Response', () {
     // pool defines community pool's coins.
-    // List<GasPrice200ResponsePrice> pool (default value: const [])
+    // List<CommunityPool200ResponsePoolInner> pool (default value: const [])
     test('to test the property `pool`', () async {
       // TODO
     });

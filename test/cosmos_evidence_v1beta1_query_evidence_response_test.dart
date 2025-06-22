@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosEvidenceV1beta1QueryEvidenceResponse();
 
   group('test CosmosEvidenceV1beta1QueryEvidenceResponse', () {
-    // CodesDefaultResponseDetailsInner evidence
+    // EvmAccountDefaultResponseDetailsInner evidence
     test('to test the property `evidence`', () async {
       // TODO
     });

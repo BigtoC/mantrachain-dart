@@ -26,7 +26,7 @@ void main() {
       // TODO
     });
 
-    // CodesDefaultResponseDetailsInner authorization
+    // EvmAccountDefaultResponseDetailsInner authorization
     test('to test the property `authorization`', () async {
       // TODO
     });

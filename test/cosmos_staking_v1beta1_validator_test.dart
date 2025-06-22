@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // CodesDefaultResponseDetailsInner consensusPubkey
+    // EvmAccountDefaultResponseDetailsInner consensusPubkey
     test('to test the property `consensusPubkey`', () async {
       // TODO
     });

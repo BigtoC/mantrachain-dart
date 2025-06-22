@@ -17,12 +17,12 @@ void main() {
 
   group('test AllBalances200Response', () {
     // balances is the balances of all the coins.
-    // List<Coin> balances (default value: const [])
+    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> balances (default value: const [])
     test('to test the property `balances`', () async {
       // TODO
     });
 
-    // QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination pagination
+    // TokenPairs200ResponsePagination pagination
     test('to test the property `pagination`', () async {
       // TODO
     });

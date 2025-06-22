@@ -33,11 +33,6 @@ void main() {
       // TODO
     });
 
-    // MerklePathIsThePathUsedToVerifyCommitmentProofsWhichCanBeAnArbitraryStructuredObjectDefinedByACommitmentTypeMerklePathIsRepresentedFromRootToLeaf merklePath
-    test('to test the property `merklePath`', () async {
-      // TODO
-    });
-
     // the value which is proven.
     // String value
     test('to test the property `value`', () async {
@@ -51,6 +46,11 @@ void main() {
 
     // String blockDelay
     test('to test the property `blockDelay`', () async {
+      // TODO
+    });
+
+    // QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethodMerklePath merklePath
+    test('to test the property `merklePath`', () async {
       // TODO
     });
 

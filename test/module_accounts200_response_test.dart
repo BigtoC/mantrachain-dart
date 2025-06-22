@@ -16,7 +16,7 @@ void main() {
   // final instance = ModuleAccounts200Response();
 
   group('test ModuleAccounts200Response', () {
-    // List<CodesDefaultResponseDetailsInner> accounts (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> accounts (default value: const [])
     test('to test the property `accounts`', () async {
       // TODO
     });

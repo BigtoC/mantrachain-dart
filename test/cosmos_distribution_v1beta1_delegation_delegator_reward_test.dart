@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // List<GasPrice200ResponsePrice> reward (default value: const [])
+    // List<CommunityPool200ResponsePoolInner> reward (default value: const [])
     test('to test the property `reward`', () async {
       // TODO
     });

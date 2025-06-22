@@ -17,7 +17,7 @@ void main() {
 
   group('test CosmosTxV1beta1TxBody', () {
     // messages is a list of messages to be executed. The required signers of those messages define the number and order of elements in AuthInfo's signer_infos and Tx's signatures. Each required signer address is added to the list only the first time it occurs. By convention, the first required signer (usually from the first message) is referred to as the primary signer and pays the fee for the whole transaction.
-    // List<CodesDefaultResponseDetailsInner> messages (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> messages (default value: const [])
     test('to test the property `messages`', () async {
       // TODO
     });
@@ -33,12 +33,12 @@ void main() {
       // TODO
     });
 
-    // List<CodesDefaultResponseDetailsInner> extensionOptions (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> extensionOptions (default value: const [])
     test('to test the property `extensionOptions`', () async {
       // TODO
     });
 
-    // List<CodesDefaultResponseDetailsInner> nonCriticalExtensionOptions (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> nonCriticalExtensionOptions (default value: const [])
     test('to test the property `nonCriticalExtensionOptions`', () async {
       // TODO
     });

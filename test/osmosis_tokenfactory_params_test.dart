@@ -17,7 +17,7 @@ void main() {
 
   group('test OsmosisTokenfactoryParams', () {
     // DenomCreationFee defines the fee to be charged on the creation of a new denom. The fee is drawn from the MsgCreateDenom's sender account, and transferred to the community pool.
-    // List<Coin> denomCreationFee (default value: const [])
+    // List<TokenfactoryParams200ResponseParamsDenomCreationFeeInner> denomCreationFee (default value: const [])
     test('to test the property `denomCreationFee`', () async {
       // TODO
     });

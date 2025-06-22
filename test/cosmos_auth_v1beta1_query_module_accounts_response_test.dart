@@ -16,7 +16,7 @@ void main() {
   // final instance = CosmosAuthV1beta1QueryModuleAccountsResponse();
 
   group('test CosmosAuthV1beta1QueryModuleAccountsResponse', () {
-    // List<CodesDefaultResponseDetailsInner> accounts (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> accounts (default value: const [])
     test('to test the property `accounts`', () async {
       // TODO
     });

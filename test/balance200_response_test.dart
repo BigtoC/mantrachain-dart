@@ -16,7 +16,7 @@ void main() {
   // final instance = Balance200Response();
 
   group('test Balance200Response', () {
-    // Coin balance
+    // TokenfactoryParams200ResponseParamsDenomCreationFeeInner balance
     test('to test the property `balance`', () async {
       // TODO
     });

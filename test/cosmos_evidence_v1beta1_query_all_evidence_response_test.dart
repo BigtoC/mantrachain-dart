@@ -17,12 +17,12 @@ void main() {
 
   group('test CosmosEvidenceV1beta1QueryAllEvidenceResponse', () {
     // evidence returns all evidences.
-    // List<CodesDefaultResponseDetailsInner> evidence (default value: const [])
+    // List<EvmAccountDefaultResponseDetailsInner> evidence (default value: const [])
     test('to test the property `evidence`', () async {
       // TODO
     });
 
-    // QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethodPagination pagination
+    // TokenPairs200ResponsePagination pagination
     test('to test the property `pagination`', () async {
       // TODO
     });
