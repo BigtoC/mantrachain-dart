@@ -45,10 +45,8 @@ class ServiceApi {
     if (data != null) {
       queryParams.addAll(_queryParams('', 'data', data));
     }
-    if (path != null) {
-      queryParams.addAll(_queryParams('', 'path', path));
-    }
-    if (height != null) {
+    queryParams.addAll(_queryParams('', 'path', path));
+      if (height != null) {
       queryParams.addAll(_queryParams('', 'height', height));
     }
     if (prove != null) {
