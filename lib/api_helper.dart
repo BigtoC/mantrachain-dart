@@ -55,6 +55,15 @@ String parameterToString(dynamic value) {
   if (value is DateTime) {
     return value.toUtc().toIso8601String();
   }
+  if (value is CosmosCircuitV1PermissionsLevel) {
+    return CosmosCircuitV1PermissionsLevelTypeTransformer().encode(value).toString();
+  }
+  if (value is CosmosEvmErc20V1Owner) {
+    return CosmosEvmErc20V1OwnerTypeTransformer().encode(value).toString();
+  }
+  if (value is CosmosEvmVmV1AccessType) {
+    return CosmosEvmVmV1AccessTypeTypeTransformer().encode(value).toString();
+  }
   if (value is CosmosGovV1beta1ProposalStatus) {
     return CosmosGovV1beta1ProposalStatusTypeTransformer().encode(value).toString();
   }

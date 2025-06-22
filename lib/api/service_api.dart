@@ -45,8 +45,10 @@ class ServiceApi {
     if (data != null) {
       queryParams.addAll(_queryParams('', 'data', data));
     }
-    queryParams.addAll(_queryParams('', 'path', path));
-      if (height != null) {
+    if (path != null) {
+      queryParams.addAll(_queryParams('', 'path', path));
+    }
+    if (height != null) {
       queryParams.addAll(_queryParams('', 'height', height));
     }
     if (prove != null) {
@@ -101,19 +103,19 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [BroadcastTxRequest] body (required):
-  Future<Response> broadcastTxWithHttpInfo(BroadcastTxRequest body,) async {
+  /// * [BroadcastTxRequest] broadcastTxRequest (required):
+  Future<Response> broadcastTxWithHttpInfo(BroadcastTxRequest broadcastTxRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/cosmos/tx/v1beta1/txs';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = broadcastTxRequest;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -131,9 +133,9 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [BroadcastTxRequest] body (required):
-  Future<BroadcastTx200Response?> broadcastTx(BroadcastTxRequest body,) async {
-    final response = await broadcastTxWithHttpInfo(body,);
+  /// * [BroadcastTxRequest] broadcastTxRequest (required):
+  Future<BroadcastTx200Response?> broadcastTx(BroadcastTxRequest broadcastTxRequest,) async {
+    final response = await broadcastTxWithHttpInfo(broadcastTxRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -830,19 +832,19 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [CosmosTxV1beta1SimulateRequest] body (required):
-  Future<Response> simulateWithHttpInfo(CosmosTxV1beta1SimulateRequest body,) async {
+  /// * [CosmosTxV1beta1SimulateRequest] cosmosTxV1beta1SimulateRequest (required):
+  Future<Response> simulateWithHttpInfo(CosmosTxV1beta1SimulateRequest cosmosTxV1beta1SimulateRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/cosmos/tx/v1beta1/simulate';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = cosmosTxV1beta1SimulateRequest;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -860,9 +862,9 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [CosmosTxV1beta1SimulateRequest] body (required):
-  Future<Simulate200Response?> simulate(CosmosTxV1beta1SimulateRequest body,) async {
-    final response = await simulateWithHttpInfo(body,);
+  /// * [CosmosTxV1beta1SimulateRequest] cosmosTxV1beta1SimulateRequest (required):
+  Future<Simulate200Response?> simulate(CosmosTxV1beta1SimulateRequest cosmosTxV1beta1SimulateRequest,) async {
+    final response = await simulateWithHttpInfo(cosmosTxV1beta1SimulateRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -884,19 +886,19 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [TxDecodeRequest] body (required):
-  Future<Response> txDecodeWithHttpInfo(TxDecodeRequest body,) async {
+  /// * [TxDecodeRequest] txDecodeRequest (required):
+  Future<Response> txDecodeWithHttpInfo(TxDecodeRequest txDecodeRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/cosmos/tx/v1beta1/decode';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = txDecodeRequest;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -916,9 +918,9 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [TxDecodeRequest] body (required):
-  Future<CosmosTxV1beta1TxDecodeResponse?> txDecode(TxDecodeRequest body,) async {
-    final response = await txDecodeWithHttpInfo(body,);
+  /// * [TxDecodeRequest] txDecodeRequest (required):
+  Future<CosmosTxV1beta1TxDecodeResponse?> txDecode(TxDecodeRequest txDecodeRequest,) async {
+    final response = await txDecodeWithHttpInfo(txDecodeRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -940,19 +942,19 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [TxDecodeAminoRequest] body (required):
-  Future<Response> txDecodeAminoWithHttpInfo(TxDecodeAminoRequest body,) async {
+  /// * [TxDecodeAminoRequest] txDecodeAminoRequest (required):
+  Future<Response> txDecodeAminoWithHttpInfo(TxDecodeAminoRequest txDecodeAminoRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/cosmos/tx/v1beta1/decode/amino';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = txDecodeAminoRequest;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -972,9 +974,9 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [TxDecodeAminoRequest] body (required):
-  Future<TxDecodeAmino200Response?> txDecodeAmino(TxDecodeAminoRequest body,) async {
-    final response = await txDecodeAminoWithHttpInfo(body,);
+  /// * [TxDecodeAminoRequest] txDecodeAminoRequest (required):
+  Future<TxDecodeAmino200Response?> txDecodeAmino(TxDecodeAminoRequest txDecodeAminoRequest,) async {
+    final response = await txDecodeAminoWithHttpInfo(txDecodeAminoRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -996,19 +998,19 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [CosmosTxV1beta1TxEncodeRequest] body (required):
-  Future<Response> txEncodeWithHttpInfo(CosmosTxV1beta1TxEncodeRequest body,) async {
+  /// * [CosmosTxV1beta1TxEncodeRequest] cosmosTxV1beta1TxEncodeRequest (required):
+  Future<Response> txEncodeWithHttpInfo(CosmosTxV1beta1TxEncodeRequest cosmosTxV1beta1TxEncodeRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/cosmos/tx/v1beta1/encode';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = cosmosTxV1beta1TxEncodeRequest;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -1028,9 +1030,9 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [CosmosTxV1beta1TxEncodeRequest] body (required):
-  Future<TxEncode200Response?> txEncode(CosmosTxV1beta1TxEncodeRequest body,) async {
-    final response = await txEncodeWithHttpInfo(body,);
+  /// * [CosmosTxV1beta1TxEncodeRequest] cosmosTxV1beta1TxEncodeRequest (required):
+  Future<TxEncode200Response?> txEncode(CosmosTxV1beta1TxEncodeRequest cosmosTxV1beta1TxEncodeRequest,) async {
+    final response = await txEncodeWithHttpInfo(cosmosTxV1beta1TxEncodeRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1052,19 +1054,19 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [TxEncodeAminoRequest] body (required):
-  Future<Response> txEncodeAminoWithHttpInfo(TxEncodeAminoRequest body,) async {
+  /// * [TxEncodeAminoRequest] txEncodeAminoRequest (required):
+  Future<Response> txEncodeAminoWithHttpInfo(TxEncodeAminoRequest txEncodeAminoRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/cosmos/tx/v1beta1/encode/amino';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = txEncodeAminoRequest;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -1084,9 +1086,9 @@ class ServiceApi {
   ///
   /// Parameters:
   ///
-  /// * [TxEncodeAminoRequest] body (required):
-  Future<TxEncodeAmino200Response?> txEncodeAmino(TxEncodeAminoRequest body,) async {
-    final response = await txEncodeAminoWithHttpInfo(body,);
+  /// * [TxEncodeAminoRequest] txEncodeAminoRequest (required):
+  Future<TxEncodeAmino200Response?> txEncodeAmino(TxEncodeAminoRequest txEncodeAminoRequest,) async {
+    final response = await txEncodeAminoWithHttpInfo(txEncodeAminoRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

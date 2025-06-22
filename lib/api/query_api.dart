@@ -1416,6 +1416,50 @@ class QueryApi {
     return null;
   }
 
+  /// BaseFee queries the base fee of the parent block of the current block.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> baseFeeWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/feemarket/v1/base_fee';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BaseFee queries the base fee of the parent block of the current block.
+  Future<EvmBaseFee200Response?> baseFee() async {
+    final response = await baseFeeWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EvmBaseFee200Response',) as EvmBaseFee200Response;
+    
+    }
+    return null;
+  }
+
   /// Bech32Prefix queries bech32Prefix
   ///
   /// Since: cosmos-sdk 0.46
@@ -1561,6 +1605,50 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Blacklist200Response',) as Blacklist200Response;
+    
+    }
+    return null;
+  }
+
+  /// BlockGas queries the gas used at a given block height
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> blockGasWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/feemarket/v1/block_gas';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BlockGas queries the gas used at a given block height
+  Future<BlockGas200Response?> blockGas() async {
+    final response = await blockGasWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'BlockGas200Response',) as BlockGas200Response;
     
     }
     return null;
@@ -1851,50 +1939,6 @@ class QueryApi {
     return null;
   }
 
-  /// ChannelParams queries all parameters of the ibc channel submodule.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  Future<Response> channelParamsWithHttpInfo() async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/core/channel/v1/params';
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// ChannelParams queries all parameters of the ibc channel submodule.
-  Future<ChannelParams200Response?> channelParams() async {
-    final response = await channelParamsWithHttpInfo();
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ChannelParams200Response',) as ChannelParams200Response;
-    
-    }
-    return null;
-  }
-
   /// Channels queries all the IBC channels of a chain.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -1989,6 +2033,153 @@ class QueryApi {
     return null;
   }
 
+  /// Account returns account permissions.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] address (required):
+  Future<Response> circuitAccountWithHttpInfo(String address,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/circuit/v1/accounts/{address}'
+      .replaceAll('{address}', address);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Account returns account permissions.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] address (required):
+  Future<CircuitAccount200Response?> circuitAccount(String address,) async {
+    final response = await circuitAccountWithHttpInfo(address,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CircuitAccount200Response',) as CircuitAccount200Response;
+    
+    }
+    return null;
+  }
+
+  /// Account returns account permissions.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] paginationPeriodKey:
+  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+  ///
+  /// * [String] paginationPeriodOffset:
+  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+  ///
+  /// * [String] paginationPeriodLimit:
+  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+  ///
+  /// * [bool] paginationPeriodCountTotal:
+  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+  ///
+  /// * [bool] paginationPeriodReverse:
+  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+  Future<Response> circuitAccountsWithHttpInfo({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/circuit/v1/accounts';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (paginationPeriodKey != null) {
+      queryParams.addAll(_queryParams('', 'pagination.key', paginationPeriodKey));
+    }
+    if (paginationPeriodOffset != null) {
+      queryParams.addAll(_queryParams('', 'pagination.offset', paginationPeriodOffset));
+    }
+    if (paginationPeriodLimit != null) {
+      queryParams.addAll(_queryParams('', 'pagination.limit', paginationPeriodLimit));
+    }
+    if (paginationPeriodCountTotal != null) {
+      queryParams.addAll(_queryParams('', 'pagination.count_total', paginationPeriodCountTotal));
+    }
+    if (paginationPeriodReverse != null) {
+      queryParams.addAll(_queryParams('', 'pagination.reverse', paginationPeriodReverse));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Account returns account permissions.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] paginationPeriodKey:
+  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+  ///
+  /// * [String] paginationPeriodOffset:
+  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+  ///
+  /// * [String] paginationPeriodLimit:
+  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+  ///
+  /// * [bool] paginationPeriodCountTotal:
+  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+  ///
+  /// * [bool] paginationPeriodReverse:
+  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+  Future<CircuitAccounts200Response?> circuitAccounts({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, }) async {
+    final response = await circuitAccountsWithHttpInfo( paginationPeriodKey: paginationPeriodKey, paginationPeriodOffset: paginationPeriodOffset, paginationPeriodLimit: paginationPeriodLimit, paginationPeriodCountTotal: paginationPeriodCountTotal, paginationPeriodReverse: paginationPeriodReverse, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CircuitAccounts200Response',) as CircuitAccounts200Response;
+    
+    }
+    return null;
+  }
+
   /// ClientConnections queries the connection paths associated with a client state.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -2039,6 +2230,61 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryClientConnectionsResponseIsTheResponseTypeForTheQueryClientConnectionsRPCMethod',) as QueryClientConnectionsResponseIsTheResponseTypeForTheQueryClientConnectionsRPCMethod;
+    
+    }
+    return null;
+  }
+
+  /// ClientCreator queries the creator of a given client.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] clientId (required):
+  ///   client unique identifier
+  Future<Response> clientCreatorWithHttpInfo(String clientId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ibc/core/client/v1/client_creator/{client_id}'
+      .replaceAll('{client_id}', clientId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// ClientCreator queries the creator of a given client.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] clientId (required):
+  ///   client unique identifier
+  Future<ClientCreator200Response?> clientCreator(String clientId,) async {
+    final response = await clientCreatorWithHttpInfo(clientId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClientCreator200Response',) as ClientCreator200Response;
     
     }
     return null;
@@ -2536,6 +2782,50 @@ class QueryApi {
     return null;
   }
 
+  /// Config queries the EVM configuration
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> configWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/vm/v1/config';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Config queries the EVM configuration
+  Future<Config200Response?> config() async {
+    final response = await configWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Config200Response',) as Config200Response;
+    
+    }
+    return null;
+  }
+
   /// Connection queries an IBC connection end.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -2966,7 +3256,7 @@ class QueryApi {
   ///   consensus state revision height
   ///
   /// * [bool] latestHeight:
-  ///   latest_height overrrides the height field and queries the latest stored ConsensusState.
+  ///   latest_height overrides the height field and queries the latest stored ConsensusState.
   Future<Response> consensusStateWithHttpInfo(String clientId, String revisionNumber, String revisionHeight, { bool? latestHeight, }) async {
     // ignore: prefer_const_declarations
     final path = r'/ibc/core/client/v1/consensus_states/{client_id}/revision/{revision_number}/height/{revision_height}'
@@ -3013,7 +3303,7 @@ class QueryApi {
   ///   consensus state revision height
   ///
   /// * [bool] latestHeight:
-  ///   latest_height overrrides the height field and queries the latest stored ConsensusState.
+  ///   latest_height overrides the height field and queries the latest stored ConsensusState.
   Future<QueryConsensusStateResponseIsTheResponseTypeForTheQueryConsensusStateRPCMethod?> consensusState(String clientId, String revisionNumber, String revisionHeight, { bool? latestHeight, }) async {
     final response = await consensusStateWithHttpInfo(clientId, revisionNumber, revisionHeight,  latestHeight: latestHeight, );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -3587,6 +3877,61 @@ class QueryApi {
     return null;
   }
 
+  /// CosmosAccount queries an Ethereum account's Cosmos Address.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the account for.
+  Future<Response> cosmosAccountWithHttpInfo(String address,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/vm/v1/cosmos_account/{address}'
+      .replaceAll('{address}', address);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// CosmosAccount queries an Ethereum account's Cosmos Address.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the account for.
+  Future<CosmosAccount200Response?> cosmosAccount(String address,) async {
+    final response = await cosmosAccountWithHttpInfo(address,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CosmosAccount200Response',) as CosmosAccount200Response;
+    
+    }
+    return null;
+  }
+
   /// Params returns the total set of minting parameters.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -3626,68 +3971,6 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CosmosMintParams200Response',) as CosmosMintParams200Response;
-    
-    }
-    return null;
-  }
-
-  /// CounterpartyPayee returns the registered counterparty payee for forward relaying
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///   unique channel identifier
-  ///
-  /// * [String] relayer (required):
-  ///   the relayer address to which the counterparty is registered
-  Future<Response> counterpartyPayeeWithHttpInfo(String channelId, String relayer,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/channels/{channel_id}/relayers/{relayer}/counterparty_payee'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{relayer}', relayer);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// CounterpartyPayee returns the registered counterparty payee for forward relaying
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///   unique channel identifier
-  ///
-  /// * [String] relayer (required):
-  ///   the relayer address to which the counterparty is registered
-  Future<QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc?> counterpartyPayee(String channelId, String relayer,) async {
-    final response = await counterpartyPayeeWithHttpInfo(channelId, relayer,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc',) as QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc;
     
     }
     return null;
@@ -4298,6 +4581,61 @@ class QueryApi {
     return null;
   }
 
+  /// Denom queries a denomination
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] hash (required):
+  ///   hash (in hex format) or denom (full denom with ibc prefix) of the on chain denomination.
+  Future<Response> denomWithHttpInfo(String hash,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ibc/apps/transfer/v1/denoms/{hash}'
+      .replaceAll('{hash}', hash);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Denom queries a denomination
+  ///
+  /// Parameters:
+  ///
+  /// * [String] hash (required):
+  ///   hash (in hex format) or denom (full denom with ibc prefix) of the on chain denomination.
+  Future<Denom200Response?> denom(String hash,) async {
+    final response = await denomWithHttpInfo(hash,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Denom200Response',) as Denom200Response;
+    
+    }
+    return null;
+  }
+
   /// DenomAuthorityMetadata defines a gRPC query method for fetching DenomAuthorityMetadata for a particular denom.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -4736,62 +5074,7 @@ class QueryApi {
     return null;
   }
 
-  /// DenomTrace queries a denomination trace information.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] hash (required):
-  ///   hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information.
-  Future<Response> denomTraceWithHttpInfo(String hash,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/transfer/v1/denom_traces/{hash}'
-      .replaceAll('{hash}', hash);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// DenomTrace queries a denomination trace information.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] hash (required):
-  ///   hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information.
-  Future<DenomTrace200Response?> denomTrace(String hash,) async {
-    final response = await denomTraceWithHttpInfo(hash,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DenomTrace200Response',) as DenomTrace200Response;
-    
-    }
-    return null;
-  }
-
-  /// DenomTraces queries all denomination traces.
+  /// Denoms queries all denominations
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -4811,9 +5094,9 @@ class QueryApi {
   ///
   /// * [bool] paginationPeriodReverse:
   ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-  Future<Response> denomTracesWithHttpInfo({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, }) async {
+  Future<Response> denomsWithHttpInfo({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/transfer/v1/denom_traces';
+    final path = r'/ibc/apps/transfer/v1/denoms';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -4852,7 +5135,7 @@ class QueryApi {
     );
   }
 
-  /// DenomTraces queries all denomination traces.
+  /// Denoms queries all denominations
   ///
   /// Parameters:
   ///
@@ -4870,8 +5153,8 @@ class QueryApi {
   ///
   /// * [bool] paginationPeriodReverse:
   ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-  Future<DenomTraces200Response?> denomTraces({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, }) async {
-    final response = await denomTracesWithHttpInfo( paginationPeriodKey: paginationPeriodKey, paginationPeriodOffset: paginationPeriodOffset, paginationPeriodLimit: paginationPeriodLimit, paginationPeriodCountTotal: paginationPeriodCountTotal, paginationPeriodReverse: paginationPeriodReverse, );
+  Future<Denoms200Response?> denoms({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, }) async {
+    final response = await denomsWithHttpInfo( paginationPeriodKey: paginationPeriodKey, paginationPeriodOffset: paginationPeriodOffset, paginationPeriodLimit: paginationPeriodLimit, paginationPeriodCountTotal: paginationPeriodCountTotal, paginationPeriodReverse: paginationPeriodReverse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4879,7 +5162,7 @@ class QueryApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DenomTraces200Response',) as DenomTraces200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Denoms200Response',) as Denoms200Response;
     
     }
     return null;
@@ -5195,6 +5478,50 @@ class QueryApi {
     return null;
   }
 
+  /// DisabledList returns a list of disabled message urls
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> disabledListWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/circuit/v1/disable_list';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// DisabledList returns a list of disabled message urls
+  Future<DisabledList200Response?> disabledList() async {
+    final response = await disabledListWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DisabledList200Response',) as DisabledList200Response;
+    
+    }
+    return null;
+  }
+
   /// Params queries params of the distribution module.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -5234,6 +5561,50 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DistributionParams200Response',) as DistributionParams200Response;
+    
+    }
+    return null;
+  }
+
+  /// Params retrieves the erc20 module params
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> erc20ParamsWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/erc20/v1/params';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Params retrieves the erc20 module params
+  Future<Erc20Params200Response?> erc20Params() async {
+    final response = await erc20ParamsWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Erc20Params200Response',) as Erc20Params200Response;
     
     }
     return null;
@@ -5296,6 +5667,176 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EscrowAddress200Response',) as EscrowAddress200Response;
+    
+    }
+    return null;
+  }
+
+  /// EstimateGas implements the `eth_estimateGas` rpc api
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] args:
+  ///   args uses the same json format as the json rpc api.
+  ///
+  /// * [String] gasCap:
+  ///   gas_cap defines the default gas cap to be used.
+  ///
+  /// * [String] proposerAddress:
+  ///   proposer_address of the requested block in hex format.
+  ///
+  /// * [String] chainId:
+  ///   chain_id is the eip155 chain id parsed from the requested block header.
+  Future<Response> estimateGasWithHttpInfo({ String? args, String? gasCap, String? proposerAddress, String? chainId, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/vm/v1/estimate_gas';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (args != null) {
+      queryParams.addAll(_queryParams('', 'args', args));
+    }
+    if (gasCap != null) {
+      queryParams.addAll(_queryParams('', 'gas_cap', gasCap));
+    }
+    if (proposerAddress != null) {
+      queryParams.addAll(_queryParams('', 'proposer_address', proposerAddress));
+    }
+    if (chainId != null) {
+      queryParams.addAll(_queryParams('', 'chain_id', chainId));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// EstimateGas implements the `eth_estimateGas` rpc api
+  ///
+  /// Parameters:
+  ///
+  /// * [String] args:
+  ///   args uses the same json format as the json rpc api.
+  ///
+  /// * [String] gasCap:
+  ///   gas_cap defines the default gas cap to be used.
+  ///
+  /// * [String] proposerAddress:
+  ///   proposer_address of the requested block in hex format.
+  ///
+  /// * [String] chainId:
+  ///   chain_id is the eip155 chain id parsed from the requested block header.
+  Future<EstimateGasResponseDefinesEstimateGasResponse?> estimateGas({ String? args, String? gasCap, String? proposerAddress, String? chainId, }) async {
+    final response = await estimateGasWithHttpInfo( args: args, gasCap: gasCap, proposerAddress: proposerAddress, chainId: chainId, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EstimateGasResponseDefinesEstimateGasResponse',) as EstimateGasResponseDefinesEstimateGasResponse;
+    
+    }
+    return null;
+  }
+
+  /// EthCall implements the `eth_call` rpc api
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] args:
+  ///   args uses the same json format as the json rpc api.
+  ///
+  /// * [String] gasCap:
+  ///   gas_cap defines the default gas cap to be used.
+  ///
+  /// * [String] proposerAddress:
+  ///   proposer_address of the requested block in hex format.
+  ///
+  /// * [String] chainId:
+  ///   chain_id is the eip155 chain id parsed from the requested block header.
+  Future<Response> ethCallWithHttpInfo({ String? args, String? gasCap, String? proposerAddress, String? chainId, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/vm/v1/eth_call';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (args != null) {
+      queryParams.addAll(_queryParams('', 'args', args));
+    }
+    if (gasCap != null) {
+      queryParams.addAll(_queryParams('', 'gas_cap', gasCap));
+    }
+    if (proposerAddress != null) {
+      queryParams.addAll(_queryParams('', 'proposer_address', proposerAddress));
+    }
+    if (chainId != null) {
+      queryParams.addAll(_queryParams('', 'chain_id', chainId));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// EthCall implements the `eth_call` rpc api
+  ///
+  /// Parameters:
+  ///
+  /// * [String] args:
+  ///   args uses the same json format as the json rpc api.
+  ///
+  /// * [String] gasCap:
+  ///   gas_cap defines the default gas cap to be used.
+  ///
+  /// * [String] proposerAddress:
+  ///   proposer_address of the requested block in hex format.
+  ///
+  /// * [String] chainId:
+  ///   chain_id is the eip155 chain id parsed from the requested block header.
+  Future<EthCall200Response?> ethCall({ String? args, String? gasCap, String? proposerAddress, String? chainId, }) async {
+    final response = await ethCallWithHttpInfo( args: args, gasCap: gasCap, proposerAddress: proposerAddress, chainId: chainId, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EthCall200Response',) as EthCall200Response;
     
     }
     return null;
@@ -5366,22 +5907,18 @@ class QueryApi {
     return null;
   }
 
-  /// FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel
+  /// Account queries an Ethereum account.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [String] channelId (required):
-  ///   unique channel identifier
-  ///
-  /// * [String] portId (required):
-  ///   unique port identifier
-  Future<Response> feeEnabledChannelWithHttpInfo(String channelId, String portId,) async {
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the account for.
+  Future<Response> evmAccountWithHttpInfo(String address,) async {
     // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/channels/{channel_id}/ports/{port_id}/fee_enabled'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{port_id}', portId);
+    final path = r'/cosmos/evm/vm/v1/account/{address}'
+      .replaceAll('{address}', address);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -5404,17 +5941,14 @@ class QueryApi {
     );
   }
 
-  /// FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel
+  /// Account queries an Ethereum account.
   ///
   /// Parameters:
   ///
-  /// * [String] channelId (required):
-  ///   unique channel identifier
-  ///
-  /// * [String] portId (required):
-  ///   unique port identifier
-  Future<QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc?> feeEnabledChannel(String channelId, String portId,) async {
-    final response = await feeEnabledChannelWithHttpInfo(channelId, portId,);
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the account for.
+  Future<EvmAccount200Response?> evmAccount(String address,) async {
+    final response = await evmAccountWithHttpInfo(address,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -5422,38 +5956,24 @@ class QueryApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc',) as QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EvmAccount200Response',) as EvmAccount200Response;
     
     }
     return null;
   }
 
-  /// FeeEnabledChannels returns a list of all fee enabled channels
+  /// Balance queries the balance of a the EVM denomination for a single account.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [String] paginationPeriodKey:
-  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodOffset:
-  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodLimit:
-  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-  ///
-  /// * [bool] paginationPeriodCountTotal:
-  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-  ///
-  /// * [bool] paginationPeriodReverse:
-  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-  ///
-  /// * [String] queryHeight:
-  ///   block height at which to query.
-  Future<Response> feeEnabledChannelsWithHttpInfo({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, String? queryHeight, }) async {
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the balance for.
+  Future<Response> evmBalanceWithHttpInfo(String address,) async {
     // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/fee_enabled';
+    final path = r'/cosmos/evm/vm/v1/balances/{address}'
+      .replaceAll('{address}', address);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -5461,25 +5981,6 @@ class QueryApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (paginationPeriodKey != null) {
-      queryParams.addAll(_queryParams('', 'pagination.key', paginationPeriodKey));
-    }
-    if (paginationPeriodOffset != null) {
-      queryParams.addAll(_queryParams('', 'pagination.offset', paginationPeriodOffset));
-    }
-    if (paginationPeriodLimit != null) {
-      queryParams.addAll(_queryParams('', 'pagination.limit', paginationPeriodLimit));
-    }
-    if (paginationPeriodCountTotal != null) {
-      queryParams.addAll(_queryParams('', 'pagination.count_total', paginationPeriodCountTotal));
-    }
-    if (paginationPeriodReverse != null) {
-      queryParams.addAll(_queryParams('', 'pagination.reverse', paginationPeriodReverse));
-    }
-    if (queryHeight != null) {
-      queryParams.addAll(_queryParams('', 'query_height', queryHeight));
-    }
 
     const contentTypes = <String>[];
 
@@ -5495,29 +5996,14 @@ class QueryApi {
     );
   }
 
-  /// FeeEnabledChannels returns a list of all fee enabled channels
+  /// Balance queries the balance of a the EVM denomination for a single account.
   ///
   /// Parameters:
   ///
-  /// * [String] paginationPeriodKey:
-  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodOffset:
-  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodLimit:
-  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-  ///
-  /// * [bool] paginationPeriodCountTotal:
-  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-  ///
-  /// * [bool] paginationPeriodReverse:
-  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-  ///
-  /// * [String] queryHeight:
-  ///   block height at which to query.
-  Future<QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc?> feeEnabledChannels({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, String? queryHeight, }) async {
-    final response = await feeEnabledChannelsWithHttpInfo( paginationPeriodKey: paginationPeriodKey, paginationPeriodOffset: paginationPeriodOffset, paginationPeriodLimit: paginationPeriodLimit, paginationPeriodCountTotal: paginationPeriodCountTotal, paginationPeriodReverse: paginationPeriodReverse, queryHeight: queryHeight, );
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the balance for.
+  Future<EvmBalance200Response?> evmBalance(String address,) async {
+    final response = await evmBalanceWithHttpInfo(address,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -5525,18 +6011,18 @@ class QueryApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc',) as QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EvmBalance200Response',) as EvmBalance200Response;
     
     }
     return null;
   }
 
-  /// Params returns the current feemarket module parameters.
+  /// BaseFee queries the base fee of the parent block of the current block, it's similar to feemarket module's method, but also checks london hardfork status.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> feemarketParamsWithHttpInfo() async {
+  Future<Response> evmBaseFeeWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/feemarket/v1/params';
+    final path = r'/cosmos/evm/vm/v1/base_fee';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -5559,9 +6045,9 @@ class QueryApi {
     );
   }
 
-  /// Params returns the current feemarket module parameters.
-  Future<FeemarketParams200Response?> feemarketParams() async {
-    final response = await feemarketParamsWithHttpInfo();
+  /// BaseFee queries the base fee of the parent block of the current block, it's similar to feemarket module's method, but also checks london hardfork status.
+  Future<EvmBaseFee200Response?> evmBaseFee() async {
+    final response = await evmBaseFeeWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -5569,24 +6055,24 @@ class QueryApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FeemarketParams200Response',) as FeemarketParams200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EvmBaseFee200Response',) as EvmBaseFee200Response;
     
     }
     return null;
   }
 
-  /// GasPrice returns the current feemarket module gas price for specified denom.
+  /// Code queries the balance of all coins for a single account.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [String] denom (required):
-  ///   denom we are querying gas price in
-  Future<Response> gasPriceWithHttpInfo(String denom,) async {
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the code for.
+  Future<Response> evmCodeWithHttpInfo(String address,) async {
     // ignore: prefer_const_declarations
-    final path = r'/feemarket/v1/gas_price/{denom}'
-      .replaceAll('{denom}', denom);
+    final path = r'/cosmos/evm/vm/v1/codes/{address}'
+      .replaceAll('{address}', address);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -5609,14 +6095,14 @@ class QueryApi {
     );
   }
 
-  /// GasPrice returns the current feemarket module gas price for specified denom.
+  /// Code queries the balance of all coins for a single account.
   ///
   /// Parameters:
   ///
-  /// * [String] denom (required):
-  ///   denom we are querying gas price in
-  Future<GasPrice200Response?> gasPrice(String denom,) async {
-    final response = await gasPriceWithHttpInfo(denom,);
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the code for.
+  Future<EvmCode200Response?> evmCode(String address,) async {
+    final response = await evmCodeWithHttpInfo(address,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -5624,18 +6110,18 @@ class QueryApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GasPrice200Response',) as GasPrice200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EvmCode200Response',) as EvmCode200Response;
     
     }
     return null;
   }
 
-  /// GasPrices returns the current feemarket module list of gas prices in all available denoms.
+  /// Params queries the parameters of x/vm module.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> gasPricesWithHttpInfo() async {
+  Future<Response> evmParamsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/feemarket/v1/gas_prices';
+    final path = r'/cosmos/evm/vm/v1/params';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -5658,9 +6144,9 @@ class QueryApi {
     );
   }
 
-  /// GasPrices returns the current feemarket module list of gas prices in all available denoms.
-  Future<GasPrices200Response?> gasPrices() async {
-    final response = await gasPricesWithHttpInfo();
+  /// Params queries the parameters of x/vm module.
+  Future<EvmParams200Response?> evmParams() async {
+    final response = await evmParamsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -5668,7 +6154,106 @@ class QueryApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GasPrices200Response',) as GasPrices200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EvmParams200Response',) as EvmParams200Response;
+    
+    }
+    return null;
+  }
+
+  /// Params queries the parameters of x/feemarket module.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> feeMarketParamsWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/feemarket/v1/params';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Params queries the parameters of x/feemarket module.
+  Future<FeeMarketParams200Response?> feeMarketParams() async {
+    final response = await feeMarketParamsWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FeeMarketParams200Response',) as FeeMarketParams200Response;
+    
+    }
+    return null;
+  }
+
+  /// FractionalBalance returns only the fractional balance of an address. This does not include any integer balance.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] address (required):
+  ///   address is the account address to query  fractional balance for.
+  Future<Response> fractionalBalanceWithHttpInfo(String address,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/precisebank/v1/fractional_balance/{address}'
+      .replaceAll('{address}', address);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// FractionalBalance returns only the fractional balance of an address. This does not include any integer balance.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] address (required):
+  ///   address is the account address to query  fractional balance for.
+  Future<FractionalBalance200Response?> fractionalBalance(String address,) async {
+    final response = await fractionalBalanceWithHttpInfo(address,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FractionalBalance200Response',) as FractionalBalance200Response;
     
     }
     return null;
@@ -5910,6 +6495,50 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetPrices200Response',) as GetPrices200Response;
+    
+    }
+    return null;
+  }
+
+  /// GlobalMinGasPrice queries the MinGasPrice it's similar to feemarket module's method, but makes the conversion to 18 decimals when the evm denom is represented with a different precision.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> globalMinGasPriceWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/vm/v1/min_gas_price';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// GlobalMinGasPrice queries the MinGasPrice it's similar to feemarket module's method, but makes the conversion to 18 decimals when the evm denom is represented with a different precision.
+  Future<QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice?> globalMinGasPrice() async {
+    final response = await globalMinGasPriceWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice',) as QueryGlobalMinGasPriceResponseReturnsTheGlobalMinGasPrice;
     
     }
     return null;
@@ -6434,261 +7063,6 @@ class QueryApi {
     
     }
     return null;
-  }
-
-  /// IncentivizedPacket returns all packet fees for a packet given its identifier
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] packetIdPeriodChannelId (required):
-  ///   channel unique identifier
-  ///
-  /// * [String] packetIdPeriodPortId (required):
-  ///   channel port identifier
-  ///
-  /// * [String] packetIdPeriodSequence (required):
-  ///   packet sequence
-  ///
-  /// * [String] queryHeight:
-  ///   block height at which to query.
-  Future<Response> incentivizedPacketWithHttpInfo(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence, { String? queryHeight, }) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/incentivized_packet'
-      .replaceAll('{packet_id.channel_id}', packetIdPeriodChannelId)
-      .replaceAll('{packet_id.port_id}', packetIdPeriodPortId)
-      .replaceAll('{packet_id.sequence}', packetIdPeriodSequence);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    if (queryHeight != null) {
-      queryParams.addAll(_queryParams('', 'query_height', queryHeight));
-    }
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// IncentivizedPacket returns all packet fees for a packet given its identifier
-  ///
-  /// Parameters:
-  ///
-  /// * [String] packetIdPeriodChannelId (required):
-  ///   channel unique identifier
-  ///
-  /// * [String] packetIdPeriodPortId (required):
-  ///   channel port identifier
-  ///
-  /// * [String] packetIdPeriodSequence (required):
-  ///   packet sequence
-  ///
-  /// * [String] queryHeight:
-  ///   block height at which to query.
-  Future<QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc?> incentivizedPacket(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence, { String? queryHeight, }) async {
-    final response = await incentivizedPacketWithHttpInfo(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence,  queryHeight: queryHeight, );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc',) as QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc;
-    
-    }
-    return null;
-  }
-
-  /// IncentivizedPackets returns all incentivized packets and their associated fees
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] paginationPeriodKey:
-  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodOffset:
-  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodLimit:
-  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-  ///
-  /// * [bool] paginationPeriodCountTotal:
-  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-  ///
-  /// * [bool] paginationPeriodReverse:
-  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-  ///
-  /// * [String] queryHeight:
-  ///   block height at which to query.
-  Future<Response> incentivizedPacketsWithHttpInfo({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, String? queryHeight, }) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/incentivized_packets';
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    if (paginationPeriodKey != null) {
-      queryParams.addAll(_queryParams('', 'pagination.key', paginationPeriodKey));
-    }
-    if (paginationPeriodOffset != null) {
-      queryParams.addAll(_queryParams('', 'pagination.offset', paginationPeriodOffset));
-    }
-    if (paginationPeriodLimit != null) {
-      queryParams.addAll(_queryParams('', 'pagination.limit', paginationPeriodLimit));
-    }
-    if (paginationPeriodCountTotal != null) {
-      queryParams.addAll(_queryParams('', 'pagination.count_total', paginationPeriodCountTotal));
-    }
-    if (paginationPeriodReverse != null) {
-      queryParams.addAll(_queryParams('', 'pagination.reverse', paginationPeriodReverse));
-    }
-    if (queryHeight != null) {
-      queryParams.addAll(_queryParams('', 'query_height', queryHeight));
-    }
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// IncentivizedPackets returns all incentivized packets and their associated fees
-  ///
-  /// Parameters:
-  ///
-  /// * [String] paginationPeriodKey:
-  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodOffset:
-  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodLimit:
-  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-  ///
-  /// * [bool] paginationPeriodCountTotal:
-  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-  ///
-  /// * [bool] paginationPeriodReverse:
-  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-  ///
-  /// * [String] queryHeight:
-  ///   block height at which to query.
-  Future<QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc?> incentivizedPackets({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, String? queryHeight, }) async {
-    final response = await incentivizedPacketsWithHttpInfo( paginationPeriodKey: paginationPeriodKey, paginationPeriodOffset: paginationPeriodOffset, paginationPeriodLimit: paginationPeriodLimit, paginationPeriodCountTotal: paginationPeriodCountTotal, paginationPeriodReverse: paginationPeriodReverse, queryHeight: queryHeight, );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc',) as QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc;
-    
-    }
-    return null;
-  }
-
-  /// Gets all incentivized packets for a specific channel
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///
-  /// * [String] portId (required):
-  ///
-  /// * [String] paginationPeriodKey:
-  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodOffset:
-  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-  ///
-  /// * [String] paginationPeriodLimit:
-  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-  ///
-  /// * [bool] paginationPeriodCountTotal:
-  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-  ///
-  /// * [bool] paginationPeriodReverse:
-  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-  ///
-  /// * [String] queryHeight:
-  ///   Height to query at.
-  Future<Response> incentivizedPacketsForChannelWithHttpInfo(String channelId, String portId, { String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, String? queryHeight, }) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/channels/{channel_id}/ports/{port_id}/incentivized_packets'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{port_id}', portId);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    if (paginationPeriodKey != null) {
-      queryParams.addAll(_queryParams('', 'pagination.key', paginationPeriodKey));
-    }
-    if (paginationPeriodOffset != null) {
-      queryParams.addAll(_queryParams('', 'pagination.offset', paginationPeriodOffset));
-    }
-    if (paginationPeriodLimit != null) {
-      queryParams.addAll(_queryParams('', 'pagination.limit', paginationPeriodLimit));
-    }
-    if (paginationPeriodCountTotal != null) {
-      queryParams.addAll(_queryParams('', 'pagination.count_total', paginationPeriodCountTotal));
-    }
-    if (paginationPeriodReverse != null) {
-      queryParams.addAll(_queryParams('', 'pagination.reverse', paginationPeriodReverse));
-    }
-    if (queryHeight != null) {
-      queryParams.addAll(_queryParams('', 'query_height', queryHeight));
-    }
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
   }
 
   /// Inflation returns the current minting inflation value.
@@ -7818,68 +8192,6 @@ class QueryApi {
     return null;
   }
 
-  /// Payee returns the registered payee address for a specific channel given the relayer address
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///   unique channel identifier
-  ///
-  /// * [String] relayer (required):
-  ///   the relayer address to which the distribution address is registered
-  Future<Response> payeeWithHttpInfo(String channelId, String relayer,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/channels/{channel_id}/relayers/{relayer}/payee'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{relayer}', relayer);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Payee returns the registered payee address for a specific channel given the relayer address
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///   unique channel identifier
-  ///
-  /// * [String] relayer (required):
-  ///   the relayer address to which the distribution address is registered
-  Future<QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc?> payee(String channelId, String relayer,) async {
-    final response = await payeeWithHttpInfo(channelId, relayer,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc',) as QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc;
-    
-    }
-    return null;
-  }
-
   /// PinnedCodes gets the pinned code ids
   ///
   /// Note: This method returns the HTTP [Response].
@@ -8150,19 +8462,19 @@ class QueryApi {
     return null;
   }
 
-  /// Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_id}/by_denom?denom={denom}
+  /// Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_or_client_id}/by_denom?denom={denom}
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [String] channelId (required):
+  /// * [String] channelOrClientId (required):
   ///
   /// * [String] denom:
-  Future<Response> rateLimitWithHttpInfo(String channelId, { String? denom, }) async {
+  Future<Response> rateLimitWithHttpInfo(String channelOrClientId, { String? denom, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/Stride-Labs/ibc-rate-limiting/ratelimit/ratelimit/{channel_id}/by_denom'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/Stride-Labs/ibc-rate-limiting/ratelimit/ratelimit/{channel_or_client_id}/by_denom'
+      .replaceAll('{channel_or_client_id}', channelOrClientId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -8189,15 +8501,15 @@ class QueryApi {
     );
   }
 
-  /// Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_id}/by_denom?denom={denom}
+  /// Queries a specific rate limit by channel ID and denom Ex:  - /ratelimit/{channel_or_client_id}/by_denom?denom={denom}
   ///
   /// Parameters:
   ///
-  /// * [String] channelId (required):
+  /// * [String] channelOrClientId (required):
   ///
   /// * [String] denom:
-  Future<RateLimit200Response?> rateLimit(String channelId, { String? denom, }) async {
-    final response = await rateLimitWithHttpInfo(channelId,  denom: denom, );
+  Future<RateLimit200Response?> rateLimit(String channelOrClientId, { String? denom, }) async {
+    final response = await rateLimitWithHttpInfo(channelOrClientId,  denom: denom, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -8270,11 +8582,11 @@ class QueryApi {
   ///
   /// Parameters:
   ///
-  /// * [String] channelId (required):
-  Future<Response> rateLimitsByChannelIdWithHttpInfo(String channelId,) async {
+  /// * [String] channelOrClientId (required):
+  Future<Response> rateLimitsByChannelOrClientIdWithHttpInfo(String channelOrClientId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/Stride-Labs/ibc-rate-limiting/ratelimit/ratelimits/{channel_id}'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/Stride-Labs/ibc-rate-limiting/ratelimit/ratelimits/{channel_or_client_id}'
+      .replaceAll('{channel_or_client_id}', channelOrClientId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -8301,9 +8613,9 @@ class QueryApi {
   ///
   /// Parameters:
   ///
-  /// * [String] channelId (required):
-  Future<AllRateLimits200Response?> rateLimitsByChannelId(String channelId,) async {
-    final response = await rateLimitsByChannelIdWithHttpInfo(channelId,);
+  /// * [String] channelOrClientId (required):
+  Future<AllRateLimits200Response?> rateLimitsByChannelOrClientId(String channelOrClientId,) async {
+    final response = await rateLimitsByChannelOrClientIdWithHttpInfo(channelOrClientId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -8495,6 +8807,50 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Redelegations200Response',) as Redelegations200Response;
+    
+    }
+    return null;
+  }
+
+  /// Remainder returns the amount backed by the reserve, but not yet owned by any account, i.e. not in circulation.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> remainderWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/precisebank/v1/remainder';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Remainder returns the amount backed by the reserve, but not yet owned by any account, i.e. not in circulation.
+  Future<Remainder200Response?> remainder() async {
+    final response = await remainderWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Remainder200Response',) as Remainder200Response;
     
     }
     return null;
@@ -9273,12 +9629,22 @@ class QueryApi {
     return null;
   }
 
-  /// State returns the current feemarket module state.
+  /// Storage queries the balance of all coins for a single account.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> stateWithHttpInfo() async {
+  ///
+  /// Parameters:
+  ///
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the storage state for.
+  ///
+  /// * [String] key (required):
+  ///   key defines the key of the storage state
+  Future<Response> storageWithHttpInfo(String address, String key,) async {
     // ignore: prefer_const_declarations
-    final path = r'/feemarket/v1/state';
+    final path = r'/cosmos/evm/vm/v1/storage/{address}/{key}'
+      .replaceAll('{address}', address)
+      .replaceAll('{key}', key);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -9301,9 +9667,17 @@ class QueryApi {
     );
   }
 
-  /// State returns the current feemarket module state.
-  Future<State200Response?> state() async {
-    final response = await stateWithHttpInfo();
+  /// Storage queries the balance of all coins for a single account.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] address (required):
+  ///   address is the ethereum hex address to query the storage state for.
+  ///
+  /// * [String] key (required):
+  ///   key defines the key of the storage state
+  Future<Storage200Response?> storage(String address, String key,) async {
+    final response = await storageWithHttpInfo(address, key,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -9311,7 +9685,7 @@ class QueryApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'State200Response',) as State200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Storage200Response',) as Storage200Response;
     
     }
     return null;
@@ -9526,6 +9900,155 @@ class QueryApi {
     return null;
   }
 
+  /// TokenPair retrieves a registered token pair
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] token (required):
+  ///   token identifier can be either the hex contract address of the ERC20 or the Cosmos base denomination
+  Future<Response> tokenPairWithHttpInfo(String token,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/erc20/v1/token_pairs/{token}'
+      .replaceAll('{token}', token);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// TokenPair retrieves a registered token pair
+  ///
+  /// Parameters:
+  ///
+  /// * [String] token (required):
+  ///   token identifier can be either the hex contract address of the ERC20 or the Cosmos base denomination
+  Future<TokenPair200Response?> tokenPair(String token,) async {
+    final response = await tokenPairWithHttpInfo(token,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TokenPair200Response',) as TokenPair200Response;
+    
+    }
+    return null;
+  }
+
+  /// TokenPairs retrieves registered token pairs
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] paginationPeriodKey:
+  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+  ///
+  /// * [String] paginationPeriodOffset:
+  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+  ///
+  /// * [String] paginationPeriodLimit:
+  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+  ///
+  /// * [bool] paginationPeriodCountTotal:
+  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+  ///
+  /// * [bool] paginationPeriodReverse:
+  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+  Future<Response> tokenPairsWithHttpInfo({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/erc20/v1/token_pairs';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (paginationPeriodKey != null) {
+      queryParams.addAll(_queryParams('', 'pagination.key', paginationPeriodKey));
+    }
+    if (paginationPeriodOffset != null) {
+      queryParams.addAll(_queryParams('', 'pagination.offset', paginationPeriodOffset));
+    }
+    if (paginationPeriodLimit != null) {
+      queryParams.addAll(_queryParams('', 'pagination.limit', paginationPeriodLimit));
+    }
+    if (paginationPeriodCountTotal != null) {
+      queryParams.addAll(_queryParams('', 'pagination.count_total', paginationPeriodCountTotal));
+    }
+    if (paginationPeriodReverse != null) {
+      queryParams.addAll(_queryParams('', 'pagination.reverse', paginationPeriodReverse));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// TokenPairs retrieves registered token pairs
+  ///
+  /// Parameters:
+  ///
+  /// * [String] paginationPeriodKey:
+  ///   key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+  ///
+  /// * [String] paginationPeriodOffset:
+  ///   offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+  ///
+  /// * [String] paginationPeriodLimit:
+  ///   limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+  ///
+  /// * [bool] paginationPeriodCountTotal:
+  ///   count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+  ///
+  /// * [bool] paginationPeriodReverse:
+  ///   reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+  Future<TokenPairs200Response?> tokenPairs({ String? paginationPeriodKey, String? paginationPeriodOffset, String? paginationPeriodLimit, bool? paginationPeriodCountTotal, bool? paginationPeriodReverse, }) async {
+    final response = await tokenPairsWithHttpInfo( paginationPeriodKey: paginationPeriodKey, paginationPeriodOffset: paginationPeriodOffset, paginationPeriodLimit: paginationPeriodLimit, paginationPeriodCountTotal: paginationPeriodCountTotal, paginationPeriodReverse: paginationPeriodReverse, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TokenPairs200Response',) as TokenPairs200Response;
+    
+    }
+    return null;
+  }
+
   /// Params defines a gRPC query method that returns the tokenfactory module's parameters.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -9570,75 +10093,6 @@ class QueryApi {
     return null;
   }
 
-  /// TotalAckFees returns the total acknowledgement fees for a packet given its identifier
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] packetIdPeriodChannelId (required):
-  ///   channel unique identifier
-  ///
-  /// * [String] packetIdPeriodPortId (required):
-  ///   channel port identifier
-  ///
-  /// * [String] packetIdPeriodSequence (required):
-  ///   packet sequence
-  Future<Response> totalAckFeesWithHttpInfo(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_ack_fees'
-      .replaceAll('{packet_id.channel_id}', packetIdPeriodChannelId)
-      .replaceAll('{packet_id.port_id}', packetIdPeriodPortId)
-      .replaceAll('{packet_id.sequence}', packetIdPeriodSequence);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// TotalAckFees returns the total acknowledgement fees for a packet given its identifier
-  ///
-  /// Parameters:
-  ///
-  /// * [String] packetIdPeriodChannelId (required):
-  ///   channel unique identifier
-  ///
-  /// * [String] packetIdPeriodPortId (required):
-  ///   channel port identifier
-  ///
-  /// * [String] packetIdPeriodSequence (required):
-  ///   packet sequence
-  Future<QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc?> totalAckFees(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence,) async {
-    final response = await totalAckFeesWithHttpInfo(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc',) as QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc;
-    
-    }
-    return null;
-  }
-
   /// TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -9648,7 +10102,7 @@ class QueryApi {
   /// * [String] denom (required):
   Future<Response> totalEscrowForDenomWithHttpInfo(String denom,) async {
     // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/transfer/v1/denoms/{denom}/total_escrow'
+    final path = r'/ibc/apps/transfer/v1/total_escrow/{denom}'
       .replaceAll('{denom}', denom);
 
     // ignore: prefer_final_locals
@@ -9687,75 +10141,6 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TotalEscrowForDenom200Response',) as TotalEscrowForDenom200Response;
-    
-    }
-    return null;
-  }
-
-  /// TotalRecvFees returns the total receive fees for a packet given its identifier
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] packetIdPeriodChannelId (required):
-  ///   channel unique identifier
-  ///
-  /// * [String] packetIdPeriodPortId (required):
-  ///   channel port identifier
-  ///
-  /// * [String] packetIdPeriodSequence (required):
-  ///   packet sequence
-  Future<Response> totalRecvFeesWithHttpInfo(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_recv_fees'
-      .replaceAll('{packet_id.channel_id}', packetIdPeriodChannelId)
-      .replaceAll('{packet_id.port_id}', packetIdPeriodPortId)
-      .replaceAll('{packet_id.sequence}', packetIdPeriodSequence);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// TotalRecvFees returns the total receive fees for a packet given its identifier
-  ///
-  /// Parameters:
-  ///
-  /// * [String] packetIdPeriodChannelId (required):
-  ///   channel unique identifier
-  ///
-  /// * [String] packetIdPeriodPortId (required):
-  ///   channel port identifier
-  ///
-  /// * [String] packetIdPeriodSequence (required):
-  ///   packet sequence
-  Future<QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc?> totalRecvFees(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence,) async {
-    final response = await totalRecvFeesWithHttpInfo(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc',) as QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc;
     
     }
     return null;
@@ -9859,26 +10244,128 @@ class QueryApi {
     return null;
   }
 
-  /// TotalTimeoutFees returns the total timeout fees for a packet given its identifier
+  /// TraceBlock implements the `debug_traceBlockByNumber` and `debug_traceBlockByHash` rpc api
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [String] packetIdPeriodChannelId (required):
-  ///   channel unique identifier
+  /// * [String] traceConfigPeriodTracer:
+  ///   tracer is a custom javascript tracer.
   ///
-  /// * [String] packetIdPeriodPortId (required):
-  ///   channel port identifier
+  /// * [String] traceConfigPeriodTimeout:
+  ///   timeout overrides the default timeout of 5 seconds for JavaScript-based tracing calls.
   ///
-  /// * [String] packetIdPeriodSequence (required):
-  ///   packet sequence
-  Future<Response> totalTimeoutFeesWithHttpInfo(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence,) async {
+  /// * [String] traceConfigPeriodReexec:
+  ///   reexec defines the number of blocks the tracer is willing to go back.
+  ///
+  /// * [bool] traceConfigPeriodDisableStack:
+  ///   disable_stack switches stack capture.
+  ///
+  /// * [bool] traceConfigPeriodDisableStorage:
+  ///   disable_storage switches storage capture.
+  ///
+  /// * [bool] traceConfigPeriodDebug:
+  ///   debug can be used to print output during capture end.
+  ///
+  /// * [int] traceConfigPeriodLimit:
+  ///   limit defines the maximum length of output, but zero means unlimited.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodHomesteadBlock:
+  ///   homestead_block switch (nil no fork, 0 = already homestead).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDaoForkBlock:
+  ///   dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork).
+  ///
+  /// * [bool] traceConfigPeriodOverridesPeriodDaoForkSupport:
+  ///   dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip150Block:
+  ///   eip150_block: EIP150 implements the Gas price changes (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip150Hash:
+  ///   eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip155Block:
+  ///   eip155_block: EIP155Block HF block.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip158Block:
+  ///   eip158_block: EIP158 HF block.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodByzantiumBlock:
+  ///   byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodConstantinopleBlock:
+  ///   constantinople_block: Constantinople switch block (nil no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodPetersburgBlock:
+  ///   petersburg_block: Petersburg switch block (nil same as Constantinople).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodIstanbulBlock:
+  ///   istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodMuirGlacierBlock:
+  ///   muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodBerlinBlock:
+  ///   berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodLondonBlock:
+  ///   london_block: London switch block (nil = no fork, 0 = already on london).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodArrowGlacierBlock:
+  ///   arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodGrayGlacierBlock:
+  ///   gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodMergeNetsplitBlock:
+  ///   merge_netsplit_block: Virtual fork after The Merge to use as a network splitter.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodShanghaiBlock:
+  ///   shanghai_block switch block (nil = no fork, 0 = already on shanghai).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodCancunBlock:
+  ///   cancun_block switch block (nil = no fork, 0 = already on cancun).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodChainId:
+  ///   chain_id is the id of the chain (EIP-155).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDenom:
+  ///   denom is the denomination used on the EVM.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDecimals:
+  ///   decimals is the real decimal precision of the denomination used on the EVM.
+  ///
+  /// * [bool] traceConfigPeriodEnableMemory:
+  ///   enable_memory switches memory capture.
+  ///
+  /// * [bool] traceConfigPeriodEnableReturnData:
+  ///   enable_return_data switches the capture of return data.
+  ///
+  /// * [String] traceConfigPeriodTracerJsonConfig:
+  ///   tracer_json_config configures the tracer using a JSON string.
+  ///
+  /// * [String] blockNumber:
+  ///   block_number of the traced block.
+  ///
+  /// * [String] blockHash:
+  ///   block_hash (hex) of the traced block.
+  ///
+  /// * [DateTime] blockTime:
+  ///   block_time of the traced block.
+  ///
+  /// * [String] proposerAddress:
+  ///   proposer_address is the address of the requested block.
+  ///
+  /// * [String] chainId:
+  ///   chain_id is the eip155 chain id parsed from the requested block header.
+  ///
+  /// * [String] blockMaxGas:
+  ///   block_max_gas of the traced block.
+  Future<Response> traceBlockWithHttpInfo({ String? traceConfigPeriodTracer, String? traceConfigPeriodTimeout, String? traceConfigPeriodReexec, bool? traceConfigPeriodDisableStack, bool? traceConfigPeriodDisableStorage, bool? traceConfigPeriodDebug, int? traceConfigPeriodLimit, String? traceConfigPeriodOverridesPeriodHomesteadBlock, String? traceConfigPeriodOverridesPeriodDaoForkBlock, bool? traceConfigPeriodOverridesPeriodDaoForkSupport, String? traceConfigPeriodOverridesPeriodEip150Block, String? traceConfigPeriodOverridesPeriodEip150Hash, String? traceConfigPeriodOverridesPeriodEip155Block, String? traceConfigPeriodOverridesPeriodEip158Block, String? traceConfigPeriodOverridesPeriodByzantiumBlock, String? traceConfigPeriodOverridesPeriodConstantinopleBlock, String? traceConfigPeriodOverridesPeriodPetersburgBlock, String? traceConfigPeriodOverridesPeriodIstanbulBlock, String? traceConfigPeriodOverridesPeriodMuirGlacierBlock, String? traceConfigPeriodOverridesPeriodBerlinBlock, String? traceConfigPeriodOverridesPeriodLondonBlock, String? traceConfigPeriodOverridesPeriodArrowGlacierBlock, String? traceConfigPeriodOverridesPeriodGrayGlacierBlock, String? traceConfigPeriodOverridesPeriodMergeNetsplitBlock, String? traceConfigPeriodOverridesPeriodShanghaiBlock, String? traceConfigPeriodOverridesPeriodCancunBlock, String? traceConfigPeriodOverridesPeriodChainId, String? traceConfigPeriodOverridesPeriodDenom, String? traceConfigPeriodOverridesPeriodDecimals, bool? traceConfigPeriodEnableMemory, bool? traceConfigPeriodEnableReturnData, String? traceConfigPeriodTracerJsonConfig, String? blockNumber, String? blockHash, DateTime? blockTime, String? proposerAddress, String? chainId, String? blockMaxGas, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_timeout_fees'
-      .replaceAll('{packet_id.channel_id}', packetIdPeriodChannelId)
-      .replaceAll('{packet_id.port_id}', packetIdPeriodPortId)
-      .replaceAll('{packet_id.sequence}', packetIdPeriodSequence);
+    final path = r'/cosmos/evm/vm/v1/trace_block';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -9886,6 +10373,121 @@ class QueryApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (traceConfigPeriodTracer != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.tracer', traceConfigPeriodTracer));
+    }
+    if (traceConfigPeriodTimeout != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.timeout', traceConfigPeriodTimeout));
+    }
+    if (traceConfigPeriodReexec != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.reexec', traceConfigPeriodReexec));
+    }
+    if (traceConfigPeriodDisableStack != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.disable_stack', traceConfigPeriodDisableStack));
+    }
+    if (traceConfigPeriodDisableStorage != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.disable_storage', traceConfigPeriodDisableStorage));
+    }
+    if (traceConfigPeriodDebug != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.debug', traceConfigPeriodDebug));
+    }
+    if (traceConfigPeriodLimit != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.limit', traceConfigPeriodLimit));
+    }
+    if (traceConfigPeriodOverridesPeriodHomesteadBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.homestead_block', traceConfigPeriodOverridesPeriodHomesteadBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodDaoForkBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.dao_fork_block', traceConfigPeriodOverridesPeriodDaoForkBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodDaoForkSupport != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.dao_fork_support', traceConfigPeriodOverridesPeriodDaoForkSupport));
+    }
+    if (traceConfigPeriodOverridesPeriodEip150Block != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.eip150_block', traceConfigPeriodOverridesPeriodEip150Block));
+    }
+    if (traceConfigPeriodOverridesPeriodEip150Hash != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.eip150_hash', traceConfigPeriodOverridesPeriodEip150Hash));
+    }
+    if (traceConfigPeriodOverridesPeriodEip155Block != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.eip155_block', traceConfigPeriodOverridesPeriodEip155Block));
+    }
+    if (traceConfigPeriodOverridesPeriodEip158Block != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.eip158_block', traceConfigPeriodOverridesPeriodEip158Block));
+    }
+    if (traceConfigPeriodOverridesPeriodByzantiumBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.byzantium_block', traceConfigPeriodOverridesPeriodByzantiumBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodConstantinopleBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.constantinople_block', traceConfigPeriodOverridesPeriodConstantinopleBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodPetersburgBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.petersburg_block', traceConfigPeriodOverridesPeriodPetersburgBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodIstanbulBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.istanbul_block', traceConfigPeriodOverridesPeriodIstanbulBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodMuirGlacierBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.muir_glacier_block', traceConfigPeriodOverridesPeriodMuirGlacierBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodBerlinBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.berlin_block', traceConfigPeriodOverridesPeriodBerlinBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodLondonBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.london_block', traceConfigPeriodOverridesPeriodLondonBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodArrowGlacierBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.arrow_glacier_block', traceConfigPeriodOverridesPeriodArrowGlacierBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodGrayGlacierBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.gray_glacier_block', traceConfigPeriodOverridesPeriodGrayGlacierBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodMergeNetsplitBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.merge_netsplit_block', traceConfigPeriodOverridesPeriodMergeNetsplitBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodShanghaiBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.shanghai_block', traceConfigPeriodOverridesPeriodShanghaiBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodCancunBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.cancun_block', traceConfigPeriodOverridesPeriodCancunBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodChainId != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.chain_id', traceConfigPeriodOverridesPeriodChainId));
+    }
+    if (traceConfigPeriodOverridesPeriodDenom != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.denom', traceConfigPeriodOverridesPeriodDenom));
+    }
+    if (traceConfigPeriodOverridesPeriodDecimals != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.decimals', traceConfigPeriodOverridesPeriodDecimals));
+    }
+    if (traceConfigPeriodEnableMemory != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.enable_memory', traceConfigPeriodEnableMemory));
+    }
+    if (traceConfigPeriodEnableReturnData != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.enable_return_data', traceConfigPeriodEnableReturnData));
+    }
+    if (traceConfigPeriodTracerJsonConfig != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.tracer_json_config', traceConfigPeriodTracerJsonConfig));
+    }
+    if (blockNumber != null) {
+      queryParams.addAll(_queryParams('', 'block_number', blockNumber));
+    }
+    if (blockHash != null) {
+      queryParams.addAll(_queryParams('', 'block_hash', blockHash));
+    }
+    if (blockTime != null) {
+      queryParams.addAll(_queryParams('', 'block_time', blockTime));
+    }
+    if (proposerAddress != null) {
+      queryParams.addAll(_queryParams('', 'proposer_address', proposerAddress));
+    }
+    if (chainId != null) {
+      queryParams.addAll(_queryParams('', 'chain_id', chainId));
+    }
+    if (blockMaxGas != null) {
+      queryParams.addAll(_queryParams('', 'block_max_gas', blockMaxGas));
+    }
 
     const contentTypes = <String>[];
 
@@ -9901,20 +10503,125 @@ class QueryApi {
     );
   }
 
-  /// TotalTimeoutFees returns the total timeout fees for a packet given its identifier
+  /// TraceBlock implements the `debug_traceBlockByNumber` and `debug_traceBlockByHash` rpc api
   ///
   /// Parameters:
   ///
-  /// * [String] packetIdPeriodChannelId (required):
-  ///   channel unique identifier
+  /// * [String] traceConfigPeriodTracer:
+  ///   tracer is a custom javascript tracer.
   ///
-  /// * [String] packetIdPeriodPortId (required):
-  ///   channel port identifier
+  /// * [String] traceConfigPeriodTimeout:
+  ///   timeout overrides the default timeout of 5 seconds for JavaScript-based tracing calls.
   ///
-  /// * [String] packetIdPeriodSequence (required):
-  ///   packet sequence
-  Future<QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc?> totalTimeoutFees(String packetIdPeriodChannelId, String packetIdPeriodPortId, String packetIdPeriodSequence,) async {
-    final response = await totalTimeoutFeesWithHttpInfo(packetIdPeriodChannelId, packetIdPeriodPortId, packetIdPeriodSequence,);
+  /// * [String] traceConfigPeriodReexec:
+  ///   reexec defines the number of blocks the tracer is willing to go back.
+  ///
+  /// * [bool] traceConfigPeriodDisableStack:
+  ///   disable_stack switches stack capture.
+  ///
+  /// * [bool] traceConfigPeriodDisableStorage:
+  ///   disable_storage switches storage capture.
+  ///
+  /// * [bool] traceConfigPeriodDebug:
+  ///   debug can be used to print output during capture end.
+  ///
+  /// * [int] traceConfigPeriodLimit:
+  ///   limit defines the maximum length of output, but zero means unlimited.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodHomesteadBlock:
+  ///   homestead_block switch (nil no fork, 0 = already homestead).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDaoForkBlock:
+  ///   dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork).
+  ///
+  /// * [bool] traceConfigPeriodOverridesPeriodDaoForkSupport:
+  ///   dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip150Block:
+  ///   eip150_block: EIP150 implements the Gas price changes (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip150Hash:
+  ///   eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip155Block:
+  ///   eip155_block: EIP155Block HF block.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip158Block:
+  ///   eip158_block: EIP158 HF block.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodByzantiumBlock:
+  ///   byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodConstantinopleBlock:
+  ///   constantinople_block: Constantinople switch block (nil no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodPetersburgBlock:
+  ///   petersburg_block: Petersburg switch block (nil same as Constantinople).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodIstanbulBlock:
+  ///   istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodMuirGlacierBlock:
+  ///   muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodBerlinBlock:
+  ///   berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodLondonBlock:
+  ///   london_block: London switch block (nil = no fork, 0 = already on london).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodArrowGlacierBlock:
+  ///   arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodGrayGlacierBlock:
+  ///   gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodMergeNetsplitBlock:
+  ///   merge_netsplit_block: Virtual fork after The Merge to use as a network splitter.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodShanghaiBlock:
+  ///   shanghai_block switch block (nil = no fork, 0 = already on shanghai).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodCancunBlock:
+  ///   cancun_block switch block (nil = no fork, 0 = already on cancun).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodChainId:
+  ///   chain_id is the id of the chain (EIP-155).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDenom:
+  ///   denom is the denomination used on the EVM.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDecimals:
+  ///   decimals is the real decimal precision of the denomination used on the EVM.
+  ///
+  /// * [bool] traceConfigPeriodEnableMemory:
+  ///   enable_memory switches memory capture.
+  ///
+  /// * [bool] traceConfigPeriodEnableReturnData:
+  ///   enable_return_data switches the capture of return data.
+  ///
+  /// * [String] traceConfigPeriodTracerJsonConfig:
+  ///   tracer_json_config configures the tracer using a JSON string.
+  ///
+  /// * [String] blockNumber:
+  ///   block_number of the traced block.
+  ///
+  /// * [String] blockHash:
+  ///   block_hash (hex) of the traced block.
+  ///
+  /// * [DateTime] blockTime:
+  ///   block_time of the traced block.
+  ///
+  /// * [String] proposerAddress:
+  ///   proposer_address is the address of the requested block.
+  ///
+  /// * [String] chainId:
+  ///   chain_id is the eip155 chain id parsed from the requested block header.
+  ///
+  /// * [String] blockMaxGas:
+  ///   block_max_gas of the traced block.
+  Future<QueryTraceBlockResponseDefinesTraceBlockResponse?> traceBlock({ String? traceConfigPeriodTracer, String? traceConfigPeriodTimeout, String? traceConfigPeriodReexec, bool? traceConfigPeriodDisableStack, bool? traceConfigPeriodDisableStorage, bool? traceConfigPeriodDebug, int? traceConfigPeriodLimit, String? traceConfigPeriodOverridesPeriodHomesteadBlock, String? traceConfigPeriodOverridesPeriodDaoForkBlock, bool? traceConfigPeriodOverridesPeriodDaoForkSupport, String? traceConfigPeriodOverridesPeriodEip150Block, String? traceConfigPeriodOverridesPeriodEip150Hash, String? traceConfigPeriodOverridesPeriodEip155Block, String? traceConfigPeriodOverridesPeriodEip158Block, String? traceConfigPeriodOverridesPeriodByzantiumBlock, String? traceConfigPeriodOverridesPeriodConstantinopleBlock, String? traceConfigPeriodOverridesPeriodPetersburgBlock, String? traceConfigPeriodOverridesPeriodIstanbulBlock, String? traceConfigPeriodOverridesPeriodMuirGlacierBlock, String? traceConfigPeriodOverridesPeriodBerlinBlock, String? traceConfigPeriodOverridesPeriodLondonBlock, String? traceConfigPeriodOverridesPeriodArrowGlacierBlock, String? traceConfigPeriodOverridesPeriodGrayGlacierBlock, String? traceConfigPeriodOverridesPeriodMergeNetsplitBlock, String? traceConfigPeriodOverridesPeriodShanghaiBlock, String? traceConfigPeriodOverridesPeriodCancunBlock, String? traceConfigPeriodOverridesPeriodChainId, String? traceConfigPeriodOverridesPeriodDenom, String? traceConfigPeriodOverridesPeriodDecimals, bool? traceConfigPeriodEnableMemory, bool? traceConfigPeriodEnableReturnData, String? traceConfigPeriodTracerJsonConfig, String? blockNumber, String? blockHash, DateTime? blockTime, String? proposerAddress, String? chainId, String? blockMaxGas, }) async {
+    final response = await traceBlockWithHttpInfo( traceConfigPeriodTracer: traceConfigPeriodTracer, traceConfigPeriodTimeout: traceConfigPeriodTimeout, traceConfigPeriodReexec: traceConfigPeriodReexec, traceConfigPeriodDisableStack: traceConfigPeriodDisableStack, traceConfigPeriodDisableStorage: traceConfigPeriodDisableStorage, traceConfigPeriodDebug: traceConfigPeriodDebug, traceConfigPeriodLimit: traceConfigPeriodLimit, traceConfigPeriodOverridesPeriodHomesteadBlock: traceConfigPeriodOverridesPeriodHomesteadBlock, traceConfigPeriodOverridesPeriodDaoForkBlock: traceConfigPeriodOverridesPeriodDaoForkBlock, traceConfigPeriodOverridesPeriodDaoForkSupport: traceConfigPeriodOverridesPeriodDaoForkSupport, traceConfigPeriodOverridesPeriodEip150Block: traceConfigPeriodOverridesPeriodEip150Block, traceConfigPeriodOverridesPeriodEip150Hash: traceConfigPeriodOverridesPeriodEip150Hash, traceConfigPeriodOverridesPeriodEip155Block: traceConfigPeriodOverridesPeriodEip155Block, traceConfigPeriodOverridesPeriodEip158Block: traceConfigPeriodOverridesPeriodEip158Block, traceConfigPeriodOverridesPeriodByzantiumBlock: traceConfigPeriodOverridesPeriodByzantiumBlock, traceConfigPeriodOverridesPeriodConstantinopleBlock: traceConfigPeriodOverridesPeriodConstantinopleBlock, traceConfigPeriodOverridesPeriodPetersburgBlock: traceConfigPeriodOverridesPeriodPetersburgBlock, traceConfigPeriodOverridesPeriodIstanbulBlock: traceConfigPeriodOverridesPeriodIstanbulBlock, traceConfigPeriodOverridesPeriodMuirGlacierBlock: traceConfigPeriodOverridesPeriodMuirGlacierBlock, traceConfigPeriodOverridesPeriodBerlinBlock: traceConfigPeriodOverridesPeriodBerlinBlock, traceConfigPeriodOverridesPeriodLondonBlock: traceConfigPeriodOverridesPeriodLondonBlock, traceConfigPeriodOverridesPeriodArrowGlacierBlock: traceConfigPeriodOverridesPeriodArrowGlacierBlock, traceConfigPeriodOverridesPeriodGrayGlacierBlock: traceConfigPeriodOverridesPeriodGrayGlacierBlock, traceConfigPeriodOverridesPeriodMergeNetsplitBlock: traceConfigPeriodOverridesPeriodMergeNetsplitBlock, traceConfigPeriodOverridesPeriodShanghaiBlock: traceConfigPeriodOverridesPeriodShanghaiBlock, traceConfigPeriodOverridesPeriodCancunBlock: traceConfigPeriodOverridesPeriodCancunBlock, traceConfigPeriodOverridesPeriodChainId: traceConfigPeriodOverridesPeriodChainId, traceConfigPeriodOverridesPeriodDenom: traceConfigPeriodOverridesPeriodDenom, traceConfigPeriodOverridesPeriodDecimals: traceConfigPeriodOverridesPeriodDecimals, traceConfigPeriodEnableMemory: traceConfigPeriodEnableMemory, traceConfigPeriodEnableReturnData: traceConfigPeriodEnableReturnData, traceConfigPeriodTracerJsonConfig: traceConfigPeriodTracerJsonConfig, blockNumber: blockNumber, blockHash: blockHash, blockTime: blockTime, proposerAddress: proposerAddress, chainId: chainId, blockMaxGas: blockMaxGas, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -9922,7 +10629,443 @@ class QueryApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc',) as QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryTraceBlockResponseDefinesTraceBlockResponse',) as QueryTraceBlockResponseDefinesTraceBlockResponse;
+    
+    }
+    return null;
+  }
+
+  /// TraceTx implements the `debug_traceTransaction` rpc api
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] msgPeriodDataPeriodTypeUrl:
+  ///   A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][]   value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the   URL, or have them precompiled into a binary to avoid any   lookup. Therefore, binary compatibility needs to be preserved   on changes to types. (Use versioned type names to manage   breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com. As of May 2023, there are no widely used type server implementations and no plans to implement one.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics.
+  ///
+  /// * [String] msgPeriodDataPeriodValue:
+  ///   Must be a valid serialized protocol buffer of the above specified type.
+  ///
+  /// * [double] msgPeriodSize:
+  ///   size is the encoded storage size of the transaction (DEPRECATED).
+  ///
+  /// * [String] msgPeriodHash:
+  ///   hash of the transaction in hex format.
+  ///
+  /// * [String] msgPeriodFrom:
+  ///   from is the ethereum signer address in hex format. This address value is checked against the address derived from the signature (V, R, S) using the secp256k1 elliptic curve.
+  ///
+  /// * [String] traceConfigPeriodTracer:
+  ///   tracer is a custom javascript tracer.
+  ///
+  /// * [String] traceConfigPeriodTimeout:
+  ///   timeout overrides the default timeout of 5 seconds for JavaScript-based tracing calls.
+  ///
+  /// * [String] traceConfigPeriodReexec:
+  ///   reexec defines the number of blocks the tracer is willing to go back.
+  ///
+  /// * [bool] traceConfigPeriodDisableStack:
+  ///   disable_stack switches stack capture.
+  ///
+  /// * [bool] traceConfigPeriodDisableStorage:
+  ///   disable_storage switches storage capture.
+  ///
+  /// * [bool] traceConfigPeriodDebug:
+  ///   debug can be used to print output during capture end.
+  ///
+  /// * [int] traceConfigPeriodLimit:
+  ///   limit defines the maximum length of output, but zero means unlimited.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodHomesteadBlock:
+  ///   homestead_block switch (nil no fork, 0 = already homestead).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDaoForkBlock:
+  ///   dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork).
+  ///
+  /// * [bool] traceConfigPeriodOverridesPeriodDaoForkSupport:
+  ///   dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip150Block:
+  ///   eip150_block: EIP150 implements the Gas price changes (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip150Hash:
+  ///   eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip155Block:
+  ///   eip155_block: EIP155Block HF block.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip158Block:
+  ///   eip158_block: EIP158 HF block.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodByzantiumBlock:
+  ///   byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodConstantinopleBlock:
+  ///   constantinople_block: Constantinople switch block (nil no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodPetersburgBlock:
+  ///   petersburg_block: Petersburg switch block (nil same as Constantinople).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodIstanbulBlock:
+  ///   istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodMuirGlacierBlock:
+  ///   muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodBerlinBlock:
+  ///   berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodLondonBlock:
+  ///   london_block: London switch block (nil = no fork, 0 = already on london).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodArrowGlacierBlock:
+  ///   arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodGrayGlacierBlock:
+  ///   gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodMergeNetsplitBlock:
+  ///   merge_netsplit_block: Virtual fork after The Merge to use as a network splitter.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodShanghaiBlock:
+  ///   shanghai_block switch block (nil = no fork, 0 = already on shanghai).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodCancunBlock:
+  ///   cancun_block switch block (nil = no fork, 0 = already on cancun).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodChainId:
+  ///   chain_id is the id of the chain (EIP-155).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDenom:
+  ///   denom is the denomination used on the EVM.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDecimals:
+  ///   decimals is the real decimal precision of the denomination used on the EVM.
+  ///
+  /// * [bool] traceConfigPeriodEnableMemory:
+  ///   enable_memory switches memory capture.
+  ///
+  /// * [bool] traceConfigPeriodEnableReturnData:
+  ///   enable_return_data switches the capture of return data.
+  ///
+  /// * [String] traceConfigPeriodTracerJsonConfig:
+  ///   tracer_json_config configures the tracer using a JSON string.
+  ///
+  /// * [String] blockNumber:
+  ///   block_number of requested transaction.
+  ///
+  /// * [String] blockHash:
+  ///   block_hash of requested transaction.
+  ///
+  /// * [DateTime] blockTime:
+  ///   block_time of requested transaction.
+  ///
+  /// * [String] proposerAddress:
+  ///   proposer_address is the proposer of the requested block.
+  ///
+  /// * [String] chainId:
+  ///   chain_id is the eip155 chain id parsed from the requested block header.
+  ///
+  /// * [String] blockMaxGas:
+  ///   block_max_gas of the block of the requested transaction.
+  Future<Response> traceTxWithHttpInfo({ String? msgPeriodDataPeriodTypeUrl, String? msgPeriodDataPeriodValue, double? msgPeriodSize, String? msgPeriodHash, String? msgPeriodFrom, String? traceConfigPeriodTracer, String? traceConfigPeriodTimeout, String? traceConfigPeriodReexec, bool? traceConfigPeriodDisableStack, bool? traceConfigPeriodDisableStorage, bool? traceConfigPeriodDebug, int? traceConfigPeriodLimit, String? traceConfigPeriodOverridesPeriodHomesteadBlock, String? traceConfigPeriodOverridesPeriodDaoForkBlock, bool? traceConfigPeriodOverridesPeriodDaoForkSupport, String? traceConfigPeriodOverridesPeriodEip150Block, String? traceConfigPeriodOverridesPeriodEip150Hash, String? traceConfigPeriodOverridesPeriodEip155Block, String? traceConfigPeriodOverridesPeriodEip158Block, String? traceConfigPeriodOverridesPeriodByzantiumBlock, String? traceConfigPeriodOverridesPeriodConstantinopleBlock, String? traceConfigPeriodOverridesPeriodPetersburgBlock, String? traceConfigPeriodOverridesPeriodIstanbulBlock, String? traceConfigPeriodOverridesPeriodMuirGlacierBlock, String? traceConfigPeriodOverridesPeriodBerlinBlock, String? traceConfigPeriodOverridesPeriodLondonBlock, String? traceConfigPeriodOverridesPeriodArrowGlacierBlock, String? traceConfigPeriodOverridesPeriodGrayGlacierBlock, String? traceConfigPeriodOverridesPeriodMergeNetsplitBlock, String? traceConfigPeriodOverridesPeriodShanghaiBlock, String? traceConfigPeriodOverridesPeriodCancunBlock, String? traceConfigPeriodOverridesPeriodChainId, String? traceConfigPeriodOverridesPeriodDenom, String? traceConfigPeriodOverridesPeriodDecimals, bool? traceConfigPeriodEnableMemory, bool? traceConfigPeriodEnableReturnData, String? traceConfigPeriodTracerJsonConfig, String? blockNumber, String? blockHash, DateTime? blockTime, String? proposerAddress, String? chainId, String? blockMaxGas, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/vm/v1/trace_tx';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (msgPeriodDataPeriodTypeUrl != null) {
+      queryParams.addAll(_queryParams('', 'msg.data.type_url', msgPeriodDataPeriodTypeUrl));
+    }
+    if (msgPeriodDataPeriodValue != null) {
+      queryParams.addAll(_queryParams('', 'msg.data.value', msgPeriodDataPeriodValue));
+    }
+    if (msgPeriodSize != null) {
+      queryParams.addAll(_queryParams('', 'msg.size', msgPeriodSize));
+    }
+    if (msgPeriodHash != null) {
+      queryParams.addAll(_queryParams('', 'msg.hash', msgPeriodHash));
+    }
+    if (msgPeriodFrom != null) {
+      queryParams.addAll(_queryParams('', 'msg.from', msgPeriodFrom));
+    }
+    if (traceConfigPeriodTracer != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.tracer', traceConfigPeriodTracer));
+    }
+    if (traceConfigPeriodTimeout != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.timeout', traceConfigPeriodTimeout));
+    }
+    if (traceConfigPeriodReexec != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.reexec', traceConfigPeriodReexec));
+    }
+    if (traceConfigPeriodDisableStack != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.disable_stack', traceConfigPeriodDisableStack));
+    }
+    if (traceConfigPeriodDisableStorage != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.disable_storage', traceConfigPeriodDisableStorage));
+    }
+    if (traceConfigPeriodDebug != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.debug', traceConfigPeriodDebug));
+    }
+    if (traceConfigPeriodLimit != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.limit', traceConfigPeriodLimit));
+    }
+    if (traceConfigPeriodOverridesPeriodHomesteadBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.homestead_block', traceConfigPeriodOverridesPeriodHomesteadBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodDaoForkBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.dao_fork_block', traceConfigPeriodOverridesPeriodDaoForkBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodDaoForkSupport != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.dao_fork_support', traceConfigPeriodOverridesPeriodDaoForkSupport));
+    }
+    if (traceConfigPeriodOverridesPeriodEip150Block != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.eip150_block', traceConfigPeriodOverridesPeriodEip150Block));
+    }
+    if (traceConfigPeriodOverridesPeriodEip150Hash != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.eip150_hash', traceConfigPeriodOverridesPeriodEip150Hash));
+    }
+    if (traceConfigPeriodOverridesPeriodEip155Block != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.eip155_block', traceConfigPeriodOverridesPeriodEip155Block));
+    }
+    if (traceConfigPeriodOverridesPeriodEip158Block != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.eip158_block', traceConfigPeriodOverridesPeriodEip158Block));
+    }
+    if (traceConfigPeriodOverridesPeriodByzantiumBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.byzantium_block', traceConfigPeriodOverridesPeriodByzantiumBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodConstantinopleBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.constantinople_block', traceConfigPeriodOverridesPeriodConstantinopleBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodPetersburgBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.petersburg_block', traceConfigPeriodOverridesPeriodPetersburgBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodIstanbulBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.istanbul_block', traceConfigPeriodOverridesPeriodIstanbulBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodMuirGlacierBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.muir_glacier_block', traceConfigPeriodOverridesPeriodMuirGlacierBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodBerlinBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.berlin_block', traceConfigPeriodOverridesPeriodBerlinBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodLondonBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.london_block', traceConfigPeriodOverridesPeriodLondonBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodArrowGlacierBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.arrow_glacier_block', traceConfigPeriodOverridesPeriodArrowGlacierBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodGrayGlacierBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.gray_glacier_block', traceConfigPeriodOverridesPeriodGrayGlacierBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodMergeNetsplitBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.merge_netsplit_block', traceConfigPeriodOverridesPeriodMergeNetsplitBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodShanghaiBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.shanghai_block', traceConfigPeriodOverridesPeriodShanghaiBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodCancunBlock != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.cancun_block', traceConfigPeriodOverridesPeriodCancunBlock));
+    }
+    if (traceConfigPeriodOverridesPeriodChainId != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.chain_id', traceConfigPeriodOverridesPeriodChainId));
+    }
+    if (traceConfigPeriodOverridesPeriodDenom != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.denom', traceConfigPeriodOverridesPeriodDenom));
+    }
+    if (traceConfigPeriodOverridesPeriodDecimals != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.overrides.decimals', traceConfigPeriodOverridesPeriodDecimals));
+    }
+    if (traceConfigPeriodEnableMemory != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.enable_memory', traceConfigPeriodEnableMemory));
+    }
+    if (traceConfigPeriodEnableReturnData != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.enable_return_data', traceConfigPeriodEnableReturnData));
+    }
+    if (traceConfigPeriodTracerJsonConfig != null) {
+      queryParams.addAll(_queryParams('', 'trace_config.tracer_json_config', traceConfigPeriodTracerJsonConfig));
+    }
+    if (blockNumber != null) {
+      queryParams.addAll(_queryParams('', 'block_number', blockNumber));
+    }
+    if (blockHash != null) {
+      queryParams.addAll(_queryParams('', 'block_hash', blockHash));
+    }
+    if (blockTime != null) {
+      queryParams.addAll(_queryParams('', 'block_time', blockTime));
+    }
+    if (proposerAddress != null) {
+      queryParams.addAll(_queryParams('', 'proposer_address', proposerAddress));
+    }
+    if (chainId != null) {
+      queryParams.addAll(_queryParams('', 'chain_id', chainId));
+    }
+    if (blockMaxGas != null) {
+      queryParams.addAll(_queryParams('', 'block_max_gas', blockMaxGas));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// TraceTx implements the `debug_traceTransaction` rpc api
+  ///
+  /// Parameters:
+  ///
+  /// * [String] msgPeriodDataPeriodTypeUrl:
+  ///   A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][]   value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the   URL, or have them precompiled into a binary to avoid any   lookup. Therefore, binary compatibility needs to be preserved   on changes to types. (Use versioned type names to manage   breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com. As of May 2023, there are no widely used type server implementations and no plans to implement one.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics.
+  ///
+  /// * [String] msgPeriodDataPeriodValue:
+  ///   Must be a valid serialized protocol buffer of the above specified type.
+  ///
+  /// * [double] msgPeriodSize:
+  ///   size is the encoded storage size of the transaction (DEPRECATED).
+  ///
+  /// * [String] msgPeriodHash:
+  ///   hash of the transaction in hex format.
+  ///
+  /// * [String] msgPeriodFrom:
+  ///   from is the ethereum signer address in hex format. This address value is checked against the address derived from the signature (V, R, S) using the secp256k1 elliptic curve.
+  ///
+  /// * [String] traceConfigPeriodTracer:
+  ///   tracer is a custom javascript tracer.
+  ///
+  /// * [String] traceConfigPeriodTimeout:
+  ///   timeout overrides the default timeout of 5 seconds for JavaScript-based tracing calls.
+  ///
+  /// * [String] traceConfigPeriodReexec:
+  ///   reexec defines the number of blocks the tracer is willing to go back.
+  ///
+  /// * [bool] traceConfigPeriodDisableStack:
+  ///   disable_stack switches stack capture.
+  ///
+  /// * [bool] traceConfigPeriodDisableStorage:
+  ///   disable_storage switches storage capture.
+  ///
+  /// * [bool] traceConfigPeriodDebug:
+  ///   debug can be used to print output during capture end.
+  ///
+  /// * [int] traceConfigPeriodLimit:
+  ///   limit defines the maximum length of output, but zero means unlimited.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodHomesteadBlock:
+  ///   homestead_block switch (nil no fork, 0 = already homestead).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDaoForkBlock:
+  ///   dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork).
+  ///
+  /// * [bool] traceConfigPeriodOverridesPeriodDaoForkSupport:
+  ///   dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip150Block:
+  ///   eip150_block: EIP150 implements the Gas price changes (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip150Hash:
+  ///   eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip155Block:
+  ///   eip155_block: EIP155Block HF block.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodEip158Block:
+  ///   eip158_block: EIP158 HF block.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodByzantiumBlock:
+  ///   byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodConstantinopleBlock:
+  ///   constantinople_block: Constantinople switch block (nil no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodPetersburgBlock:
+  ///   petersburg_block: Petersburg switch block (nil same as Constantinople).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodIstanbulBlock:
+  ///   istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodMuirGlacierBlock:
+  ///   muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodBerlinBlock:
+  ///   berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodLondonBlock:
+  ///   london_block: London switch block (nil = no fork, 0 = already on london).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodArrowGlacierBlock:
+  ///   arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodGrayGlacierBlock:
+  ///   gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodMergeNetsplitBlock:
+  ///   merge_netsplit_block: Virtual fork after The Merge to use as a network splitter.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodShanghaiBlock:
+  ///   shanghai_block switch block (nil = no fork, 0 = already on shanghai).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodCancunBlock:
+  ///   cancun_block switch block (nil = no fork, 0 = already on cancun).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodChainId:
+  ///   chain_id is the id of the chain (EIP-155).
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDenom:
+  ///   denom is the denomination used on the EVM.
+  ///
+  /// * [String] traceConfigPeriodOverridesPeriodDecimals:
+  ///   decimals is the real decimal precision of the denomination used on the EVM.
+  ///
+  /// * [bool] traceConfigPeriodEnableMemory:
+  ///   enable_memory switches memory capture.
+  ///
+  /// * [bool] traceConfigPeriodEnableReturnData:
+  ///   enable_return_data switches the capture of return data.
+  ///
+  /// * [String] traceConfigPeriodTracerJsonConfig:
+  ///   tracer_json_config configures the tracer using a JSON string.
+  ///
+  /// * [String] blockNumber:
+  ///   block_number of requested transaction.
+  ///
+  /// * [String] blockHash:
+  ///   block_hash of requested transaction.
+  ///
+  /// * [DateTime] blockTime:
+  ///   block_time of requested transaction.
+  ///
+  /// * [String] proposerAddress:
+  ///   proposer_address is the proposer of the requested block.
+  ///
+  /// * [String] chainId:
+  ///   chain_id is the eip155 chain id parsed from the requested block header.
+  ///
+  /// * [String] blockMaxGas:
+  ///   block_max_gas of the block of the requested transaction.
+  Future<QueryTraceTxResponseDefinesTraceTxResponse?> traceTx({ String? msgPeriodDataPeriodTypeUrl, String? msgPeriodDataPeriodValue, double? msgPeriodSize, String? msgPeriodHash, String? msgPeriodFrom, String? traceConfigPeriodTracer, String? traceConfigPeriodTimeout, String? traceConfigPeriodReexec, bool? traceConfigPeriodDisableStack, bool? traceConfigPeriodDisableStorage, bool? traceConfigPeriodDebug, int? traceConfigPeriodLimit, String? traceConfigPeriodOverridesPeriodHomesteadBlock, String? traceConfigPeriodOverridesPeriodDaoForkBlock, bool? traceConfigPeriodOverridesPeriodDaoForkSupport, String? traceConfigPeriodOverridesPeriodEip150Block, String? traceConfigPeriodOverridesPeriodEip150Hash, String? traceConfigPeriodOverridesPeriodEip155Block, String? traceConfigPeriodOverridesPeriodEip158Block, String? traceConfigPeriodOverridesPeriodByzantiumBlock, String? traceConfigPeriodOverridesPeriodConstantinopleBlock, String? traceConfigPeriodOverridesPeriodPetersburgBlock, String? traceConfigPeriodOverridesPeriodIstanbulBlock, String? traceConfigPeriodOverridesPeriodMuirGlacierBlock, String? traceConfigPeriodOverridesPeriodBerlinBlock, String? traceConfigPeriodOverridesPeriodLondonBlock, String? traceConfigPeriodOverridesPeriodArrowGlacierBlock, String? traceConfigPeriodOverridesPeriodGrayGlacierBlock, String? traceConfigPeriodOverridesPeriodMergeNetsplitBlock, String? traceConfigPeriodOverridesPeriodShanghaiBlock, String? traceConfigPeriodOverridesPeriodCancunBlock, String? traceConfigPeriodOverridesPeriodChainId, String? traceConfigPeriodOverridesPeriodDenom, String? traceConfigPeriodOverridesPeriodDecimals, bool? traceConfigPeriodEnableMemory, bool? traceConfigPeriodEnableReturnData, String? traceConfigPeriodTracerJsonConfig, String? blockNumber, String? blockHash, DateTime? blockTime, String? proposerAddress, String? chainId, String? blockMaxGas, }) async {
+    final response = await traceTxWithHttpInfo( msgPeriodDataPeriodTypeUrl: msgPeriodDataPeriodTypeUrl, msgPeriodDataPeriodValue: msgPeriodDataPeriodValue, msgPeriodSize: msgPeriodSize, msgPeriodHash: msgPeriodHash, msgPeriodFrom: msgPeriodFrom, traceConfigPeriodTracer: traceConfigPeriodTracer, traceConfigPeriodTimeout: traceConfigPeriodTimeout, traceConfigPeriodReexec: traceConfigPeriodReexec, traceConfigPeriodDisableStack: traceConfigPeriodDisableStack, traceConfigPeriodDisableStorage: traceConfigPeriodDisableStorage, traceConfigPeriodDebug: traceConfigPeriodDebug, traceConfigPeriodLimit: traceConfigPeriodLimit, traceConfigPeriodOverridesPeriodHomesteadBlock: traceConfigPeriodOverridesPeriodHomesteadBlock, traceConfigPeriodOverridesPeriodDaoForkBlock: traceConfigPeriodOverridesPeriodDaoForkBlock, traceConfigPeriodOverridesPeriodDaoForkSupport: traceConfigPeriodOverridesPeriodDaoForkSupport, traceConfigPeriodOverridesPeriodEip150Block: traceConfigPeriodOverridesPeriodEip150Block, traceConfigPeriodOverridesPeriodEip150Hash: traceConfigPeriodOverridesPeriodEip150Hash, traceConfigPeriodOverridesPeriodEip155Block: traceConfigPeriodOverridesPeriodEip155Block, traceConfigPeriodOverridesPeriodEip158Block: traceConfigPeriodOverridesPeriodEip158Block, traceConfigPeriodOverridesPeriodByzantiumBlock: traceConfigPeriodOverridesPeriodByzantiumBlock, traceConfigPeriodOverridesPeriodConstantinopleBlock: traceConfigPeriodOverridesPeriodConstantinopleBlock, traceConfigPeriodOverridesPeriodPetersburgBlock: traceConfigPeriodOverridesPeriodPetersburgBlock, traceConfigPeriodOverridesPeriodIstanbulBlock: traceConfigPeriodOverridesPeriodIstanbulBlock, traceConfigPeriodOverridesPeriodMuirGlacierBlock: traceConfigPeriodOverridesPeriodMuirGlacierBlock, traceConfigPeriodOverridesPeriodBerlinBlock: traceConfigPeriodOverridesPeriodBerlinBlock, traceConfigPeriodOverridesPeriodLondonBlock: traceConfigPeriodOverridesPeriodLondonBlock, traceConfigPeriodOverridesPeriodArrowGlacierBlock: traceConfigPeriodOverridesPeriodArrowGlacierBlock, traceConfigPeriodOverridesPeriodGrayGlacierBlock: traceConfigPeriodOverridesPeriodGrayGlacierBlock, traceConfigPeriodOverridesPeriodMergeNetsplitBlock: traceConfigPeriodOverridesPeriodMergeNetsplitBlock, traceConfigPeriodOverridesPeriodShanghaiBlock: traceConfigPeriodOverridesPeriodShanghaiBlock, traceConfigPeriodOverridesPeriodCancunBlock: traceConfigPeriodOverridesPeriodCancunBlock, traceConfigPeriodOverridesPeriodChainId: traceConfigPeriodOverridesPeriodChainId, traceConfigPeriodOverridesPeriodDenom: traceConfigPeriodOverridesPeriodDenom, traceConfigPeriodOverridesPeriodDecimals: traceConfigPeriodOverridesPeriodDecimals, traceConfigPeriodEnableMemory: traceConfigPeriodEnableMemory, traceConfigPeriodEnableReturnData: traceConfigPeriodEnableReturnData, traceConfigPeriodTracerJsonConfig: traceConfigPeriodTracerJsonConfig, blockNumber: blockNumber, blockHash: blockHash, blockTime: blockTime, proposerAddress: proposerAddress, chainId: chainId, blockMaxGas: blockMaxGas, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryTraceTxResponseDefinesTraceTxResponse',) as QueryTraceTxResponseDefinesTraceTxResponse;
     
     }
     return null;
@@ -10172,122 +11315,6 @@ class QueryApi {
     return null;
   }
 
-  /// Upgrade returns the upgrade for a given port and channel id.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///
-  /// * [String] portId (required):
-  Future<Response> upgradeWithHttpInfo(String channelId, String portId,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/upgrade'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{port_id}', portId);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Upgrade returns the upgrade for a given port and channel id.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///
-  /// * [String] portId (required):
-  Future<QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod?> upgrade(String channelId, String portId,) async {
-    final response = await upgradeWithHttpInfo(channelId, portId,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod',) as QueryUpgradeResponseIsTheResponseTypeForTheQueryUpgradeResponseRPCMethod;
-    
-    }
-    return null;
-  }
-
-  /// UpgradeError returns the error receipt if the upgrade handshake failed.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///
-  /// * [String] portId (required):
-  Future<Response> upgradeErrorWithHttpInfo(String channelId, String portId,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/upgrade_error'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{port_id}', portId);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// UpgradeError returns the error receipt if the upgrade handshake failed.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] channelId (required):
-  ///
-  /// * [String] portId (required):
-  Future<QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod?> upgradeError(String channelId, String portId,) async {
-    final response = await upgradeErrorWithHttpInfo(channelId, portId,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod',) as QueryUpgradeErrorResponseIsTheResponseTypeForTheQueryQueryUpgradeErrorRPCMethod;
-    
-    }
-    return null;
-  }
-
   /// UpgradedClientState queries an Upgraded IBC light client.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -10481,6 +11508,61 @@ class QueryApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'QueryValidatorResponseIsResponseTypeForTheQueryValidatorRPCMethod',) as QueryValidatorResponseIsResponseTypeForTheQueryValidatorRPCMethod;
+    
+    }
+    return null;
+  }
+
+  /// ValidatorAccount queries an Ethereum account's from a validator consensus Address.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] consAddress (required):
+  ///   cons_address is the validator cons address to query the account for.
+  Future<Response> validatorAccountWithHttpInfo(String consAddress,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/cosmos/evm/vm/v1/validator_account/{cons_address}'
+      .replaceAll('{cons_address}', consAddress);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// ValidatorAccount queries an Ethereum account's from a validator consensus Address.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] consAddress (required):
+  ///   cons_address is the validator cons address to query the account for.
+  Future<ValidatorAccount200Response?> validatorAccount(String consAddress,) async {
+    final response = await validatorAccountWithHttpInfo(consAddress,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ValidatorAccount200Response',) as ValidatorAccount200Response;
     
     }
     return null;
@@ -11093,19 +12175,19 @@ class QueryApi {
   ///
   /// Parameters:
   ///
-  /// * [QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod] body (required):
-  Future<Response> verifyMembershipWithHttpInfo(QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod body,) async {
+  /// * [QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod] queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod (required):
+  Future<Response> verifyMembershipWithHttpInfo(QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod,) async {
     // ignore: prefer_const_declarations
     final path = r'/ibc/core/client/v1/verify_membership';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -11123,9 +12205,9 @@ class QueryApi {
   ///
   /// Parameters:
   ///
-  /// * [QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod] body (required):
-  Future<QueryVerifyMembershipResponseIsTheResponseTypeForTheQueryVerifyMembershipRPCMethod?> verifyMembership(QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod body,) async {
-    final response = await verifyMembershipWithHttpInfo(body,);
+  /// * [QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod] queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod (required):
+  Future<QueryVerifyMembershipResponseIsTheResponseTypeForTheQueryVerifyMembershipRPCMethod?> verifyMembership(QueryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod,) async {
+    final response = await verifyMembershipWithHttpInfo(queryVerifyMembershipRequestIsTheRequestTypeForTheQueryVerifyMembershipRPCMethod,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
