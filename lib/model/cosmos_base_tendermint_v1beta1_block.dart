@@ -105,10 +105,10 @@ class CosmosBaseTendermintV1beta1Block {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key), 'Required key "CosmosBaseTendermintV1beta1Block[$key]" is missing from JSON.');
           assert(json[key] != null, 'Required key "CosmosBaseTendermintV1beta1Block[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 
