@@ -59,12 +59,12 @@ class CreateDefinesThePermissionPolicyForCreatingContracts {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "CreateDefinesThePermissionPolicyForCreatingContracts[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "CreateDefinesThePermissionPolicyForCreatingContracts[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

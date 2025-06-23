@@ -70,10 +70,10 @@ class CosmosEvmErc20V1Params {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key), 'Required key "CosmosEvmErc20V1Params[$key]" is missing from JSON.');
           assert(json[key] != null, 'Required key "CosmosEvmErc20V1Params[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

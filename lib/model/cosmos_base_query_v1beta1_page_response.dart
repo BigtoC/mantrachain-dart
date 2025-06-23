@@ -74,10 +74,10 @@ class CosmosBaseQueryV1beta1PageResponse {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key), 'Required key "CosmosBaseQueryV1beta1PageResponse[$key]" is missing from JSON.');
           assert(json[key] != null, 'Required key "CosmosBaseQueryV1beta1PageResponse[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 
